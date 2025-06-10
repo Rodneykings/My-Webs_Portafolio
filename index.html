@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My road</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+              
+  <video autoplay muted loop playsinline id="bg-video">
+  <source src="c2c26f3d-7ac0-4926-abc7-49518d8c062e.mp4.mp4" type="video/mp4">
+  Tu navegador no soporta el video en HTML5.
+</video>
+
+
+                <nav class="navbar">
+            <div class="logo">Design Web</div>
+            <div class=" menu menu-toggle" id="menu-toggle">&#9776;</div>
+            <ul class="menu" id="menu">
+                <li><a href="home" data-page="0">Home</a></li>
+                <li><a href="roadmap"data-page="1">Roadmap</a></li>
+                <li><a href="services"data-page="2">Services</a></li>
+                <li><a href="contact"data-page="3">Contact</a></li>
+            </ul>
+        </nav>
+ <div class="contenedor">
+    <section class="pagina pagina-1" id="home">
+
+        <div class="title">
+            <h1>My Road like Web Developer</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum ipsa quis eius eligendi, fugiat, sed autem dolor possimus.
+            </p>
+            <button class="button_info" id="btn-siguiente">More Info</button>
+        </div>
+    </section>
+
+    <section class="pagina pagina-2" id="roadmap">
+
+        <main class="contenido">
+  <div class="principal">
+      <div class="title-2">
+      <h2>My road Map</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium sapiente aspernatur sit adipisci nam natus quidem debitis amet molestias tempore deleniti odio.</p>
+          <ul class="road-map" id="">
+          <li><a href="https://youtu.be/ELSm-G201Ls?si=Foc3ocA0NNwdM6iL" >HTML</a></li>
+          <li><a href="https://youtu.be/ELSm-G201Ls?si=Foc3ocA0NNwdM6iL">CSS</a></li>
+          <li><a href="">JavaScript</a></li>
+          <li><a href="">Python</a></li>
+          <li><a href="">GitHub</a></li>
+        </ul>
+        </div>
+    <!-- Aquí va tu título, párrafo, botón, etc. -->
+  </div>
+</main>
+    </section>
+
+      <section class="pagina pagina pagina-3" id="services">
+      <div class="title-2">
+        <h2>Services</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis harum voluptatem dicta facilis obcaecati omnis sapiente sint.</p>
+      </div>
+
+      <div class="services">
+        <div class="service-item landing"><img src="landing-img.png" alt=""><h3>Landing Page</h3></div>
+      <div class="service-item"> <img src="portafolio-img.png" alt=""><h3>Portafolio</h3></div>
+      <div class="service-item blog"><img src="blog-img.jpg" alt=""><h3>Blogs</h3></div>
+      </div>
+    </section>
+        <section class="pagina pagina pagina-4" id="#contact">
+      <div class="title-2">
+        <h2>My contacts</h2>
+      <p>My gmail: kingschaconrodney@gmail.com</p>
+      <p>Whatsapp: +55 99621-1640</p>
+      <p>Instagram: rodney_reyes2chacon</p>
+        </div>
+    </section>
+</div>
+
+  <script>
+    const contenedor = document.querySelector('.contenedor');
+    const menuLinks = document.querySelectorAll('.menu li a');
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const paginas = document.querySelectorAll('.pagina');
+    let currentPage = 0;
+    let isScrolling = false;
+
+    // Deshabilitar scroll nativo
+    document.body.style.overflow = 'hidden';
+
+    // Control de navegación por menú
+    menuLinks.forEach((link, index) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToPage(index);
+        menu.classList.remove('show');
+      });
+    });
+
+    // Menú hamburguesa
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
+    // Botón "More Info"
+    const btnSiguiente = document.getElementById('btn-siguiente');
+    if (btnSiguiente) {
+      btnSiguiente.addEventListener('click', () => {
+        goToPage(1);
+      });
+    }
+
+    // Función para ir a una página específica
+    function goToPage(pageIndex) {
+      if (pageIndex < 0 || pageIndex >= paginas.length || isScrolling) return;
+     
+      currentPage = pageIndex;
+      isScrolling = true;
+      contenedor.style.transform = `translateX(-${currentPage * 100}vw)`;
+     
+      // Resetear la clase activa en todos los enlaces
+      menuLinks.forEach(link => link.classList.remove('active'));
+      // Añadir clase activa al enlace correspondiente
+      menuLinks[currentPage].classList.add('active');
+     
+      setTimeout(() => {
+        isScrolling = false;
+      }, 1000); // Tiempo igual a la duración de tu transición CSS
+    }
+
+    // Control de scroll manual (opcional, si quieres permitir algún tipo de scroll)
+    let startX, startY;
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, {passive: false});
+
+    document.addEventListener('touchmove', (e) => {
+      if (!startX || !startY || isScrolling) return;
+     
+      const xDiff = startX - e.touches[0].clientX;
+      const yDiff = startY - e.touches[0].clientY;
+     
+      // Determinar si el desplazamiento es principalmente horizontal
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        e.preventDefault(); // Prevenir scroll vertical
+        if (xDiff > 50) {
+          // Deslizar a la izquierda (siguiente página)
+          goToPage(currentPage + 1);
+          startX = null;
+          startY = null;
+        } else if (xDiff < -50) {
+          // Deslizar a la derecha (página anterior)
+          goToPage(currentPage - 1);
+          startX = null;
+          startY = null;
+        }
+      }
+    }, {passive: false});
+
+    // Prevenir scroll con rueda del mouse
+    document.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+        e.preventDefault();
+      }
+    }, {passive: false});
+
+    // Inicializar la primera página como activa
+    menuLinks[0].classList.add('active');
+  </script>
+
+
+
+
+</body>
+</html>
