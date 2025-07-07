@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Paladar Doña Luly - Experiencia Dorada</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&family=Righteous&display=swap');
+        /* Base styles */
+        body {
+            background-color: #f9fafb; /* bg-gray-50 */
+            font-family: "Lexend", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal; /* Using Inter font for modern look */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+
+        }
+
+        h1, h2{
+            font-family: "Righteous", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+   .container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container > * {
+    padding: 0 2rem; /* px-4 */
+}
+
+
+        /* Custom Colors from Tailwind Config */
+        :root {
+            --color-gold-50: #fff9e6;
+            --color-gold-100: #ffefbf;
+            --color-gold-200: #ffe599;
+            --color-gold-300: #ffdb73;
+            --color-gold-400: #ffd14d;
+            --color-gold-500: #ffc726;
+            --color-gold-600: #e6b322;
+            --color-gold-700: #cc9f1e;
+            --color-gold-800: #b38b1a;
+            --color-gold-900: #997716;
+            --color-dark-900: #1a1a1a;
+            --color-dark-800: #333333;
+            --color-dark-700: #4d4d4d;
+        }
+
+        /* Header/Navigation */
+        .header {
+            background-color: var(--color-dark-900); /* bg-dark-900 */
+            color: #ffffff; /* text-white */
+            position: sticky; /* sticky */
+            top: 0; /* top-0 */
+            z-index: 50; /* z-50 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+
+        .header .container {
+            padding-top: 0.75rem; /* py-3 */
+            padding-bottom: 0.75rem; /* py-3 */
+            display: flex; /* flex */
+            justify-content: space-between; /* justify-between */
+            align-items: center; /* items-center */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .header .flex.items-center {
+            display: flex; /* flex */
+            align-items: center; /* items-center */
+        }
+
+        .header .logo {
+            height: 2.5rem; /* h-10 */
+            margin-right: 0.75rem; /* mr-3 */
+            border-radius: 50%; /* Rounded logo */
+        }
+
+        .container .log {
+            height: 15.5rem; /* h-10 */
+
+            border-radius: 50%; /* Rounded logo */
+        }
+
+        .header .logo-text {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-400); /* text-gold-400 */
+            text-decoration: none;
+        }
+
+        .header .logo-text span {
+            color: #ffffff; /* text-white */
+        }
+
+        .nav-menu ul {
+            display: none; /* Hidden by default for mobile */
+            list-style: none; /* no default list style */
+            padding: 0; /* remove default padding */
+            margin: 0; /* remove default margin */
+            gap: 2rem; /* space-x-8 */
+        }
+
+        .nav-menu a {
+            color: #ffffff; /* text-white */
+            transition-property: color; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+            text-decoration: none;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-gold-300); /* hover:text-gold-300 */
+        }
+
+        .nav-menu .text-gold-300 {
+            color: var(--color-gold-300); /* text-gold-300 */
+        }
+
+        .nav-menu .text-gold-300:hover {
+            color: var(--color-gold-500); /* hover:text-gold-500 */
+        }
+
+        .mobile-menu-button {
+            display: block; /* Show on mobile */
+            color: var(--color-gold-400); /* text-gold-400 */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            font-size: 1.5rem; /* text-2xl */
+        }
+
+        .mobile-menu {
+            display: none; /* Hidden by default */
+            background-color: var(--color-dark-800); /* bg-dark-800 */
+            width: 100%;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: block; /* Show when active */
+        }
+
+        .mobile-menu ul {
+            list-style: none; /* no default list style */
+            padding: 0; /* remove default padding */
+            margin: 0; /* remove default margin */
+        }
+
+        .mobile-menu li {
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu a {
+            display: block; /* block */
+            color: #ffffff; /* text-white */
+            transition-property: color; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+            text-decoration: none;
+            font-size: 1.125rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--color-gold-300); /* hover:text-gold-300 */
+        }
+
+        .mobile-menu .text-gold-300 {
+            color: var(--color-gold-300); /* text-gold-300 */
+        }
+
+        .mobile-menu .text-gold-300:hover {
+            color: var(--color-gold-500); /* hover:text-gold-500 */
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh; /* min-h-screen */
+            display: flex; /* flex */
+            align-items: center; /* items-center */
+            justify-content: center; /* justify-center */
+            text-align: center; /* text-center */
+            color: #ffffff; /* text-white */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 2rem 1rem; /* Added padding for smaller screens */
+        }
+
+        .hero h1 {
+            font-size: 2.5rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1rem; /* mb-6 */
+            line-height: 1.2;
+        }
+
+        .hero h1 .text-gold-400 {
+            color: var(--color-gold-400); /* text-gold-400 */
+        }
+
+        .hero p {
+            font-size: 1.125rem; /* text-xl */
+            margin-bottom: 1.5rem; /* mb-8 */
+            max-width: 48rem; /* max-w-3xl (12 * 4 = 48) */
+            margin-left: auto; /* mx-auto */
+            margin-right: auto; /* mx-auto */
+        }
+
+        .hero a.button {
+            background-color: var(--color-gold-500); /* bg-gold-500 */
+            color: var(--color-dark-900); /* text-dark-900 */
+            font-weight: 700; /* font-bold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition-property: background-color; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+            display: inline-block; /* inline-block */
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .hero a.button:hover {
+            background-color: var(--color-gold-600); /* hover:bg-gold-600 */
+        }
+
+        /* Section General Styles */
+        .section-padding {
+            padding-top: 3rem; /* py-12 */
+            padding-bottom: 3rem; /* py-12 */
+        }
+
+        .section-heading {
+            text-align: center; /* text-center */
+            margin-bottom: 3rem; /* mb-12 */
+        }
+
+        .section-heading h2 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-dark-900); /* text-dark-900 */
+            margin-bottom: 0.75rem; /* mb-3 */
+        }
+
+        .section-heading h2 span {
+            color: var(--color-gold-500); /* text-gold-500 */
+        }
+
+        .section-heading .divider {
+            width: 6rem; /* w-24 */
+            height: 0.25rem; /* h-1 */
+            background-color: var(--color-gold-500); /* bg-gold-500 */
+            margin-left: auto; /* mx-auto */
+            margin-right: auto; /* mx-auto */
+            margin-top: 1rem; /* mt-4 */
+        }
+
+        .section-description {
+            color: #4b5563; /* text-gray-700 */
+            max-width: 42rem; /* max-w-2xl */
+            margin-left: auto; /* mx-auto */
+            margin-right: auto; /* mx-auto */
+            margin-top: 1rem;
+        }
+
+        /* About Us Section */
+        .about-us-section {
+            background-color: #ffffff; /* bg-white */
+        }
+
+        .about-us-section .content-flex {
+            display: flex; /* flex */
+            flex-direction: column; /* flex-col for mobile */
+            align-items: center; /* items-center */
+            gap: 2rem; /* space-y-8 */
+        }
+
+        .about-us-section .image-column {
+            width: 100%; /* Full width on mobile */
+            margin-bottom: 0; /* mb-10 */
+        }
+
+        .about-us-section .image-column img {
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+            width: 100%; /* w-full */
+            height: auto;
+            object-fit: cover;
+        }
+
+        .about-us-section .text-column {
+            width: 100%; /* Full width on mobile */
+        }
+
+        .about-us-section .text-column h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-700); /* text-gold-700 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .about-us-section .text-column p {
+            color: #4b5563; /* text-gray-700 */
+            margin-bottom: 1rem; /* mb-6 */
+            line-height: 1.6;
+        }
+
+        .about-us-section .text-column h4 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-600); /* text-gold-600 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .about-us-section .text-column ul {
+            list-style: disc; /* list-disc */
+            list-style-position: inside; /* list-inside */
+            color: #4b5563; /* text-gray-700 */
+            line-height: 1.8; /* space-y-1 */
+            padding-left: 1.25rem; /* Indent list items */
+        }
+
+        /* Catalog Section */
+        .catalog-section {
+            background-color: #f3f4f6; /* bg-gray-100 */
+        }
+
+        .catalog-grid {
+            display: grid; /* grid */
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 2rem; /* gap-8 */
+        }
+
+        .menu-card {
+            background-color: #ffffff; /* bg-white */
+            border-radius: 0.5rem; /* rounded-lg */
+            overflow: hidden; /* overflow-hidden */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-lg */
+            transition-property: transform, box-shadow; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+        }
+
+
+
+        .menu-card img {
+            width: 100%; /* w-full */
+            height: 14rem; /* h-64 */
+            object-fit: cover; /* object-cover */
+        }
+
+        .menu-card .card-content {
+            padding: 1.5rem; /* p-6 */
+        }
+
+        .menu-card h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-dark-900); /* text-dark-900 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .menu-card p {
+            color: #4b5563; /* text-gray-700 */
+            margin-bottom: 1rem; /* mb-4 */
+            line-height: 1.6;
+        }
+
+        .menu-card a.button {
+            display: inline-block; /* inline-block */
+            background-color: var(--color-gold-500); /* bg-gold-500 */
+            color: var(--color-dark-900); /* text-dark-900 */
+            font-weight: 700; /* font-bold */
+            padding: 0.5rem 1.5rem; /* py-2 px-6 */
+            border-radius: 9999px; /* rounded-full */
+            transition-property: background-color; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .menu-card a.button:hover {
+            background-color: var(--color-gold-600); /* hover:bg-gold-600 */
+        }
+
+        /* Physical Business Section */
+        .business-section {
+            background-color: #ffffff; /* bg-white */
+        }
+
+        .business-section .description-paragraph {
+            color: #4b5563; /* text-gray-700 */
+            text-align: center; /* text-center */
+            max-width: 48rem; /* max-w-3xl */
+            margin-left: auto; /* mx-auto */
+            margin-right: auto; /* mx-auto */
+            margin-bottom: 2rem; /* mb-8 */
+            line-height: 1.6;
+        }
+
+        .gallery-grid {
+            margin-bottom: 3rem; /* mb-12 */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+            gap: 1rem;
+        }
+
+        .gallery-grid .image-wrapper {
+            overflow: hidden; /* overflow-hidden */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+        }
+
+        .gallery-grid img {
+            width: 100%; /* w-full */
+            height: 14rem; /* h-64 */
+            object-fit: cover; /* object-cover */
+            transition-property: transform; /* transition */
+            transition-duration: 500ms; /* duration-500 */
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05); /* hover:scale-105 */
+        }
+
+        .info-box {
+            background-color: var(--color-gold-50); /* bg-gold-50 */
+            padding: 2rem; /* p-8 */
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 1px solid var(--color-gold-200); /* border border-gold-200 */
+            max-width: 64rem; /* max-w-4xl */
+            margin-left: auto; /* mx-auto */
+            margin-right: auto; /* mx-auto */
+        }
+
+        .info-box h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-700); /* text-gold-700 */
+            margin-bottom: 1rem; /* mb-4 */
+            text-align: center; /* text-center */
+        }
+
+        .info-box p {
+            color: #4b5563; /* text-gray-700 */
+            margin-bottom: 1rem; /* mb-4 */
+            line-height: 1.6;
+        }
+
+        .info-box ul {
+            list-style: disc; /* list-disc */
+            list-style-position: inside; /* list-inside */
+            color: #4b5563; /* text-gray-700 */
+            line-height: 1.8; /* space-y-2 */
+            margin-top: 0.5rem; /* mt-2 */
+            padding-left: 1.25rem; /* Indent list items */
+        }
+
+        /* Location Section */
+        .location-section {
+            background-color: #f3f4f6; /* bg-gray-100 */
+        }
+
+        .location-content-flex {
+            display: flex; /* flex */
+            flex-direction: column; /* flex-col for mobile */
+            gap: 2rem; /* space-y-8 */
+        }
+
+        .location-details {
+            width: 100%; /* Full width on mobile */
+        }
+
+        .location-details h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-700); /* text-gold-700 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .location-details p {
+            color: #4b5563; /* text-gray-700 */
+            margin-bottom: 1rem; /* mb-6 */
+            line-height: 1.6;
+        }
+
+        .location-details h4 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-600); /* text-gold-600 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .location-details ul {
+            list-style: none; /* remove default list style */
+            padding: 0; /* remove default padding */
+            margin: 0; /* remove default margin */
+            color: #4b5563; /* text-gray-700 */
+            line-height: 1.8; /* space-y-1 */
+        }
+
+        .location-details ul li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-details ul i {
+            color: var(--color-gold-500); /* text-gold-500 */
+            margin-top: 0.25rem; /* Adjust for icon alignment */
+            margin-right: 0.75rem; /* mr-2 */
+            font-size: 1.125rem;
+        }
+
+        .map-container {
+            background-color: #ffffff; /* bg-white */
+            padding: 1rem; /* p-4 */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+            width: 100%; /* Full width on mobile */
+        }
+
+        .map-container iframe {
+            border-radius: 0.5rem; /* rounded-lg */
+            width: 100%;
+            height: 300px; /* Adjusted height for mobile */
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--color-dark-900); /* bg-dark-900 */
+            color: #ffffff; /* text-white */
+        }
+
+        .contact-section .section-heading h2 span {
+            color: var(--color-gold-400); /* text-gold-400 */
+        }
+
+        .contact-section .section-description {
+            color: #d1d5db; /* text-gray-300 */
+        }
+
+        .contact-flex {
+            display: flex; /* flex */
+            flex-direction: column; /* flex-col for mobile */
+            gap: 2rem; /* space-y-8 */
+        }
+
+        .contact-form {
+            width: 100%; /* Full width on mobile */
+        }
+
+        .contact-form div {
+            margin-bottom: 1.5rem; /* space-y-6 */
+        }
+
+        .contact-form label {
+            display: block; /* block */
+            color: var(--color-gold-300); /* text-gold-300 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            font-weight: 600;
+        }
+        .contact-form input{
+            width: 300px;
+            padding: 0.75rem 1rem; /* px-4 py-3 */
+            background-color: var(--color-dark-800); /* bg-dark-800 */
+            border: 1px solid var(--color-dark-700); /* border border-dark-700 */
+            border-radius: 0.5rem; /* rounded-lg */
+            outline: none; /* focus:outline-none */
+            transition-property: box-shadow, border-color;
+            transition-duration: 200ms;
+            color: #ffffff; /* Text color for input */
+        }
+        .contact-form textarea {
+            width: 350px; /* w-full */
+            padding: 0.75rem 1rem; /* px-4 py-3 */
+            background-color: var(--color-dark-800); /* bg-dark-800 */
+            border: 1px solid var(--color-dark-700); /* border border-dark-700 */
+            border-radius: 0.5rem; /* rounded-lg */
+            outline: none; /* focus:outline-none */
+            transition-property: box-shadow, border-color;
+            transition-duration: 200ms;
+            color: #ffffff; /* Text color for input */
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            box-shadow: 0 0 0 2px var(--color-gold-500); /* focus:ring-2 focus:ring-gold-500 */
+            border-color: var(--color-gold-500);
+        }
+
+        .contact-form textarea {
+            min-height: 6rem; /* rows-5 */
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        .contact-form button {
+            background-color: var(--color-gold-500); /* bg-gold-500 */
+            color: var(--color-dark-900); /* text-dark-900 */
+            font-weight: 700; /* font-bold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition-property: background-color; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+            width: 100%; /* w-full */
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-form button:hover {
+            background-color: var(--color-gold-600); /* hover:bg-gold-600 */
+        }
+
+        .contact-info-box {
+            background-color: var(--color-dark-800); /* bg-dark-800 */
+            padding: 2rem; /* p-8 */
+            border-radius: 0.5rem; /* rounded-lg */
+            height: 100%; /* h-full */
+            width: 320px; /* Full width on mobile */
+        }
+
+        .contact-info-box h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-400); /* text-gold-400 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .contact-info-box .info-item {
+            display: flex; /* flex */
+            align-items: flex-start; /* items-start */
+            margin-bottom: 1.5rem; /* Add spacing between items */
+        }
+
+        .contact-info-box .info-item:last-child {
+            margin-bottom: 0; /* Remove margin from last item */
+        }
+
+        .contact-info-box .info-item i {
+            color: var(--color-gold-500); /* text-gold-500 */
+            margin-top: 0.25rem; /* mt-1 */
+            margin-right: 1rem; /* mr-4 */
+            font-size: 1.25rem;
+        }
+
+        .contact-info-box .info-item h4 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            color: #ffffff; /* text-white */
+            margin-bottom: 0.25rem; /* mb-1 */
+        }
+
+        .contact-info-box .info-item p {
+            color: #d1d5db; /* text-gray-300 */
+            line-height: 1.6;
+        }
+
+        .contact-info-box .social-links {
+            display: flex; /* flex */
+            gap: 1rem; /* space-x-4 */
+            margin-top: 0.5rem; /* mt-2 */
+        }
+
+        .contact-info-box .social-links a {
+            color: #d1d5db; /* text-gray-300 */
+            transition-property: color; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+            text-decoration: none;
+        }
+
+        .contact-info-box .social-links a:hover {
+            color: var(--color-gold-400); /* hover:text-gold-400 */
+        }
+
+        .contact-info-box .social-links i {
+            font-size: 1.5rem; /* text-xl */
+            margin: 0; /* Remove extra margin from icon */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark-900); /* bg-dark-900 */
+            color: #9ca3af; /* text-gray-400 */
+            padding-top: 3rem; /* py-12 */
+            padding-bottom: 3rem; /* py-12 */
+            border-top: 1px solid var(--color-dark-800); /* border-t border-dark-800 */
+        }
+
+        .footer .flex-container {
+            display: flex; /* flex */
+            flex-direction: column; /* flex-col for mobile */
+            justify-content: space-between; /* justify-between */
+            gap: 2rem; /* space-y-8 */
+        }
+
+        .footer .logo-section {
+            margin-bottom: 0; /* mb-8 */
+        }
+
+        .footer .logo-section .flex {
+            display: flex; /* flex */
+            align-items: center; /* items-center */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .footer .logo-section img {
+            height: 2.5rem; /* h-10 */
+            margin-right: 0.75rem; /* mr-3 */
+            border-radius: 50%;
+        }
+
+        .footer .logo-section .logo-text {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 700; /* font-bold */
+            color: var(--color-gold-400); /* text-gold-400 */
+            text-decoration: none;
+        }
+
+        .footer .logo-section .logo-text span {
+            color: #ffffff; /* text-white */
+        }
+
+        .footer .logo-section p {
+            max-width: 18rem; /* max-w-xs */
+            line-height: 1.6;
+        }
+
+        .footer .links-grid {
+            display: grid; /* grid */
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid for links */
+            gap: 2rem; /* gap-8 */
+        }
+
+        .footer .links-grid h4 {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            color: #ffffff; /* text-white */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .footer .links-grid ul {
+            list-style: none; /* no default list style */
+            padding: 0; /* remove default padding */
+            margin: 0; /* remove default margin */
+        }
+
+        .footer .links-grid li {
+            margin-bottom: 0.5rem; /* space-y-2 */
+        }
+
+        .footer .links-grid a {
+            color: #9ca3af; /* default color */
+            transition-property: color; /* transition */
+            transition-duration: 300ms; /* duration-300 */
+            text-decoration: none;
+        }
+
+        .footer .links-grid a:hover {
+            color: var(--color-gold-400); /* hover:text-gold-400 */
+        }
+
+        .footer .copyright {
+            border-top: 1px solid var(--color-dark-800); /* border-t border-dark-800 */
+            margin-top: 3rem; /* mt-12 */
+            padding-top: 2rem; /* pt-8 */
+            text-align: center; /* text-center */
+            font-size: 0.875rem;
+        }
+
+        /* Custom Styles (from original HTML) */
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Message box for form validation */
+        .message-box {
+            background-color: var(--color-gold-100);
+            color: var(--color-dark-900);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+            display: none; /* Hidden by default */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* ANIMATION STYLES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            /* Importante: Añade una transición base para que la animación no sea brusca antes de que el keyframe se aplique */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-active {
+            animation: fadeIn 0.8s ease-out forwards; /* Aumentado a 0.8s para un efecto más suave */
+        }
+
+        /* Ajusta los retrasos para un encadenamiento más perceptible */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        .delay-7 { animation-delay: 0.7s; }
+        .delay-8 { animation-delay: 0.8s; }
+        .delay-9 { animation-delay: 0.9s; }
+        .delay-10 { animation-delay: 1.0s; } /* Añadidos más retrasos si necesitas más elementos */
+        .delay-11 { animation-delay: 1.1s; }
+        .delay-12 { animation-delay: 1.2s; }
+        .delay-13 { animation-delay: 1.3s; }
+        .delay-14 { animation-delay: 1.4s; }
+        .delay-15 { animation-delay: 1.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* FIN ANIMATION STYLES */
+
+
+        /* Media Queries */
+        @media (min-width: 640px) { /* Small screens (sm) */
+            .section-padding {
+                padding-top: 4rem; /* py-16 */
+                padding-bottom: 4rem; /* py-16 */
+            }
+
+            .hero h1 {
+                font-size: 3rem; /* text-5xl */
+            }
+
+            .hero p {
+                font-size: 1.25rem; /* text-xl */
+            }
+
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on small screens */
+            }
+        }
+
+        @media (min-width: 768px) { /* Medium screens (md) */
+              .container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+            .header .container {
+                flex-wrap: nowrap; /* Prevent wrapping */
+            }
+
+            .nav-menu ul {
+                display: flex; /* Show on medium screens */
+            }
+
+            .mobile-menu-button {
+                display: none; /* Hide on medium screens */
+            }
+
+            .mobile-menu {
+                display: none; /* Hide mobile menu */
+            }
+
+            .hero h1 {
+                font-size: 3.75rem; /* md:text-6xl */
+            }
+
+            .hero p {
+                font-size: 1.5rem; /* md:text-2xl */
+            }
+
+            .about-us-section .content-flex {
+                flex-direction: row; /* md:flex-row */
+                gap: 2.5rem; /* md:gap-10 */
+            }
+
+            .about-us-section .image-column {
+                width: 50%; /* md:w-1/2 */
+                padding-right: 1.25rem; /* md:pr-5 */
+            }
+
+            .about-us-section .text-column {
+                width: 50%; /* md:w-1/2 */
+            }
+
+            .catalog-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on medium screens */
+            }
+
+            .location-content-flex {
+                flex-direction: row; /* md:flex-row */
+                gap: 2.5rem; /* md:gap-10 */
+            }
+
+            .location-details {
+                width: 50%; /* md:w-1/2 */
+                padding-right: 1.25rem; /* md:pr-5 */
+            }
+
+            .map-container {
+                width: 50%; /* md:w-1/2 */
+            }
+
+            .map-container iframe {
+                height: 400px; /* Standard height for larger screens */
+            }
+
+            .contact-flex {
+                flex-direction: row; /* md:flex-row */
+                gap: 2.5rem; /* md:gap-10 */
+            }
+
+            .contact-form {
+                width: 50%; /* md:w-1/2 */
+                padding-right: 1.25rem; /* md:pr-5 */
+            }
+            .contact-form button {
+                width: auto; /* md:w-auto */
+            }
+
+            .contact-info-box {
+                width: 50%; /* md:w-1/2 */
+                padding-left: 1.25rem; /* md:pl-5 */
+            }
+
+            .footer .flex-container {
+                flex-direction: row; /* md:flex-row */
+            }
+
+            .footer .links-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
+            }
+        }
+
+        @media (min-width: 1024px) { /* Large screens (lg) */
+            .section-padding {
+                padding-top: 5rem; /* py-20 */
+                padding-bottom: 5rem; /* py-20 */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+<header class="header">
+<div class="container">
+<div class="flex items-center">
+<img alt="Logo Paladar Doña Luly" class="logo" src="/BackgroundEraser_20250705_214844300.png"/>
+<a class="logo-text" href="#">Paladar<span class="text-white">DoñaLuly</span></a>
+</div>
+<nav class="nav-menu">
+<ul>
+<li><a class="text-gold-300" href="#inicio">Inicio</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#catalogo">Catálogo</a></li>
+<li><a href="#negocio">El Local</a></li>
+<li><a href="#ubicacion">Ubicación</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+<button aria-label="Toggle mobile menu" class="mobile-menu-button">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<div class="mobile-menu" id="mobile-menu">
+<ul>
+<li><a class="text-gold-300" href="#inicio">Inicio</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#catalogo">Catálogo</a></li>
+<li><a href="#negocio">El Local</a></li>
+<li><a href="#ubicacion">Ubicación</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</div>
+</header>
+<section class="hero" id="inicio">
+<div class="container">
+<div class="log">
+<img alt="Logo Paladar Doña Luly" class="log" src="/BackgroundEraser_20250705_214844300.png"/>
+</div>
+<h1 class="fade-in delay-1">Una Experiencia <span class="text-gold-400">Dorada</span></h1>
+<p class="fade-in delay-2">Donde cada bocado es un tesoro y cada momento una joya gastronómica</p>
+<a class="button fade-in delay-3" href="#catalogo">Explora Nuestro Menú</a>
+</div>
+</section>
+<section class="about-us-section section-padding" id="nosotros">
+<div class="container">
+<div class="section-heading fade-in">
+<h2>Nuestra <span class="text-gold-500">Historia</span></h2>
+<div class="divider"></div>
+</div>
+<div class="content-flex">
+<div class="image-column fade-in delay-1">
+<img alt="Nuestro equipo" src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+</div>
+<div class="text-column">
+<h3 class="fade-in delay-2">Desde 2010 deleitando paladares</h3>
+<p class="fade-in delay-3">Paladar Doña Luly nació del sueño de crear un espacio donde la excelencia culinaria se encuentre con la calidez del servicio. Lo que comenzó como un pequeño local familiar hoy es un referente en la gastronomía de la ciudad.</p>
+<div>
+<h4 class="fade-in delay-4">Misión</h4>
+<p class="fade-in delay-5">Ofrecer experiencias gastronómicas memorables utilizando ingredientes de la más alta calidad y técnicas innovadoras, manteniendo siempre el respeto por las tradiciones culinarias.</p>
+</div>
+<div>
+<h4 class="fade-in delay-6">Visión</h4>
+<p class="fade-in delay-7">Ser reconocidos como el estándar dorado de la gastronomía, expandiendo nuestra filosofía a nuevas locaciones sin perder la esencia que nos hizo únicos.</p>
+</div>
+<div>
+<h4 class="fade-in delay-8">Valores</h4>
+<ul>
+<li class="fade-in delay-9">Excelencia en cada detalle</li>
+<li class="fade-in delay-10">Pasíon por la innovación</li>
+<li class="fade-in delay-11">Compromiso con la calidad</li>
+<li class="fade-in delay-12">Hospitalidad genuina</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="catalog-section section-padding" id="catalogo">
+<div class="container">
+<div class="section-heading fade-in">
+<h2>Nuestros <span class="text-gold-500">Servicios</span></h2>
+<p class="section-description">Explora nuestras diferentes propuestas gastronómicas</p>
+<div class="divider"></div>
+</div>
+<div class="catalog-grid">
+<div class="menu-card fade-in delay-1">
+<img alt="Punto de venta" src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+<div class="card-content">
+<h3>Punto de Ventas</h3>
+<p>Nuestros exclusivos puntos de venta ofrecen productos gourmet para llevar, perfectos para regalos empresariales o detalles especiales.</p>
+<a class="button" href="/index-menu-comida-rapida.html">Ver más</a>
+</div>
+</div>
+<div class="menu-card fade-in delay-2">
+<img alt="Restaurante" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+<div class="card-content">
+<h3>Restaurante</h3>
+<p>Una experiencia gastronómica completa con menú degustación, platos de autor y una selección de vinos cuidadosamente curada.</p>
+<a class="button" href="/index-menu-restaurant.html">Ver más</a>
+</div>
+</div>
+<div class="menu-card fade-in delay-3">
+<img alt="Hamburguesería" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1599&amp;q=80"/>
+<div class="card-content">
+<h3>Hamburguesería</h3>
+<p>Nuestra propuesta más casual pero igualmente exquisita: hamburguesas gourmet con ingredientes premium y combinaciones innovadoras.</p>
+<a class="button" href="/index-menu-hamburgueseria.html">Ver más</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="business-section section-padding" id="negocio">
+<div class="container">
+<div class="section-heading fade-in">
+<h2>Nuestro <span class="text-gold-500">Local</span></h2>
+<p class="section-description">Descubre el ambiente que te espera en Paladar Doña Luly</p>
+<div class="divider"></div>
+</div>
+<div>
+<p class="description-paragraph fade-in delay-1">Nuestro local físico es un espacio diseñado para que cada visita sea una experiencia completa. Desde la decoración cuidadosamente seleccionada hasta la disposición de las mesas, cada detalle ha sido pensado para complementar nuestra propuesta gastronómica.</p>
+<div class="gallery-grid">
+<div class="image-wrapper fade-in delay-2">
+<img alt="Interior del restaurante" src="https://images.unsplash.com/photo-1517248135467-4dbc1a6e6d2a?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+</div>
+<div class="image-wrapper fade-in delay-3">
+<img alt="Barra del restaurante" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1974&amp;q=80"/>
+</div>
+<div class="image-wrapper fade-in delay-4">
+<img alt="Terraza del restaurante" src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+</div>
+<div class="image-wrapper fade-in delay-5">
+<img alt="Detalles decorativos" src="https://images.unsplash.com/photo-1589939705388-6d001f5d275f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+</div>
+</div>
+</div>
+<div class="info-box fade-in delay-6">
+<h3>Paladar Doña Luly</h3>
+<p>En Paladar Doña Luly no solo servimos comida, creamos momentos. Nuestro personal está entrenado para anticiparse a tus necesidades y hacer que cada visita sea especial.</p>
+<p>Ofrecemos:</p>
+<ul>
+<li>Ambiente climatizado con control de humedad para máxima comodidad</li>
+<li>Sistema de iluminación adaptable a diferentes momentos del día</li>
+<li>Zonas diferenciadas según el tipo de experiencia buscada</li>
+<li>Accesibilidad garantizada para todos nuestros clientes</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="location-section section-padding" id="ubicacion">
+<div class="container">
+<div class="section-heading fade-in">
+<h2>Nuestra <span class="text-gold-500">Ubicación</span></h2>
+<div class="divider"></div>
+</div>
+<div class="location-content-flex">
+<div class="location-details">
+<h3 class="fade-in delay-1">Cómo llegar</h3>
+<p class="fade-in delay-2">Nos encontramos en el corazón de la ciudad, en una ubicación privilegiada con fácil acceso desde cualquier punto.</p>
+<div>
+<h4 class="fade-in delay-3">Dirección</h4>
+<p class="fade-in delay-4">Avenida Gastronómica 1234, Local 56<br/>Distrito Dorado, Ciudad</p>
+</div>
+<div>
+<h4 class="fade-in delay-5">Transporte público</h4>
+<ul>
+<li class="fade-in delay-6"><i class="fas fa-subway"></i> Línea 3 - Estación Sabores</li>
+<li class="fade-in delay-7"><i class="fas fa-bus"></i> Líneas 12, 45 y 78 - Parada Gastronómica</li>
+</ul>
+</div>
+<div>
+<h4 class="fade-in delay-8">Puntos de referencia</h4>
+<ul>
+<li class="fade-in delay-9">A 200m del Museo de Arte Culinario</li>
+<li class="fade-in delay-10">Frente a la Plaza de los Sabores</li>
+<li class="fade-in delay-11">Junto al Hotel Gastronómico Internacional</li>
+</ul>
+</div>
+</div>
+<div class="map-container fade-in delay-12">
+<iframe allowfullscreen="" height="400" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016887889527!2d-58.383759!3d-34.6037349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacf425a4e1f%3A0x9f4a9c7b1a1e0e0e!2sObelisco!5e0!3m2!1ses-419!2sar!4v1620000000000!5m2!1ses-419!2sar" style="border:0;" width="100%"></iframe>
+</div>
+</div>
+</div>
+</section>
+<section class="contact-section section-padding" id="contacto">
+<div class="container">
+<div class="section-heading fade-in">
+<h2 style="color: #f9fafb;">Contáct<span class="text-gold-400">anos</span></h2>
+<p class="section-description">Estamos aquí para responder todas tus preguntas y reservas</p>
+<div class="divider"></div>
+</div>
+<div class="contact-flex">
+<div class="contact-form fade-in delay-1">
+<form id="contactForm">
+<div>
+<label for="nombre">Nombre completo</label>
+<input id="nombre" required="" type="text"/>
+</div>
+<div>
+<label for="email">Correo electrónico</label>
+<input id="email" required="" type="email"/>
+</div>
+<div>
+<label for="mensaje">Mensaje</label>
+<textarea id="mensaje" required="" rows="5"></textarea>
+</div>
+<button type="submit">Enviar mensaje</button>
+</form>
+<div class="message-box" id="messageBox"></div>
+</div>
+<div class="contact-info-box fade-in delay-2">
+<h3>Información de contacto</h3>
+<div>
+<div class="info-item">
+<i class="fas fa-phone-alt"></i>
+<div>
+<h4>Teléfono</h4>
+<p>+54 11 1234-5678</p>
+</div>
+</div>
+<div class="info-item">
+<i class="fas fa-envelope"></i>
+<div>
+<h4>Email</h4>
+<p>contacto@PaladarDoñaLuly.com</p>
+</div>
+</div>
+<div class="info-item">
+<i class="fas fa-clock"></i>
+<div>
+<h4>Horarios</h4>
+<p>Lunes a Viernes: 12:00 - 16:00 / 20:00 - 00:00</p>
+<p>Sábados y Domingos: 12:00 - 00:00</p>
+</div>
+</div>
+<div class="info-item">
+<i class="fas fa-hashtag"></i>
+<div>
+<h4>Redes Sociales</h4>
+<div class="social-links">
+<a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+<a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a>
+<a aria-label="Twitter" href="#"><i class="fab fa-twitter"></i></a>
+<a aria-label="TikTok" href="#"><i class="fab fa-tiktok"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="flex-container">
+<div class="logo-section fade-in delay-1">
+<div class="flex">
+<img alt="Logo Paladar Doña Luly" class="h-10 mr-3" src="/BackgroundEraser_20250705_214844300.png"/>
+<a class="logo-text" href="#">Paladar<span class="text-white">DoñaLuly</span></a>
+</div>
+<p>Donde cada bocado es una experiencia dorada y cada visita un recuerdo invaluable.</p>
+</div>
+<div class="links-grid">
+<div class="fade-in delay-2">
+<h4>Enlaces rápidos</h4>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#catalogo">Catálogo</a></li>
+<li><a href="#negocio">El Local</a></li>
+<li><a href="#ubicacion">Ubicación</a></li>
+</ul>
+</div>
+<div class="fade-in delay-3">
+<h4>Catálogo</h4>
+<ul>
+<li><a href="catalogo-puntos-de-venta.html">Puntos de Venta</a></li>
+<li><a href="catalogo-restaurante.html">Restaurante</a></li>
+<li><a href="catalogo-hamburgueseria.html">Hamburguesería</a></li>
+</ul>
+</div>
+<div class="fade-in delay-4">
+<h4>Legal</h4>
+<ul>
+<li><a href="#">Términos y condiciones</a></li>
+<li><a href="#">Política de privacidad</a></li>
+<li><a href="#">Política de cookies</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Simple form validation with message box
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+            const messageBox = document.getElementById('messageBox');
+
+            if(nombre && email && mensaje) {
+                messageBox.textContent = 'Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.';
+                messageBox.style.display = 'block';
+                this.reset();
+            } else {
+                messageBox.textContent = 'Por favor completa todos los campos del formulario.';
+                messageBox.style.display = 'block';
+            }
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 5000);
+        });
+
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Selecciona todos los elementos que tienen la clase 'fade-in'
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            // Configura las opciones para el Intersection Observer
+            const options = {
+                root: null, // Observa la intersección con el viewport
+                rootMargin: '0px', // No añade margen al viewport
+                threshold: 0.1 // El callback se ejecutará cuando al menos el 10% del elemento sea visible
+            };
+
+            // Crea una nueva instancia de Intersection Observer
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Si el elemento está intersectando (es decir, es visible en el viewport)
+                    if (entry.isIntersecting) {
+                        // Añade la clase 'fade-in-active' para iniciar la animación
+                        entry.target.classList.add('fade-in-active');
+                        // Deja de observar este elemento para que la animación solo se active una vez
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            // Itera sobre cada elemento y empieza a observarlos
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
