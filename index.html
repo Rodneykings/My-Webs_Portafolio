@@ -35,46 +35,72 @@
 
         .container {
             width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
+            margin: 0 auto; /* Centrar el contenedor */
+            padding: 0 1rem; /* Espaciado lateral para evitar que el contenido toque los bordes */
+            box-sizing: border-box; /* Incluir padding en el ancho total */
+        }
+
+        /* Eliminar padding extra en los hijos del contenedor, ya que el contenedor ya tiene padding */
+        .container > * {
+            padding: 0;
         }
 
         /* Header */
         .header {
             background-color: var(--secondary-color); /* Negro */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 1rem 0;
+            padding: 0.4rem 0;
             position: sticky; /* Fixed header */
             top: 0; /* Stick to the top */
             width: 100%;
             z-index: 100; /* Ensure it stays on top of other content */
+            height: auto; /* Altura automática para adaptarse al contenido */
         }
 
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+        }
+
+        .logo-container {
+            flex-shrink: 0; /* Evitar que el logo se encoja */
+            padding: 0.5rem 0; /* Padding para el logo */
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--text-color-light); /* Texto claro para el logo */
+            display: block; /* Asegurar que la imagen del logo ocupe su propio espacio */
         }
 
         .logo span {
             color: var(--primary-color); /* Acento dorado */
         }
 
+        .logo img {
+            max-width: 110px; /* Tamaño máximo del logo */
+            height: 70px; /* Altura fija del logo */
+            object-fit: contain; /* Asegurar que la imagen se ajuste sin distorsionarse */
+        }
+
         .nav-links {
             display: none; /* Oculto por defecto para móvil */
+            width: 100%; /* Ocupar todo el ancho en móvil si se muestra */
+            order: 3; /* Asegurar que los enlaces de navegación vayan al final en móvil */
+            text-align: center;
+            padding-bottom: 0.5rem;
         }
 
         .nav-links a {
             color: var(--text-color-light);
             text-decoration: none;
-            margin-left: 2rem;
+            margin: 0 1rem; /* Espaciado entre enlaces */
             transition: color 0.3s ease;
+            display: inline-block; /* Para que los márgenes funcionen correctamente */
+            padding: 0.5rem 0;
         }
 
         .nav-links a:hover {
@@ -85,6 +111,7 @@
             display: flex;
             align-items: center;
             gap: 1rem; /* Espacio entre iconos */
+            padding: 0.5rem 0; /* Padding para los iconos */
         }
 
         .header-icons a {
@@ -118,22 +145,23 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('back.png');
             background-size: cover;
             background-position: center;
-            height: 600px;
+            height: 600px; /* Altura fija para el hero */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            padding: 2rem 1rem; /* Padding para el contenido del hero */
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2rem; /* Ajuste para móvil */
             font-weight: bold;
             margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1rem; /* Ajuste para móvil */
             margin-bottom: 2rem;
         }
 
@@ -145,7 +173,7 @@
             font-weight: 500;
             text-decoration: none;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block; /* Para que padding y margin funcionen correctamente */
+            display: inline-block;
         }
 
         .hero-button:hover {
@@ -155,20 +183,20 @@
 
         /* Featured Categories */
         .categories-section {
-            padding: 3rem 0;
+            padding: 3rem 1rem; /* Ajuste de padding */
             background-color: white;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem; /* Ajuste para móvil */
             font-weight: bold;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem; /* Ajuste de margen */
         }
 
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr); /* Una columna para móvil */
             gap: 1.5rem;
         }
 
@@ -179,7 +207,7 @@
             text-align: center;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            cursor: pointer; /* Added cursor pointer */
+            cursor: pointer;
         }
 
         .category-card:hover {
@@ -194,6 +222,13 @@
             margin-bottom: 1rem;
         }
 
+        .category-icon img {
+            width: 70px;
+            height: 70px;
+            border-radius: 30px;
+            object-fit: cover;
+        }
+
         .category-card h3 {
             font-weight: 600;
             font-size: 1.125rem;
@@ -203,12 +238,10 @@
         .category-card p {
             color: #666;
         }
-        .category-card h3{
-            font-size: 21px;
-        }
+
         /* Products Section */
         .products-section {
-            padding: 3rem 0;
+            padding: 3rem 1rem; /* Ajuste de padding */
             background-color: var(--background-light);
             scroll-margin-top: 80px; /* Adjust this value based on your header's height */
         }
@@ -235,7 +268,7 @@
         .product-image-container {
             position: relative;
             overflow: hidden;
-            height: 256px; /* h-64 */
+            height: 200px; /* Altura ajustada para móvil */
         }
 
         .product-image-container img {
@@ -289,15 +322,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+            gap: 0.5rem; /* Espacio entre precio y botón */
         }
 
         .product-price {
             font-weight: bold;
             color: var(--text-color-dark);
+            font-size: 1rem; /* Ajuste para móvil */
         }
 
         .product-price .old-price {
-            font-size: 0.875rem;
+            font-size: 0.75rem; /* Ajuste para móvil */
             color: #666;
             text-decoration: line-through;
             margin-left: 0.5rem;
@@ -334,7 +370,9 @@
             transition: all 0.3s ease;
             margin-top: 2.5rem;
             text-align: center;
-            cursor: pointer; /* Added cursor pointer */
+            cursor: pointer;
+            width: 100%; /* Ocupar todo el ancho en móvil */
+            box-sizing: border-box;
         }
 
         .view-all-products-button:hover {
@@ -346,7 +384,7 @@
 
         /* About Us Section */
         .about-section {
-            padding: 4rem 0;
+            padding: 4rem 1rem; /* Ajuste de padding */
             background-color: white;
         }
 
@@ -373,7 +411,7 @@
         }
 
         .about-text h2 {
-            font-size: 2rem;
+            font-size: 1.75rem; /* Ajuste para móvil */
             font-weight: bold;
             margin-bottom: 1.5rem;
         }
@@ -400,6 +438,7 @@
             padding: 0.75rem;
             border-radius: 50%; /* completamente redondo */
             margin-right: 0.75rem;
+            flex-shrink: 0; /* Evitar que el icono se encoja */
         }
 
         .feature-icon {
@@ -408,7 +447,7 @@
 
         /* Testimonials */
         .testimonials-section {
-            padding: 4rem 0;
+            padding: 4rem 1rem; /* Ajuste de padding */
             background-color: var(--background-light);
         }
 
@@ -461,12 +500,12 @@
         .testimonial-author p {
             font-size: 0.875rem;
             color: #666;
-            margin-bottom: 0; /* Anular el margen predeterminado de p */
+            margin-bottom: 0;
         }
 
         /* Contact Section */
         .contact-section {
-            padding: 4rem 0;
+            padding: 4rem 1rem; /* Ajuste de padding */
             background-color: white;
         }
 
@@ -477,11 +516,11 @@
         }
 
         .contact-info {
-            margin-bottom: 2rem;
+            margin-bottom: 0; /* Eliminar margen inferior en móvil para el diseño de columna */
         }
 
         .contact-info h2 {
-            font-size: 2rem;
+            font-size: 1.75rem; /* Ajuste para móvil */
             font-weight: bold;
             margin-bottom: 1.5rem;
         }
@@ -502,6 +541,7 @@
             padding: 0.75rem;
             border-radius: 50%;
             margin-right: 1rem;
+            flex-shrink: 0;
         }
 
         .contact-icon {
@@ -542,7 +582,7 @@
             border-radius: 0.25rem;
             outline: none;
             transition: all 0.3s ease;
-            box-sizing: border-box; /* Incluir padding y border en el ancho total */
+            box-sizing: border-box;
         }
 
         .form-group input:focus,
@@ -571,12 +611,13 @@
 
         /* Map Container */
         .map-container {
-            width: 100%; /* Full width on small screens */
-            margin-bottom: 2rem; /* Space below map on small screens */
+            height: 300px; /* Altura ajustada para móvil */
+            width: 100%; /* Ancho completo en pantallas pequeñas */
+            margin-bottom: 0; /* Eliminar margen inferior en móvil */
         }
         .map-container iframe {
             width: 100%;
-            height: 300px; /* Default height for map */
+            height: 100%; /* Ocupar toda la altura del contenedor */
             border:0;
             border-radius:0.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -584,7 +625,7 @@
 
         /* Newsletter */
         .newsletter-section {
-            padding: 3rem 0;
+            padding: 3rem 1rem; /* Ajuste de padding */
             background-color: var(--primary-color);
             color: white;
             text-align: center;
@@ -598,15 +639,15 @@
 
         .newsletter-section p {
             margin-bottom: 1.5rem;
-            max-width: 40rem; /* max-w-2xl */
+            max-width: 40rem;
             margin-left: auto;
             margin-right: auto;
         }
 
         .newsletter-form {
             display: flex;
-            flex-direction: column;
-            max-width: 28rem; /* max-w-md */
+            flex-direction: column; /* Columna para móvil */
+            max-width: 28rem;
             margin: 0 auto;
         }
 
@@ -616,7 +657,7 @@
             border-radius: 0.375rem;
             color: #333;
             outline: none;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.5rem; /* Espacio entre input y botón en móvil */
             border: none;
         }
 
@@ -641,12 +682,12 @@
         .footer {
             background-color: var(--background-dark); /* Gris oscuro */
             color: white;
-            padding: 3rem 0;
+            padding: 3rem 1rem; /* Ajuste de padding */
         }
 
         .footer .container {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(1, 1fr); /* Una columna para móvil */
             gap: 2rem;
         }
 
@@ -740,6 +781,7 @@
             width: 80%;
             max-width: 320px; /* max-w-sm */
             padding: 1.5rem;
+            box-sizing: border-box; /* Incluir padding en el ancho total */
         }
 
         .mobile-menu-header {
@@ -861,6 +903,21 @@
 
         /* Ajustes responsivos */
         @media (min-width: 640px) { /* sm */
+            .container {
+                padding: 0 1.5rem; /* Aumentar padding en pantallas más grandes */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.25rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -878,11 +935,20 @@
             .about-features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .view-all-products-button {
+                width: auto; /* Ancho automático en pantallas más grandes */
+            }
         }
 
         @media (min-width: 768px) { /* md */
+            .container {
+                padding: 0 2rem; /* Aumentar padding */
+            }
             .header .nav-links {
                 display: flex;
+                width: auto; /* Volver al ancho automático */
+                order: 0; /* Restaurar el orden */
+                padding-bottom: 0;
             }
             .mobile-menu-button {
                 display: none;
@@ -897,11 +963,27 @@
                 grid-template-columns: repeat(3, 1fr);
             }
             .footer .container {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablet */
+            }
+            .contact-content {
+                flex-direction: row; /* Volver a fila para tablet */
+                flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+                justify-content: space-between;
+            }
+            .contact-info,
+            .contact-form,
+            .map-container {
+                width: calc(50% - 1rem); /* Aproximadamente la mitad del ancho con gap */
+            }
+            .map-container {
+                height: 350px; /* Restaurar altura del mapa */
             }
         }
 
         @media (min-width: 1024px) { /* lg */
+            .container {
+                padding: 0 3rem; /* Aumentar padding */
+            }
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -919,18 +1001,21 @@
                 text-align: left;
             }
             .contact-content {
-                flex-direction: row; /* Three columns on desktop */
+                flex-direction: row; /* Tres columnas en desktop */
                 justify-content: space-between;
-                align-items: flex-start; /* Align items to the top */
+                align-items: flex-start;
             }
             .contact-info,
-            .map-container,
-            .contact-form {
-                width: calc(33.33% - 1.33rem); /* Approximately 1/3 width, considering gap */
-                margin-bottom: 0; /* Remove margin-bottom on desktop */
+            .contact-form,
+            .map-container {
+                width: calc(33.33% - 1.33rem); /* Aproximadamente 1/3 de ancho con gap */
+                margin-bottom: 0;
             }
             .map-container iframe {
                 height: 100%; /* Make iframe fill its container height */
+            }
+            .footer .container {
+                grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en desktop */
             }
         }
 
@@ -946,7 +1031,7 @@
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <a href="#" class="logo" style="text-decoration: none;"><img src="logo.jpg" alt="Miraggio Espelhos Logo" style="width: 110px; height: 70px;"></a>
+                <a href="#" class="logo" style="text-decoration: none;"><img src="logo.jpg" alt="Miraggio Espelhos Logo"></a>
             </div>
             
             <nav class="nav-links">
@@ -985,28 +1070,28 @@
             <div class="categories-grid">
                 <div class="category-card" data-category="espejos-iluminados">
                     <div class="category-icon">
-                        <img src="espejo_iluminado3.jpg" alt="" style="width: 70px; height: 70px; border-radius: 30px;">
+                        <img src="espejo_iluminado3.jpg" alt="Espejo Iluminado">
                     </div>
                     <h3>Espelhos Iluminados</h3>
                     <p></p>
                 </div>
                 <div class="category-card" data-category="mesa-centro">
                     <div class="category-icon">
-                        <img src="logo_espejo_mesa.jpg" alt="" style="width: 70px; height: 70px; border-radius: 30px;">
+                        <img src="logo_espejo_mesa.jpg" alt="Mesa Centro">
                     </div>
                     <h3>Mesa Centro</h3>
                     <p></p>
                 </div>
                 <div class="category-card" data-category="mesa-sala">
                     <div class="category-icon">
-                        <img src="logo_espejo_sala.jpg" alt="" style="width: 70px; height: 70px; border-radius: 30px;">
+                        <img src="logo_espejo_sala.jpg" alt="Mesa de Sala">
                     </div>
                     <h3>Mesa de Sala</h3>
                     <p></p>
                 </div>
                 <div class="category-card" data-category="espejos-personalizados">
                     <div class="category-icon">
-                        <img src="logo_espejo_personalizado.jpg" alt="" style="width: 70px; height: 70px; border-radius: 30px;">
+                        <img src="logo_espejo_personalizado.jpg" alt="Espejos personalizados">
                     </div>
                     <h3>Espelhos personalizados</h3>
                     <p></p>
@@ -1376,7 +1461,7 @@
                 </div>
             </div>
 
-            <div class="text-center-wrapper">
+            <div class="text-center-wrapper" style="text-align: center;">
                 <a href="#" id="view-all-products-button" class="view-all-products-button">Ver Productos Destacados</a>
             </div>
         </div>
@@ -1451,8 +1536,8 @@
     <!-- Contact Section -->
     <section id="contacto" class="contact-section">
         <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
+            <div class="contact-content" >
+                <div class="contact-info" >
                     <h2 class="section-title">Contáctenos</h2>
                     <p>¿Tienes alguna pregunta o necesitas asesoramiento? Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
                     
@@ -1488,8 +1573,8 @@
                 </div>
 
                 <!-- Google Map -->
-                <div class="map-container" style="width: 700px; height: 450px;">
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7318.415091391936!2d-47.4537874!3d-23.4890328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58aa9335e88d3%3A0x8c7ff338131dfcca!2sR.%20Mascarenhas%20Camelo%2C%201135%20-%20Vila%20Santana%2C%20Sorocaba%20-%20SP%2C%2018080-692!5e0!3m2!1ses!2sbr!4v1752630251996!5m2!1ses!2sbr" width="400px" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-container" >
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7318.415091391936!2d-47.4537874!3d-23.4890328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58aa9335e88d3%3A0x8c7ff338131dfcca!2sR.%20Mascarenhas%20Camelo%2C%201135%20-%20Vila%20Santana%2C%20Sorocaba%20-%20SP%2C%2018080-692!5e0!3m2!1ses!2sbr!4v1752630251996!5m2!1ses!2sbr"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
            
             </div>
