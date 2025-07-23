@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Pizzería</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Panel de Administración 🍕</h1>
+
+    <form id="formulario">
+      <input type="hidden" id="producto-id" />
+      <input type="text" id="nombre" placeholder="Nombre del producto" required />
+      <input type="number" id="precio" placeholder="Precio" required />
+      <input type="text" id="imagen" placeholder="URL de imagen (opcional)" />
+      <button type="submit">Guardar</button>
+      <button type="button" id="cancelar" style="display:none;">Cancelar</button>
+    </form>
+
+    <h2>Productos actuales</h2>
+    <div id="productos" class="lista"></div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
