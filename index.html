@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Noventa - Estilo e Atitude desde 2022</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Cor de fundo similar a gray-50 */
+            color: #333;
+        }
+
+        .title-font {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem; /* Espaçamento horizontal */
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #1B512D;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 0.75rem 0; /* py-3 */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-container img {
+            height: 4rem; /* h-12 */
+            width: 4rem; /* w-12 */
+            border-radius: 9999px; /* rounded-full */
+            border: 2px solid #F4C542;
+        }
+
+        header .logo {
+            height: 3rem; /* h-12 */
+            width: 3rem; /* w-12 */
+            border-radius: 9999px; /* rounded-full */
+            border: 2px solid #F4C542;
+        }
+
+        header h1 {
+            font-size: 1.5rem; /* text-2xl */
+            margin-left: 0.75rem; /* ml-3 */
+        }
+
+        header .desktop-nav {
+            display: none; /* hidden */
+            align-items: center;
+            gap: 1.5rem; /* space-x-6 */
+        }
+
+        header .desktop-nav nav ul {
+            display: flex;
+            gap: 1.5rem; /* space-x-6 */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header .desktop-nav nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        header .desktop-nav nav a:hover {
+            color: #F4C542;
+        }
+
+        header .whatsapp-button {
+            background-color: #F25C05;
+            color: white;
+            padding: 0.5rem 1rem; /* px-4 py-2 */
+            border-radius: 9999px; /* rounded-full */
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        header .whatsapp-button:hover {
+            background-color: #e05503;
+        }
+
+        header .whatsapp-button i {
+            margin-right: 0.5rem; /* mr-2 */
+        }
+
+        header .menu-toggle {
+            display: block; /* md:hidden */
+            font-size: 1.5rem; /* text-2xl */
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Menu Mobile */
+        #mobile-menu {
+            position: fixed;
+            inset: 0; /* top-0 left-0 w-full h-full */
+            background-color: rgba(0, 0, 0, 0.75); /* bg-black bg-opacity-75 */
+            z-index: 50;
+            transition: transform 0.3s ease-in-out; /* nav-transition */
+            transform: translateX(100%); /* menu-closed */
+        }
+
+        #mobile-menu.menu-open {
+            transform: translateX(0);
+        }
+
+        #mobile-menu .menu-content {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 75%; /* w-3/4 */
+            background-color: #1B512D;
+            box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1); /* shadow-xl */
+            padding: 1.5rem; /* p-6 */
+        }
+
+        #mobile-menu .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        #mobile-menu .menu-header .logo {
+            height: 2.5rem; /* h-10 */
+            width: 2.5rem; /* w-10 */
+            border-radius: 9999px;
+            border: 2px solid #F4C542;
+        }
+
+        #mobile-menu .menu-close {
+            font-size: 1.5rem; /* text-2xl */
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #mobile-menu nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* space-y-6 */
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        #mobile-menu nav a {
+            display: block;
+            font-size: 1.25rem; /* text-xl */
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        #mobile-menu nav a:hover {
+            color: #F4C542;
+        }
+
+        #mobile-menu .whatsapp-button {
+            width: 100%;
+            padding: 0.75rem 1rem; /* px-4 py-3 */
+            justify-content: center;
+        }
+
+        /* Seção Principal (Hero Section) */
+        .hero-section {
+            position: relative;
+            background: linear-gradient(to right, #1B512D, #2d7a46);
+            color: white;
+            overflow: hidden;
+            padding: 4rem 0; /* py-16 */
+        }
+
+        .hero-section .background-shapes div {
+            position: absolute;
+            border-radius: 9999px;
+            opacity: 0.1;
+        }
+
+        .hero-section .background-shapes .shape-1 {
+            top: 2.5rem; /* top-10 */
+            left: 5rem; /* left-20 */
+            width: 4rem; /* w-16 */
+            height: 4rem; /* h-16 */
+            background-color: #F4C542;
+        }
+
+        .hero-section .background-shapes .shape-2 {
+            top: 33.333%; /* top-1/3 */
+            right: 25%; /* right-1/4 */
+            width: 6rem; /* w-24 */
+            height: 6rem; /* h-24 */
+            background-color: #F25C05;
+        }
+
+        .hero-section .background-shapes .shape-3 {
+            bottom: 5rem; /* bottom-20 */
+            left: 33.333%; /* left-1/3 */
+            width: 5rem; /* w-20 */
+            height: 5rem; /* h-20 */
+            background-color: #F4C542;
+        }
+
+        .hero-section .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 0; /* py-16 md:py-24 */
+        }
+
+        .hero-section .hero-image-container {
+            margin-bottom: 2.5rem; /* mb-10 */
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-section .hero-image {
+            border-radius: 9999px;
+            border: 8px solid #F4C542;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+            width: 16rem; /* w-64 */
+            height: 16rem; /* h-64 */
+        }
+
+        .hero-section h2 {
+            font-size: 2.25rem; /* text-4xl */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .hero-section p {
+            font-size: 1.25rem; /* text-xl */
+            margin-bottom: 2rem; /* mb-8 */
+        }
+
+        .hero-section .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* space-y-4 */
+            justify-content: center;
+        }
+
+        .hero-section .button {
+            padding: 0.75rem 1.5rem; /* px-6 py-3 */
+            border-radius: 9999px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-section .button-primary {
+            background-color: #F4C542;
+            color: #1B512D;
+        }
+
+        .hero-section .button-primary:hover {
+            background-color: #e6b93d;
+        }
+
+        .hero-section .button-secondary {
+            background-color: #F25C05;
+            color: white;
+        }
+
+        .hero-section .button-secondary:hover {
+            background-color: #e05503;
+        }
+
+        .hero-section .since-text {
+            margin-top: 1.5rem; /* mt-6 */
+            color: #F4C542;
+            font-weight: bold;
+        }
+
+        /* Divisor de Onda */
+        .wave-divider {
+            position: relative;
+            height: 50px;
+            overflow: hidden;
+        }
+        .wave-divider svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .wave-divider.rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        /* Serviços */
+        .services-section {
+            padding: 4rem 0; /* py-16 */
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem; /* mb-16 */
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem; /* text-3xl */
+            color: #1B512D;
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .section-header .divider {
+            width: 6rem; /* w-24 */
+            height: 0.25rem; /* h-1 */
+            background-color: #F25C05;
+            margin: 0 auto 1.5rem auto; /* mx-auto mb-6 */
+        }
+
+        .section-header p {
+            max-width: 42rem; /* max-w-2xl */
+            margin: 0 auto;
+            color: #6b7280; /* text-gray-600 */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* grid-cols-1 */
+            gap: 2rem; /* gap-8 */
+        }
+
+        .service-card {
+            background-color: #f9fafb; /* bg-gray-50 */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 1.5rem; /* p-6 */
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04); /* hover:shadow-xl */
+        }
+
+        .service-icon-container {
+            width: 5rem; /* w-20 */
+            height: 5rem; /* h-20 */
+            background-color: #F4C542;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto; /* mx-auto mb-4 */
+        }
+
+        .service-icon {
+            font-size: 1.875rem; /* text-3xl */
+            color: #1B512D;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: bold;
+            color: #1B512D;
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .service-card p {
+            color: #6b7280; /* text-gray-600 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .service-card .price {
+            color: #F25C05;
+            font-weight: bold;
+        }
+
+        .schedule-service-button {
+            display: inline-block;
+            background-color: #1B512D;
+            color: white;
+            padding: 0.75rem 2rem; /* px-8 py-3 */
+            border-radius: 9999px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 3rem; /* mt-12 */
+        }
+
+        .schedule-service-button:hover {
+            background-color: #144023;
+        }
+
+        .schedule-service-button i {
+            margin-right: 0.5rem;
+        }
+
+        /* Depoimentos */
+        .testimonials-section {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .comic-bubble {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem; /* p-6 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .comic-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-top-color: white;
+            border-bottom: 0;
+            margin-left: -20px;
+            margin-bottom: -20px;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .testimonial-avatar {
+            width: 3rem; /* w-12 */
+            height: 3rem; /* h-12 */
+            border-radius: 9999px;
+            margin-right: 1rem; /* mr-4 */
+            border: 2px solid #F4C542;
+        }
+
+        .testimonial-name {
+            font-weight: bold;
+            color: #1B512D;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            color: #F4C542;
+        }
+
+        .testimonial-text {
+            color: #6b7280;
+        }
+
+        /* Contato */
+        .contact-section {
+            padding: 4rem 0;
+            background-color: #1B512D;
+            color: white;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-map {
+            margin-bottom: 2.5rem; /* mb-10 */
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+            overflow: hidden;
+        }
+
+        .contact-info-card {
+            background-color: white;
+            color: #1B512D;
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 2rem; /* p-8 */
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: bold;
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .contact-info-icon-container {
+            background-color: #F4C542;
+            border-radius: 9999px;
+            padding: 0.75rem; /* p-3 */
+            margin-right: 1rem; /* mr-4 */
+        }
+
+        .contact-info-icon {
+            color: white;
+        }
+
+        .contact-info-text h4 {
+            font-weight: bold;
+            margin-bottom: 0.25rem; /* mb-1 */
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* space-y-4 */
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.25rem; /* mb-1 */
+        }
+
+        .contact-form input,
+        .contact-form select {
+            width: 100%;
+            padding: 0.5rem 1rem; /* px-4 py-2 */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            border-radius: 0.5rem; /* rounded-lg */
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            color: #333; /* Garante que o texto seja visível */
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus {
+            border-color: #F4C542;
+            box-shadow: 0 0 0 2px rgba(244, 197, 66, 0.5); /* focus:ring-2 focus:ring-[#F4C542] */
+        }
+
+        .contact-form button {
+            width: 100%;
+            background-color: #F25C05;
+            color: white;
+            padding: 0.75rem 1rem; /* py-3 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #e05503;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #144023;
+            color: white;
+            padding: 2rem 0; /* py-8 */
+        }
+
+        footer .footer-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .footer-logo-section {
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        footer .footer-logo-section .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        footer .footer-logo-section .logo {
+            height: 2.5rem; /* h-10 */
+            width: 2.5rem; /* w-10 */
+            border-radius: 9999px;
+            border: 2px solid #F4C542;
+        }
+
+        footer .footer-logo-section h2 {
+            font-size: 1.25rem; /* text-xl */
+            margin-left: 0.75rem; /* ml-3 */
+        }
+
+        footer .footer-logo-section p {
+            margin-top: 0.5rem; /* mt-2 */
+            font-size: 0.875rem; /* text-sm */
+            color: #d1d5db; /* text-gray-300 */
+        }
+
+        footer .social-media-section {
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        footer .social-media-section h3 {
+            font-weight: bold;
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        footer .social-media-links {
+            display: flex;
+            gap: 1rem; /* space-x-4 */
+        }
+
+        footer .social-icon {
+            width: 2.5rem; /* w-10 */
+            height: 2.5rem; /* h-10 */
+            background-color: #1B512D;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        footer .social-icon:hover {
+            background-color: #F4C542;
+        }
+
+        footer .newsletter-section h3 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        footer .newsletter-form {
+            display: flex;
+        }
+
+        footer .newsletter-input {
+            padding: 0.5rem 1rem; /* px-4 py-2 */
+            border-radius: 0.5rem 0 0 0.5rem; /* rounded-l-lg */
+            outline: none;
+            color: #333; /* text-gray-800 */
+            border: none;
+        }
+
+        footer .newsletter-button {
+            background-color: #F25C05;
+            color: white;
+            padding: 0.5rem 1rem; /* px-4 py-2 */
+            border-radius: 0 0.5rem 0.5rem 0; /* rounded-r-lg */
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer .newsletter-button:hover {
+            background-color: #e05503;
+        }
+
+        footer .copyright-section {
+            border-top: 1px solid #1B512D;
+            margin-top: 2rem; /* mt-8 */
+            padding-top: 1.5rem; /* pt-6 */
+            text-align: center;
+            font-size: 0.875rem; /* text-sm */
+            color: #d1d5db; /* text-gray-300 */
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float-button {
+            position: fixed;
+            bottom: 1.5rem; /* bottom-6 */
+            right: 1.5rem; /* right-6 */
+            background-color: #25D366;
+            color: white;
+            width: 4rem; /* w-16 */
+            height: 4rem; /* h-16 */
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04); /* shadow-xl */
+            transition: background-color 0.3s ease;
+            z-index: 50;
+            text-decoration: none;
+        }
+
+        .whatsapp-float-button:hover {
+            background-color: #128C7E;
+        }
+
+        .whatsapp-float-button i {
+            font-size: 1.5rem; /* text-2xl */
+        }
+
+        /* Ajustes Responsivos */
+        @media (min-width: 768px) { /* md breakpoint */
+            header .desktop-nav {
+                display: flex;
+            }
+
+            header .menu-toggle {
+                display: none;
+            }
+
+            .hero-section .content-wrapper {
+                flex-direction: row;
+                text-align: left;
+                padding: 6rem 0; /* md:py-24 */
+            }
+
+            .hero-section .hero-image-container {
+                margin-bottom: 0;
+                margin-right: 2.5rem; /* md:pr-10 */
+                width: 50%; /* md:w-1/2 */
+            }
+
+            .hero-section .hero-image {
+                width: 20rem; /* md:w-80 */
+                height: 20rem; /* md:h-80 */
+            }
+
+            .hero-section .text-content {
+                width: 50%; /* md:w-1/2 */
+            }
+
+            .hero-section h2 {
+                font-size: 3rem; /* md:text-5xl */
+            }
+
+            .hero-section p {
+                font-size: 1.5rem; /* md:text-2xl */
+            }
+
+            .hero-section .buttons-container {
+                flex-direction: row;
+                gap: 1rem; /* sm:space-x-4 */
+                justify-content: flex-start; /* md:justify-start */
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+            }
+
+            .contact-content {
+                flex-direction: row;
+            }
+
+            .contact-map {
+                margin-bottom: 0;
+                margin-right: 2.5rem; /* lg:pr-10 */
+                width: 50%; /* lg:w-1/2 */
+            }
+
+            .contact-info-card {
+                width: 50%; /* lg:w-1/2 */
+            }
+
+            footer .footer-content {
+                flex-direction: row;
+            }
+
+            footer .footer-logo-section {
+                margin-bottom: 0;
+            }
+
+            footer .social-media-section {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+            }
+        }
+    </style>
+</head>
+<body class="body-font">
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo_barber.png"  alt="Logotipo Barbearia Noventa" class="logo">
+                <h1 class="title-font">Barbearia Noventa</h1>
+            </div>
+            
+            <div class="desktop-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <a href="https://wa.me/5515991322043" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu">
+            <div class="menu-content">
+                <div class="menu-header">
+                    <img src="logo_barber.png" alt="Logotipo Barbearia Noventa" class="logo">
+                    <button id="menu-close" class="menu-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                
+                <a href="https://wa.me/5515991322043" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Principal (Hero Section) -->
+    <section id="inicio" class="hero-section">
+        <div class="background-shapes">
+            <div class="shape-1"></div>
+            <div class="shape-2"></div>
+            <div class="shape-3"></div>
+        </div>
+        
+        <div class="container content-wrapper">
+            <div class="hero-image-container">
+                <img src="logo_barber.png" alt="Barbearia Noventa" class="hero-image">
+            </div>
+            
+            <div class="text-content">
+                <h2 class="title-font">Barbearia Noventa</h2>
+                <p>Corte com estilo e atitude</p>
+                <div class="buttons-container">
+                    <a href="#servicos" class="button button-primary">Nossos Serviços</a>
+                    <a href="https://wa.me/5515991322043" class="button button-secondary">Agende seu horário</a>
+                </div>
+                <p class="since-text">Desde 2022</p>
+            </div>
+        </div>
+        
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#F4C542"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#F4C542"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#F4C542"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title-font">Nossos Serviços</h2>
+                <div class="divider"></div>
+                <p>Oferecemos os melhores serviços de barbearia com qualidade e estilo</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Serviço 1 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <i class="fas fa-cut service-icon"></i>
+                    </div>
+                    <h3>Corte de Cabelo</h3>
+                    <p>Estilo personalizado para seu rosto e personalidade.</p>
+                    <p class="price">R$ 50,00</p>
+                </div>
+                
+                <!-- Serviço 2 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <i class="fas fa-air-freshener service-icon"></i>
+                    </div>
+                    <h3>Barba</h3>
+                    <p>Modelagem e tratamento para uma barba impecável.</p>
+                    <p class="price">R$ 40,00</p>
+                </div>
+                
+                <!-- Serviço 3 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <i class="fas fa-eye service-icon"></i>
+                    </div>
+                    <h3>Sobrancelhas</h3>
+                    <p>Design profissional para realçar seu olhar.</p>
+                    <p class="price">R$ 25,00</p>
+                </div>
+                
+                <!-- Serviço 4 -->
+                <div class="service-card">
+                    <div class="service-icon-container">
+                        <i class="fas fa-crown service-icon"></i>
+                    </div>
+                    <h3>Pacote Completo</h3>
+                    <p>Corte + Barba + Sobrancelhas + Hidratação.</p>
+                    <p class="price">R$ 90,00</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="https://wa.me/55 15 99132-2043" class="schedule-service-button">
+                    <i class="fab fa-whatsapp"></i> Agendar Serviço
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title-font">O que dizem nossos clientes</h2>
+                <div class="divider"></div>
+                <p>Depoimentos de quem já experimentou nossos serviços</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Depoimento 1 -->
+                <div class="comic-bubble">
+                    <div class="testimonial-header">
+                        <img src="https://placehold.co/50x50/1B512D/F4C542?text=Cliente" alt="Cliente" class="testimonial-avatar">
+                        <div>
+                            <h4 class="testimonial-name">Carlos Silva</h4>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"A melhor barbearia da região! O corte sempre sai exatamente como quero e o ambiente é muito relaxado."</p>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="comic-bubble">
+                    <div class="testimonial-header">
+                        <img src="https://placehold.co/50x50/1B512D/F4C542?text=Cliente" alt="Cliente" class="testimonial-avatar">
+                        <div>
+                            <h4 class="testimonial-name">João Santos</h4>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Desde que conheci a Barbearia Noventa, nunca mais fui a outro lugar. Atendimento impecável!"</p>
+                </div>
+                
+                <!-- Depoimento 3 -->
+                <div class="comic-bubble">
+                    <div class="testimonial-header">
+                        <img src="https://placehold.co/50x50/1B512D/F4C542?text=Cliente" alt="Cliente" class="testimonial-avatar">
+                        <div>
+                            <h4 class="testimonial-name">Pedro Almeida</h4>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Adoro o estilo retrô do lugar e a atenção aos detalhes nos cortes. Recomendo muito!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contact-section">
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#F4C542"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#F4C542"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#F4C542"></path>
+            </svg>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title-font">Entre em Contato</h2>
+                <div class="divider"></div>
+                <p>Agende seu horário ou venha nos visitar</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-map">
+                    <div style="background-color: white; border-radius: 0.75rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); overflow: hidden;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1066935120504!2d-46.65390548502237!3d-23.564611267597886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1625068677226!5m2!1spt-BR!2sbr" width="100%" height="400" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="contact-info-card">
+                    <h3>Informações</h3>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon-container">
+                                <i class="fas fa-map-marker-alt contact-info-icon"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h4>Endereço</h4>
+                                <p>Av. Paulista, 1000 - São Paulo/SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon-container">
+                                <i class="fas fa-clock contact-info-icon"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h4>Horário de Atendimento</h4>
+                                <p>Segunda a Sexta: 9h às 19h</p>
+                                <p>Sábado: 9h às 15h</p>
+                                <p>Domingo: Fechado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon-container">
+                                <i class="fas fa-phone-alt contact-info-icon"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <h4>Telefone/WhatsApp</h4>
+                                <p>(15) 99132-2043</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-section">
+                    <div class="logo-container">
+                        <img src="https://placehold.co/40x40/1B512D/F4C542?text=Logo" alt="Logotipo Barbearia Noventa" class="logo">
+                        <h2 class="title-font">Barbearia Noventa</h2>
+                    </div>
+                    <p>Desde 2022</p>
+                </div>
+                
+                <div class="social-media-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-media-links">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5515991322043" class="whatsapp-float-button">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Alternar Menu Mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('menu-closed'); /* Remove a classe de fechamento */
+            mobileMenu.classList.add('menu-open'); /* Adiciona a classe de abertura */
+        });
+        
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('menu-open'); /* Remove a classe de abertura */
+            mobileMenu.classList.add('menu-closed'); /* Adiciona a classe de fechamento */
+        });
+        
+        // Fechar menu ao clicar fora
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-closed');
+            }
+        });
+        
+        // Rolagem suave para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Fechar menu mobile se estiver aberto
+                if (mobileMenu.classList.contains('menu-open')) {
+                    mobileMenu.classList.remove('menu-open');
+                    mobileMenu.classList.add('menu-closed');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
