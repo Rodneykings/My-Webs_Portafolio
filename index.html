@@ -1,0 +1,563 @@
+        <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club 13 - Barbearia | Estilo é Atitude</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Variáveis CSS para cores e fontes */
+        :root {
+            --primary-color: #000;
+            --secondary-color: #fff;
+            --accent-color: #333;
+            --gray-text: #6b7280;
+            --light-gray-bg: #f3f4f6;
+            --dark-gray-bg: #1f2937;
+            --green-whatsapp: #22c55e;
+            --font-blackletter: 'UnifrakturMaguntia', cursive;
+            --font-montserrat: 'Montserrat', sans-serif;
+        }
+
+        /* Estilos globais */
+        body {
+            font-family: var(--font-montserrat);
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Tipografia */
+        .blackletter {
+            font-family: var(--font-blackletter);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        p {
+            color: var(--gray-text);
+        }
+
+        /* Botões */
+
+              .btn-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+  
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--green-whatsapp);
+            color: var(--secondary-color);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #16a34a; /* Um tom mais escuro de verde */
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            width: 100%;
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+        }
+
+        .header .logo {
+            height: 3rem; /* h-12 */
+        }
+
+        .header .nav-desktop {
+            display: none; /* Hidden por padrão, visível em md */
+            align-items: center;
+            gap: 2rem; /* space-x-8 */
+        }
+
+        .header .nav-desktop a {
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header .nav-desktop a:hover {
+            color: #4b5563; /* gray-600 */
+        }
+
+        .header .menu-toggle {
+            display: block; /* Visível por padrão, hidden em md */
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none; /* Hidden por padrão */
+            width: 100%;
+            padding: 1rem 1rem 1rem 1rem;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid #f3f4f6; /* border-gray-100 */
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .btn {
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 8rem; /* pt-32 */
+            padding-bottom: 5rem; /* pb-20 */
+            background-color: var(--light-gray-bg);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.25rem; /* text-4xl */
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section p {
+            font-size: 1.125rem; /* text-xl */
+            font-weight: 300; /* font-light */
+            margin-bottom: 2rem;
+            max-width: 42rem; /* max-w-2xl */
+        }
+
+        .hero-section .btn {
+            font-size: 1.125rem; /* text-lg */
+            padding: 0.75rem 2rem; /* px-8 py-3 */
+        }
+
+        /* Serviços Section */
+        .services-section {
+            padding: 4rem 0; /* py-16 */
+            background-color: var(--secondary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* grid-cols-1 */
+            gap: 2rem; /* gap-8 */
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 1.5rem; /* p-6 */
+            border: 1px solid #e5e7eb; /* border-gray-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* hover:shadow-lg */
+        }
+
+        .service-item .icon {
+            font-size: 2.5rem; /* text-4xl */
+            margin-bottom: 1rem;
+        }
+
+        /* Contato Section */
+        .contact-section {
+            padding: 4rem 0; /* py-16 */
+            background-color: var(--dark-gray-bg);
+            color: var(--secondary-color);
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column; /* flex-col */
+            gap: 2rem; /* gap-8 */
+        }
+
+        .contact-info div {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info i {
+            margin-right: 0.5rem;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 18.75rem; /* h-72 */
+            border: 0;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 2rem 0; /* py-8 */
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column; /* flex-col */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer p {
+            color: #9ca3af; /* gray-400 */
+            margin-bottom: 1rem;
+        }
+
+        .footer .social-links {
+            display: flex;
+            gap: 1rem; /* space-x-4 */
+            margin-bottom: 1rem;
+        }
+
+        .footer .social-links a {
+            color: #9ca3af; /* gray-400 */
+            font-size: 1.25rem; /* text-xl */
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer .whatsapp-link {
+            color: #9ca3af; /* gray-400 */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer .whatsapp-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer .copyright {
+            border-top: 1px solid #374151; /* border-gray-800 */
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #9ca3af; /* gray-500 */
+            font-size: 0.875rem; /* text-sm */
+            width: 100%; /* Para garantir que a linha ocupe toda a largura */
+        }
+
+        /* Media Queries para responsividade */
+        @media (min-width: 768px) { /* md breakpoint */
+            h1 {
+                font-size: 3.75rem; /* md:text-6xl */
+            }
+
+            h2 {
+                font-size: 2.25rem; /* md:text-4xl */
+            }
+
+            .header .nav-desktop {
+                display: flex;
+            }
+
+            .header .menu-toggle {
+                display: none;
+            }
+
+            .hero-section {
+                padding-top: 10rem; /* md:pt-40 */
+                padding-bottom: 7rem; /* md:pb-28 */
+            }
+
+            .hero-section h1 {
+                font-size: 3.75rem; /* md:text-6xl */
+            }
+
+            .hero-section p {
+                font-size: 1.5rem; /* md:text-2xl */
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+            }
+
+            .contact-content {
+                flex-direction: row; /* md:flex-row */
+            }
+
+            .contact-info,
+            .contact-map {
+                flex: 1; /* lg:w-1/2 */
+            }
+
+            .footer .container {
+                flex-direction: row;
+            }
+
+            .footer p,
+            .footer .social-links,
+            .footer .whatsapp-link {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo_barber.png" alt="Club 13 Barbearia" class="logo">
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <a href="#inicio">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+                <a href="https://wa.me/5511999999999" class="btn btn-primary">
+                    Agendar
+                </a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+            <a href="https://wa.me/5511999999999" class="btn btn-primary">
+                Agendar
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <h1 class="blackletter">Club 13 - Barbearia</h1>
+            <p>Estilo é atitude. Corte como um rei.</p>
+            <a href="https://wa.me/5511999999999" class="btn btn-primary">
+                Agende seu horário
+            </a>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="services-section">
+        <div class="container">
+            <h2 class="blackletter">Nossos Serviços</h2>
+            
+            <div class="services-grid">
+                <!-- Serviço 1 -->
+                <div class="service-item">
+                    <div class="icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Corte Tradicional</h3>
+                    <p>Corte clássico com tesoura e navalha, finalizado com toalha quente.</p>
+                </div>
+                
+                <!-- Serviço 2 -->
+                <div class="service-item">
+                    <div class="icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Barba</h3>
+                    <p>Modelagem e tratamento completo para sua barba com produtos premium.</p>
+                </div>
+                
+                <!-- Serviço 3 -->
+                <div class="service-item">
+                    <div class="icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Máquina</h3>
+                    <p>Corte moderno e preciso com máquina, perfeito para quem busca praticidade.</p>
+                </div>
+                
+                <!-- Serviço 4 -->
+                <div class="service-item">
+                    <div class="icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Sobrancelha</h3>
+                    <p>Design profissional para realçar sua expressão e masculinidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <h2 class="blackletter">Contato</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div>
+                        <h3><i class="fas fa-map-marker-alt"></i> Endereço</h3>
+                        <p>Rua das Barbearias, 13 - Centro, São Paulo - SP</p>
+                    </div>
+                    
+                    <div>
+                        <h3><i class="fas fa-phone-alt"></i> Telefone</h3>
+                        <p>(11) 9999-9999</p>
+                    </div>
+                    
+                    <div>
+                        <h3><i class="fas fa-clock"></i> Horário</h3>
+                        <p>Segunda a Sexta: 09h - 19h</p>
+                        <p>Sábado: 09h - 17h</p>
+                        <p>Domingo: Fechado</p>
+                    </div>
+                    
+                    <div>
+                        <a href="https://wa.me/5511999999999" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Enviar Mensagem
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.6534265844069!3d-23.5657343676388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1622672747418!5m2!1spt-BR!2sbr" 
+                            allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+          
+            
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <div>
+                <a href="https://wa.me/5511999999999" class="whatsapp-link">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Ajuste para o cabeçalho fixo
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
