@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tienda online de posturas de plantas - Calidad agrícola para tu hogar o negocio"
+    />
+    <meta
+      name="keywords"
+      content="plantas, posturas, agricultura, vivero, comprar plantas, asesoría agrícola"
+    />
+    <title>VerdeVida - Posturas de Plantas de Calidad</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Importación de Fuentes y Estilos Base */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --color-green-500: #22c55e;
+        --color-green-600: #16a34a;
+        --color-green-700: #15803d;
+        --color-green-800: #166534;
+        --color-gray-50: #f9fafb;
+        --color-gray-100: #f3f4f6;
+        --color-gray-200: #e5e7eb;
+        --color-gray-300: #d1d5db;
+        --color-gray-400: #9ca3af;
+        --color-gray-500: #6b7280;
+        --color-gray-600: #4b5563;
+        --color-gray-700: #374151;
+        --color-gray-800: #1f2937;
+        --color-white: #ffffff;
+        --color-black: #000000;
+        --color-red-500: #ef4444;
+        --color-red-700: #b91c1c;
+      }
+
+      /* Reset y Estilos Globales */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--color-gray-50);
+        color: var(--color-gray-700);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* Contenedor Principal */
+      .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .container {
+          max-width: 640px;
+        }
+      }
+      @media (min-width: 768px) {
+        .container {
+          max-width: 768px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 1024px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 1280px;
+        }
+      }
+
+      /* Header */
+      .header {
+        background-color: var(--color-white);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--color-green-800);
+      }
+
+      .logo-icon {
+        color: var(--color-green-600);
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+      }
+
+      .main-nav {
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        .main-nav {
+          display: flex;
+          gap: 2rem;
+        }
+      }
+
+      .main-nav a:hover,
+      .cart-button:hover .fa-shopping-cart {
+        color: var(--color-green-600);
+      }
+
+      .cart-button {
+        position: relative;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+        background-color: var(--color-green-600);
+        color: var(--color-white);
+        font-size: 0.75rem;
+        border-radius: 9999px;
+        height: 1.25rem;
+        width: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-menu-button {
+        display: block;
+        font-size: 1.25rem;
+      }
+
+      @media (min-width: 768px) {
+        .mobile-menu-button {
+          display: none;
+        }
+      }
+
+      .mobile-menu {
+        background-color: var(--color-white);
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      @media (min-width: 768px) {
+        .mobile-menu {
+          display: none;
+        }
+      }
+
+      .mobile-menu a,
+      .mobile-menu button {
+        display: block;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .mobile-menu a:hover,
+      .mobile-menu button:hover {
+        color: var(--color-green-600);
+      }
+
+      .mobile-cart-button {
+        display: flex;
+        align-items: center;
+      }
+
+      .mobile-cart-button .fa-shopping-cart {
+        margin-right: 0.5rem;
+      }
+
+      /* Sección Hero */
+      .hero-section {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80");
+        background-size: cover;
+        background-position: center;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-white);
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .hero-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .hero-title {
+          font-size: 3.75rem;
+        }
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .hero-subtitle {
+          font-size: 1.5rem;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: var(--color-green-600);
+        color: var(--color-white);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--color-green-700);
+      }
+
+      .btn-secondary {
+        background-color: var(--color-gray-200);
+        color: var(--color-gray-800);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--color-gray-300);
+      }
+
+      /* Secciones Generales */
+      .section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      .section-white {
+        background-color: var(--color-white);
+      }
+
+      .section-gray {
+        background-color: var(--color-gray-50);
+      }
+
+      .section-green {
+        background-color: var(--color-green-700);
+        color: var(--color-white);
+      }
+
+      .section-title {
+        font-size: 1.875rem;
+        font-weight: 700;
+        text-align: center;
+        color: var(--color-gray-800);
+        margin-bottom: 3rem;
+      }
+
+      .section-title-white {
+        color: var(--color-white);
+      }
+
+      /* Grid System */
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+
+      @media (min-width: 768px) {
+        .md-grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .md-grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .md-grid-cols-4 {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .lg-grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .lg-grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      /* Tarjetas de Producto */
+      .product-card {
+        background-color: var(--color-white);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .product-image {
+        width: 100%;
+        height: 12rem;
+        object-fit: cover;
+      }
+
+      .product-content {
+        padding: 1.5rem;
+      }
+
+      .product-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: 0.5rem;
+      }
+
+      .product-description {
+        color: var(--color-gray-600);
+        margin-bottom: 1rem;
+      }
+
+      .product-price {
+        color: var(--color-green-600);
+        font-weight: 700;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+      }
+
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .quantity-btn {
+        background-color: var(--color-gray-200);
+        padding: 0.25rem 0.75rem;
+        transition: all 0.3s ease;
+      }
+
+      .quantity-btn:hover {
+        background-color: #2f855a;
+        color: white;
+      }
+
+      .quantity-btn-decrement {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+
+      .quantity-btn-increment {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+
+      .quantity-input {
+        /* New style for the input field */
+        background-color: var(--color-gray-100);
+        padding: 0.25rem 0.5rem;
+        width: 4rem; /* Adjust width as needed */
+        text-align: center;
+        border: 1px solid var(--color-gray-300);
+        -moz-appearance: textfield; /* Firefox */
+      }
+
+      /* Hide arrows for number input */
+      .quantity-input::-webkit-outer-spin-button,
+      .quantity-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .product-total {
+        margin-bottom: 1rem;
+      }
+
+      .add-to-cart-btn {
+        width: 100%;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      /* Sección Servicios */
+      .service-card {
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: var(--color-white);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .service-image {
+        width: 100%;
+        height: 16rem;
+        object-fit: cover;
+      }
+
+      .service-content {
+        padding: 2rem;
+      }
+
+      .service-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: 1rem;
+      }
+
+      .service-description {
+        margin-bottom: 1.5rem;
+      }
+
+      .service-features {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .service-feature-item {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .service-feature-icon {
+        color: var(--color-green-500);
+        margin-top: 0.25rem;
+        margin-right: 0.5rem;
+      }
+
+      /* Sección Sobre Nosotros */
+      .about-content {
+        display: grid;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-image {
+        width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .about-text h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: 1rem;
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+      }
+
+      .about-text h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: 0.5rem;
+      }
+
+      .values-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+      }
+
+      .value-item {
+        display: flex;
+        align-items: center;
+      }
+
+      .value-item .fa-leaf {
+        color: var(--color-green-500);
+        margin-right: 0.5rem;
+      }
+
+      .team-section {
+        margin-top: 4rem;
+      }
+
+      .team-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+        color: var(--color-gray-800);
+        margin-bottom: 2rem;
+      }
+
+      .team-card {
+        background-color: var(--color-white);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .team-member-photo {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 9999px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+        object-fit: cover;
+      }
+
+      .team-member-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+      }
+
+      .team-member-role {
+        color: var(--color-green-600);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Ubicación y Contacto */
+      .contact-card {
+        background-color: var(--color-white);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin-bottom: 2rem;
+      }
+
+      .contact-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-gray-800);
+        margin-bottom: 1rem;
+      }
+
+      .contact-card p {
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-card .font-medium {
+        font-weight: 500;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .contact-info-item i {
+        color: var(--color-green-600);
+        margin-right: 0.75rem;
+      }
+
+      .contact-info-item a:hover {
+        color: var(--color-green-600);
+      }
+
+      .map-container {
+        height: 24rem;
+        background-color: var(--color-gray-200);
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Sección Proyecto */
+      .project-container {
+        max-width: 56rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .project-section-block {
+        margin-bottom: 3rem;
+      }
+
+      .project-section-block h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .project-section-block p {
+        margin-bottom: 1rem;
+      }
+
+      .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .project-list-item {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .project-list-item i {
+        margin-top: 0.25rem;
+        margin-right: 0.5rem;
+      }
+
+      .feature-card {
+        background-color: var(--color-green-800);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+      }
+
+      .feature-card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-card-header i {
+        font-size: 1.5rem;
+        margin-right: 0.75rem;
+      }
+
+      .feature-card-header h4 {
+        font-size: 1.25rem;
+        font-weight: 500;
+      }
+
+      .organizers-list,
+      .sponsors-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .organizers-list li {
+        display: flex;
+        align-items: center;
+      }
+
+      .organizers-list i {
+        margin-right: 0.5rem;
+      }
+
+      .sponsor-logo-container {
+        background-color: var(--color-white);
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+      }
+
+      .sponsor-logo {
+        height: 2.5rem;
+      }
+
+      /* Sección de Contacto Final */
+      .final-contact-section {
+        text-align: center;
+      }
+
+      .final-contact-title {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: var(--color-gray-800);
+        margin-bottom: 1.5rem;
+      }
+
+      .final-contact-subtitle {
+        font-size: 1.25rem;
+        color: var(--color-gray-600);
+        margin-bottom: 2rem;
+        max-width: 42rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .final-contact-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .final-contact-buttons {
+          flex-direction: row;
+        }
+      }
+
+      .final-contact-buttons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 2rem;
+      }
+
+      .final-contact-buttons i {
+        margin-right: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .social-links {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .social-links a {
+        color: var(--color-gray-500);
+        font-size: 1.5rem;
+      }
+
+      .social-links a:hover {
+        color: var(--color-green-600);
+      }
+
+      /* Modal del Carrito */
+      .cart-modal {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 50;
+        display: none; /* Se maneja con JS */
+      }
+
+      .cart-sidebar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--color-white);
+        box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+
+      @media (min-width: 768px) {
+        .cart-sidebar {
+          width: 50%;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .cart-sidebar {
+          width: 33.333333%;
+        }
+      }
+
+      .cart-content {
+        padding: 1.5rem;
+      }
+
+      .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .cart-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-gray-800);
+      }
+
+      .close-cart-btn {
+        color: var(--color-gray-500);
+        font-size: 1.25rem;
+      }
+
+      .close-cart-btn:hover {
+        color: var(--color-gray-700);
+      }
+
+      #cart-items {
+        margin-bottom: 1.5rem;
+      }
+
+      #cart-items .empty-cart-message {
+        text-align: center;
+        padding: 2rem 0;
+        color: var(--color-gray-500);
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--color-gray-200);
+        transition: background-color 0.3s ease;
+      }
+
+      .cart-item:hover {
+        background-color: #f0fff4;
+      }
+
+      .cart-item-details h4 {
+        font-weight: 500;
+      }
+
+      .cart-item-details p {
+        font-size: 0.875rem;
+        color: var(--color-gray-500);
+      }
+
+      .cart-item-actions {
+        display: flex;
+        align-items: center;
+      }
+
+      .cart-item-price {
+        font-weight: 500;
+        margin-right: 1rem;
+      }
+
+      .remove-from-cart-btn {
+        color: var(--color-red-500);
+      }
+
+      .remove-from-cart-btn:hover {
+        color: var(--color-red-700);
+      }
+
+      .cart-summary {
+        border-top: 1px solid var(--color-gray-200);
+        padding-top: 1rem;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      .summary-row span:first-child {
+        color: var(--color-gray-600);
+      }
+
+      .summary-row span:last-child {
+        font-weight: 500;
+      }
+
+      .summary-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.125rem;
+        font-weight: 700;
+      }
+
+      .summary-total span:last-child {
+        color: var(--color-green-600);
+      }
+
+      #checkout-btn {
+        width: 100%;
+        margin-top: 1.5rem;
+        padding: 0.75rem;
+        display: none; /* Se maneja con JS */
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--color-gray-800);
+        color: var(--color-white);
+        padding: 2rem 0;
+      }
+
+      .footer-content {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .footer-column h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .footer-column p,
+      .footer-column li {
+        color: var(--color-gray-400);
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--color-white);
+      }
+
+      .footer-contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .footer-contact-item {
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-contact-item i {
+        margin-right: 0.5rem;
+      }
+
+      .newsletter-form {
+        display: flex;
+      }
+
+      .newsletter-input {
+        padding: 0.5rem 0.75rem;
+        background-color: var(--color-gray-700);
+        color: var(--color-white);
+        border: none;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        outline: none;
+        width: 100%;
+      }
+
+      .newsletter-submit {
+        background-color: var(--color-green-600);
+        padding: 0.5rem 1rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .newsletter-submit:hover {
+        background-color: var(--color-green-700);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--color-gray-700);
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        text-align: center;
+        color: var(--color-gray-400);
+      }
+
+      /* Animaciones y Utilidades Adicionales */
+      .fade-in {
+        animation: fadeIn 1s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background-color: #25d366;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      .whatsapp-float img {
+        width: 32px;
+        height: 32px;
+        filter: invert(1);
+      }
+
+      @media screen and (max-width: 768px) {
+        .whatsapp-float {
+          width: 50px;
+          height: 50px;
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .whatsapp-float img {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header/Navbar -->
+    <header class="header">
+      <div class="container header-content">
+        <a href="#" class="logo">
+          <i class="fas fa-leaf logo-icon"></i>
+          <span>Cámaras Térmicas Las Guásima</span>
+        </a>
+
+        <nav class="main-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#productos">Productos</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#contacto">Contacto</a>
+          <button onclick="openCart()" class="cart-button">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count" class="cart-count">0</span>
+          </button>
+        </nav>
+
+        <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Botón flotante de WhatsApp -->
+      <a
+        href="https://wa.me/5355638567?text=Estoy%20interesado%20en%20sus%20servicios,%20%C2%BFpodr%C3%ADa%20contarme%20m%C3%A1s%3F"
+        class="whatsapp-float"
+        target="_blank"
+        aria-label="Contactar por WhatsApp"
+      >
+        <img
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg"
+          alt="WhatsApp"
+        />
+      </a>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="#inicio" onclick="toggleMobileMenu()">Inicio</a>
+        <a href="#productos" onclick="toggleMobileMenu()">Productos</a>
+        <a href="#servicios" onclick="toggleMobileMenu()">Servicios</a>
+        <a href="#nosotros" onclick="toggleMobileMenu()">Nosotros</a>
+        <a href="#contacto" onclick="toggleMobileMenu()">Contacto</a>
+        <button onclick="openCart()" class="mobile-cart-button">
+          <i class="fas fa-shopping-cart"></i> Carrito (<span
+            id="mobile-cart-count"
+            >0</span
+          >)
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="inicio" class="hero-section fade-in">
+        <div>
+          <h1 class="hero-title">
+            Proyecto de Desarrollo local cámaras térmicas las Guasimas.
+          </h1>
+          <p class="hero-subtitle">
+            Garantizamos posturas sanas y con su trazabilidad de origen.
+          </p>
+          <a href="#productos" class="btn btn-primary">Ver Productos</a>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="productos" class="section section-white">
+        <div class="container">
+          <h2 class="section-title">Nuestras Posturas</h2>
+          <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3">
+            <!-- Product 1 -->
+            <div class="product-card">
+              <img
+                src="/media/Platano-finca-La-Esperanza.png"
+                alt="Platano FHIA-04"
+                class="product-image"
+              />
+              <div class="product-content">
+                <h3 class="product-title">Platano FHIA-04</h3>
+                <p class="product-description">
+                  El Plátano FHIA-04 es una variedad de plátano desarrollada por
+                  la "Fundación Hondureña de Investigación Agrícola(FHIA), es
+                  más grande que el plátano normal y posee un sabor ligeramente
+                  menos dulce que el plátano común, pero exelente para la
+                  cocción"
+                </p>
+                <p class="product-price">25 CUP por unidad</p>
+                <div class="quantity-selector">
+                  <button
+                    class="quantity-btn quantity-btn-decrement"
+                    onclick="decrementQuantity('tomate')"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="tomate-quantity"
+                    class="quantity-input"
+                    value="0"
+                    min="0"
+                    onchange="updateQuantityFromInput('tomate')"
+                  />
+                  <button
+                    class="quantity-btn quantity-btn-increment"
+                    onclick="incrementQuantity('tomate')"
+                  >
+                    +
+                  </button>
+                </div>
+                <p class="product-total">
+                  Total: <span id="tomate-total">0</span> CUP
+                </p>
+                <button
+                  onclick="addToCart('tomate', 'Plátano FHIA-04', 25)"
+                  class="btn btn-primary add-to-cart-btn"
+                >
+                  Añadir al carrito
+                </button>
+              </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+              <img
+                src="/media/Disponibilidad semanal de plátano FHIA-21 - contactanos ☎️ 3176699721_0(JPG).jpg"
+                alt="Lechuga"
+                class="Plátano FHIA-21"
+              />
+              <div class="product-content">
+                <h3 class="product-title">Plátano FHIA-21</h3>
+                <p class="product-description">
+                  El Plátano FHIA-21 es una variedad de plátano desarrollada por
+                  la "Fundación Hondureña de Investigación Agrícola(FHIA)", A
+                  difencia del FHIA-04 este es mas dulce , tipo banano (para el
+                  consumo fresco)
+                </p>
+                <p class="product-price">25 CUP por unidad</p>
+                <div class="quantity-selector">
+                  <button
+                    class="quantity-btn quantity-btn-decrement"
+                    onclick="decrementQuantity('lechuga')"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="lechuga-quantity"
+                    class="quantity-input"
+                    value="0"
+                    min="0"
+                    onchange="updateQuantityFromInput('lechuga')"
+                  />
+                  <button
+                    class="quantity-btn quantity-btn-increment"
+                    onclick="incrementQuantity('lechuga')"
+                  >
+                    +
+                  </button>
+                </div>
+                <p class="product-total">
+                  Total: <span id="lechuga-total">0</span> CUP
+                </p>
+                <button
+                  onclick="addToCart('lechuga', 'Plátano FHIA-21', 25)"
+                  class="btn btn-primary add-to-cart-btn"
+                >
+                  Añadir al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="servicios" class="section section-gray">
+        <div class="container">
+          <h2 class="section-title">Servicios Adicionales</h2>
+          <div class="service-card">
+            <img src="/media/IMG_20250728_012008.jpg" class="service-image" />
+            <div class="service-content">
+              <h3 class="service-title">Servicios adicionales</h3>
+              <p class="service-description">
+                Nuestros servicios incluyen todo lo necesario para el éxito de
+                tu cultivo:
+              </p>
+              <ul class="service-features">
+                <li class="service-feature-item">
+                  <i class="fas fa-check service-feature-icon"></i>
+                  <span
+                    >Brindamos asesoría postventa (manejo del cultivo).</span
+                  >
+                </li>
+                <br />
+                <p class="service-description">Garantía de supervivencia:</p>
+                <li class="service-feature-item">
+                  <i class="fas fa-check service-feature-icon"></i>
+                  <span
+                    >Reposición si la planta en condiciones adecuadas no se
+                    pega.</span
+                  >
+                </li>
+                <li class="service-feature-item">
+                  <i class="fas fa-check service-feature-icon"></i>
+                  <span
+                    >Kits de inicio, Posturas más biofertilizantes + guía de
+                    cultivo</span
+                  >
+                </li>
+                <br />
+                <p class="service-description">Otros:</p>
+                <li class="service-feature-item">
+                  <i class="fas fa-check service-feature-icon"></i>
+                  <span
+                    >Descuento por valores más de 10,000 posturas un 10% de
+                    descuento.</span
+                  >
+                </li>
+                <li class="service-feature-item">
+                  <i class="fas fa-check service-feature-icon"></i>
+                  <span>Intercambio por otros productos. </span>
+                </li>
+                <li class="service-feature-item">
+                  <i class="fas fa-check service-feature-icon"></i>
+                  <span
+                    >Apoyamos a los productores en el transporte en grandes
+                    compras.</span
+                  >
+                </li>
+                <li class="service-feature-item">
+                  <i class="fas fa-check service-feature-icon"></i>
+                  <span
+                    >Gobierno municipal participa en las licitaciones de
+                    programas agrícolas.</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us Section -->
+      <section id="nosotros" class="section section-white">
+        <div class="container">
+          <h2 class="section-title">Sobre Nosotros</h2>
+          <div class="about-content lg-grid-cols-2">
+            <img
+              src="/media/IMG_20250728_012025.jpg"
+              alt="Nuestro vivero"
+              class="about-image"
+            />
+            <div class="about-text">
+              <h3>Nuestra Historia</h3>
+              <p>
+                El proyecto “Parque Térmico para la Multiplicación de Semillas
+                de Plátano y Malanga” surge en los municipios Contramaestre y
+                Tercer Frente de la provincia Santiago de Cuba, como una
+                solución sostenible para producir semillas de alta calidad
+                mediante cámaras térmicas y energía renovable. Basado en
+                tecnologías del IBP y respaldado por CEPADEL y la Estación
+                Experimental Tercer Frente, busca fortalecer la seguridad
+                alimentaria local y sustituir importaciones con innovación
+                agrícola.
+              </p>
+              <div>
+                <h4>Misión</h4>
+                <p>
+                  Impulsar la producción sostenible y tecnológicamente avanzada
+                  de semillas de plátano y malanga mediante el uso de cámaras
+                  térmicas y energía renovable, contribuyendo a la seguridad
+                  alimentaria, la sustitución de importaciones y el
+                  fortalecimiento de las cadenas productivas locales en los
+                  municipios de Contramaestre y Tercer Frente.
+                </p>
+              </div>
+              <div>
+                <h4>Visión</h4>
+                <p>
+                  Consolidarse como un modelo de referencia nacional en la
+                  producción de semillas de alta calidad de plátano y malanga,
+                  basado en la innovación, la eficiencia agrícola y la
+                  sostenibilidad ambiental, promoviendo el desarrollo económico
+                  local y el abastecimiento alimentario con enfoque inclusivo y
+                  territorial.
+                </p>
+              </div>
+              <div>
+                <h4>Asociadas a las empresas con toda la red de:</h4>
+                <ul class="values-list">
+                  <li class="value-item">
+                    <i class="fas fa-leaf"></i><span>UBPC</span>
+                  </li>
+                  <li class="value-item">
+                    <i class="fas fa-leaf"></i><span>CCS</span>
+                  </li>
+                  <li class="value-item">
+                    <i class="fas fa-leaf"></i><span>CPA</span>
+                  </li>
+                </ul>
+              </div>
+              <br />
+            </div>
+          </div>
+
+          <!-- Team Section -->
+          <div class="team-section">
+            <h3 class="team-title">Nuestro Equipo</h3>
+            <div class="grid grid-cols-1 md-grid-cols-3">
+              <div class="team-card">
+                <img
+                  src="/media/IMG-20250724-WA0024.jpg"
+                  alt="Ing. Yoankis Álvarez Martínez"
+                  class="team-member-photo"
+                />
+                <h4 class="team-member-name">Ing. Yoankis Álvarez Martínez</h4>
+                <p class="team-member-role">Jefe Técnico Productivo.</p>
+                <p>
+                  Ingeniero Agrónomo con 15 años de experiencia en producción
+                  vegetal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Info Section -->
+      <section id="proyecto" class="section section-green">
+        <div class="container project-container">
+          <h2 class="section-title section-title-white">Sobre el Proyecto</h2>
+          <div class="project-section-block">
+            <h3>Objetivos</h3>
+            <p>
+              El objetivo general del proyecto es garantizar el crecimiento en
+              la producción de semillas de posturas de plátano y malanga
+              utilizando cámaras térmicas, a través de acciones integradas de
+              investigación, desarrollo, innovación (I+D+I) y comercialización.
+              Esto busca contribuir a la sustentabilidad de las cadenas de
+              valor, lograr una mayor disponibilidad de alimentos de calidad
+              para el consumo humano, potenciar la sustitución de importaciones
+              y generar exportaciones, todo sobre la base de la conservación y
+              el uso adecuado de los recursos naturales.
+            </p>
+            <ul class="project-list">
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span
+                  >Mejorar la eficiencia, competitividad, calidad y
+                  sostenibilidad de las cadenas de valor de los cultivos de
+                  plátano y malanga.</span
+                >
+              </li>
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span
+                  >Fomentar una agricultura sostenible aprovechando
+                  eficientemente los recursos genéticos y microorganismos
+                  útiles.</span
+                >
+              </li>
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span
+                  >Desarrollar y perfeccionar la producción de semillas de alta
+                  calidad y resistentes para plátano y malanga.</span
+                >
+              </li>
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span
+                  >Fortalecer el Programa Alimentario Municipal a través de la
+                  producción local de semillas que respondan a la demanda
+                  nutricional y de mercado.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="project-section-block">
+            <h3>Características</h3>
+            <div class="grid grid-cols-1 md-grid-cols-2" style="gap: 1.5rem">
+              <div class="feature-card">
+                <div class="feature-card-header">
+                  <i class="fas fa-seedling"></i>
+                  <h4>Garantìas de supervivencia</h4>
+                </div>
+                <p>
+                  Reposición si la planta en condiciones adecuadas no se pega
+                </p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-header">
+                  <i class="fas fa-hand-holding-water"></i>
+                  <h4>Descuentos</h4>
+                </div>
+                <p>
+                  Descuento por valores más de 10,000 posturas un 10% de
+                  descuento.
+                </p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-header">
+                  <i class="fas fa-graduation-cap"></i>
+                  <h4>Asesorìa</h4>
+                </div>
+                <p>Brindamos asesoría postventa (manejo del cultivo).</p>
+              </div>
+              <div class="feature-card">
+                <div class="feature-card-header">
+                  <i class="fas fa-truck"></i>
+                  <h4>Transporte</h4>
+                </div>
+                <p>
+                  Apoyamos a los productores en el transporte en grandes
+                  compras.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="project-section-block">
+            <h3>Aliados comerciales</h3>
+            <p>
+              Proyecto de Desarrollo local Cámaras Térmicas las Guasimas se
+              elavora en colaboración con:
+            </p>
+          </div>
+          <div>
+            <ul class="project-list">
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span>Empresa Agroindustrial América libre</span>
+              </li>
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span>Empresa cafetalera Rolando ayúd</span>
+              </li>
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span>Empresa Agroindustrial azucarera América libre</span>
+              </li>
+              <li class="project-list-item">
+                <i class="fas fa-check-circle"></i
+                ><span>Empresa agropecuaria Laguna Blanca</span>
+              </li>
+            </ul>
+            <br />
+            <div class="sponsors-list">
+              <div class="sponsor-logo-container">
+                <img
+                  src="/media/images1.png"
+                  alt="Patrocinador 1"
+                  class="sponsor-logo"
+                />
+              </div>
+              <div class="sponsor-logo-container">
+                <img src="/media/images.jpg" class="sponsor-logo" />
+              </div>
+              <div class="sponsor-logo-container">
+                <img src="/media/images2.png" class="sponsor-logo" />
+              </div>
+              <div class="sponsor-logo-container">
+                <img src="/media/Laguna blanca.png" class="sponsor-logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location & Contact Section -->
+      <section id="ubicacion" class="section section-gray">
+        <div class="container">
+          <h2 class="section-title">Ubicación y Contacto</h2>
+          <div class="grid grid-cols-1 lg-grid-cols-2">
+            <div>
+              <div class="contact-card">
+                <h3>Horario de Atención</h3>
+                <p>
+                  <span class="font-medium">Lunes a Viernes:</span> 8:00 AM -
+                  5:00 PM
+                </p>
+                <p>
+                  <span class="font-medium">Sábados:</span> 8:00 AM - 12:00 PM
+                </p>
+              </div>
+              <div class="contact-card">
+                <h3>Contacto Directo</h3>
+                <div class="contact-info-item">
+                  <i class="fas fa-phone-alt"></i><span>+53 55638567</span>
+                </div>
+                <div class="contact-info-item">
+                  <i class="fab fa-whatsapp text-xl"></i
+                  ><a href="https://wa.me/5355638567"
+                    >Envíanos un mensaje(Toca aquì!!)</a
+                  >
+                </div>
+                <div class="contact-info-item">
+                  <i class="fas fa-envelope"></i
+                  ><span>contacto@verdevida.cu</span>
+                </div>
+                <div class="contact-info-item">
+                  <i class="fas fa-map-marker-alt"></i
+                  ><span
+                    >Santiago de Cuba, Contramaestre, Las Guàsimas, Parque
+                    Solar</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.028946603084!2d-76.21166481685036!3d20.31395839091608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ece110075d1f5a1%3A0x19dddcc56b275804!2sPanel%20fotovolt%C3%A1ico%20LAS%20GUSIMAS!5e1!3m2!1ses!2sus!4v1753260362728!5m2!1ses!2sus"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Contact Section -->
+      <section
+        id="contacto"
+        class="section section-white final-contact-section"
+      >
+        <div class="container">
+          <h2 class="final-contact-title">¿Listo para comenzar tu huerto?</h2>
+          <p class="final-contact-subtitle">
+            Contáctanos hoy mismo y recibe asesoría personalizada para
+            seleccionar las mejores plantas para tus necesidades.
+          </p>
+          <div class="final-contact-buttons">
+            <a href="https://wa.me/5355638567" class="btn btn-primary"
+              ><i class="fab fa-whatsapp"></i> WhatsApp</a
+            >
+            <a href="tel:+5312345678" class="btn btn-secondary"
+              ><i class="fas fa-phone-alt"></i> Llamar</a
+            >
+          </div>
+          <div class="social-links">
+            <a href="#" onclick="alert('Aún en desarrollo')"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" onclick="alert('Aún en desarrollo')"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+      <div class="cart-sidebar">
+        <div class="cart-content">
+          <div class="cart-header">
+            <h3 class="cart-title">Tu Carrito</h3>
+            <button onclick="closeCart()" class="close-cart-btn">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div id="cart-items">
+            <p class="empty-cart-message">Tu carrito está vacío</p>
+          </div>
+          <div class="cart-summary">
+            <div class="summary-row">
+              <span>Subtotal:</span><span id="cart-subtotal">0 CUP</span>
+            </div>
+            <div class="summary-row">
+              <span>Servicio (opcional):</span
+              ><span id="cart-service">0 CUP</span>
+            </div>
+            <div class="summary-total">
+              <span>Total:</span><span id="cart-total">0 CUP</span>
+            </div>
+            <button
+              id="checkout-btn"
+              onclick="checkout()"
+              class="btn btn-primary"
+            >
+              Realizar Compra
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content grid-cols-1 md-grid-cols-4">
+          <div class="footer-column">
+            <h4>Cámaras Térmicas Las Guásimas</h4>
+            <p>Posturas de plantas de calidad para tu hogar o negocio.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Enlaces Rápidos</h4>
+            <ul class="footer-links">
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#productos">Productos</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#nosotros">Sobre Nosotros</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul class="footer-contact-list">
+              <li class="footer-contact-item">
+                <i class="fas fa-phone-alt"></i><span>+53 12345678</span>
+              </li>
+              <li class="footer-contact-item">
+                <i class="fas fa-envelope"></i
+                ><span>contacto@verdevida.cu</span>
+              </li>
+              <li class="footer-contact-item">
+                <i class="fas fa-map-marker-alt"></i
+                ><span
+                  >Santiago de Cuba, Contramaestre, Las Guàsimas, Parque
+                  Solar</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Proyecto Càmara Tèrmica Las Guàsimas. Todos los derechos
+            reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Cart functionality
+      let cart = {
+        items: [],
+        service: false,
+      };
+
+      // Open/close cart
+      function openCart() {
+        document.getElementById("cart-modal").style.display = "block";
+        updateCartDisplay();
+      }
+
+      function closeCart() {
+        document.getElementById("cart-modal").style.display = "none";
+      }
+
+      // Quantity controls
+      function incrementQuantity(productId) {
+        const quantityInput = document.getElementById(`${productId}-quantity`);
+        let quantity = parseInt(quantityInput.value);
+        quantity++;
+        quantityInput.value = quantity;
+        updateProductTotal(productId);
+      }
+
+      function decrementQuantity(productId) {
+        const quantityInput = document.getElementById(`${productId}-quantity`);
+        let quantity = parseInt(quantityInput.value);
+        if (quantity > 0) {
+          quantity--;
+          quantityInput.value = quantity;
+          updateProductTotal(productId);
+        }
+      }
+
+      // Update quantity from input field
+      function updateQuantityFromInput(productId) {
+        const quantityInput = document.getElementById(`${productId}-quantity`);
+        let quantity = parseInt(quantityInput.value);
+        // Ensure quantity is not negative
+        if (isNaN(quantity) || quantity < 0) {
+          quantity = 0;
+          quantityInput.value = 0;
+        }
+        updateProductTotal(productId);
+      }
+
+      function updateProductTotal(productId) {
+        const quantity = parseInt(
+          document.getElementById(`${productId}-quantity`).value
+        );
+        let price = 0;
+        switch (productId) {
+          case "tomate":
+            price = 25;
+            break;
+          case "lechuga":
+            price = 25;
+            break;
+          case "pimiento":
+            price = 12;
+            break;
+        }
+        const total = quantity * price;
+        document.getElementById(`${productId}-total`).textContent = total;
+      }
+
+      // Add to cart
+      function addToCart(productId, productName, price) {
+        const quantityInput = document.getElementById(`${productId}-quantity`);
+        const quantity = parseInt(quantityInput.value);
+        if (quantity <= 0) return;
+
+        const existingItemIndex = cart.items.findIndex(
+          (item) => item.id === productId
+        );
+        if (existingItemIndex !== -1) {
+          cart.items[existingItemIndex].quantity += quantity;
+        } else {
+          cart.items.push({
+            id: productId,
+            name: productName,
+            price: price,
+            quantity: quantity,
+          });
+        }
+
+        quantityInput.value = "0"; // Reset input field after adding to cart
+        document.getElementById(`${productId}-total`).textContent = "0";
+        updateCartCount();
+        showCartNotification(
+          `${quantity} ${productName} añadido(s) al carrito`
+        );
+      }
+
+      function removeFromCart(productId) {
+        cart.items = cart.items.filter((item) => item.id !== productId);
+        updateCartDisplay();
+        updateCartCount();
+      }
+
+      // Update cart display
+      function updateCartDisplay() {
+        const cartItemsElement = document.getElementById("cart-items");
+        const checkoutBtn = document.getElementById("checkout-btn");
+
+        if (cart.items.length === 0) {
+          cartItemsElement.innerHTML =
+            '<p class="empty-cart-message">Tu carrito está vacío</p>';
+          checkoutBtn.style.display = "none";
+        } else {
+          let itemsHTML = "";
+          let subtotal = 0;
+          cart.items.forEach((item) => {
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            itemsHTML += `
+              <div class="cart-item">
+                <div class="cart-item-details">
+                  <h4>${item.name}</h4>
+                  <p>${item.price} CUP x ${item.quantity}</p>
+                </div>
+                <div class="cart-item-actions">
+                  <span class="cart-item-price">${itemTotal} CUP</span>
+                  <button onclick="removeFromCart('${item.id}')" class="remove-from-cart-btn"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>`;
+          });
+          cartItemsElement.innerHTML = itemsHTML;
+
+          document.getElementById(
+            "cart-subtotal"
+          ).textContent = `${subtotal} CUP`;
+          document.getElementById("cart-total").textContent = `${subtotal} CUP`; // Assuming no service for now
+          checkoutBtn.style.display = "block";
+        }
+      }
+
+      // Update cart count
+      function updateCartCount() {
+        const totalCount = cart.items.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        document.getElementById("cart-count").textContent = totalCount;
+        document.getElementById("mobile-cart-count").textContent = totalCount;
+      }
+
+      // Checkout function
+      function checkout() {
+        if (cart.items.length === 0) return;
+        let message =
+          "¡Hola! Estoy interesado en los siguientes productos:\n\n";
+        let total = 0;
+        cart.items.forEach((item) => {
+          const itemTotal = item.quantity * item.price;
+          total += itemTotal;
+          message += `- ${item.name}: ${item.quantity} x ${item.price} CUP = ${itemTotal} CUP\n`;
+        });
+        message += `\nTotal: ${total} CUP\n\nPor favor, indíqueme cómo proceder con la compra.`;
+        const encodedMessage = encodeURIComponent(message);
+        window.open(
+          `https://wa.me/5355638567?text=${encodedMessage}`,
+          "_blank"
+        );
+      }
+
+      // Show notification
+      function showCartNotification(message) {
+        const notification = document.createElement("div");
+        notification.style.position = "fixed";
+        notification.style.bottom = "1rem";
+        notification.style.right = "1rem";
+        notification.style.backgroundColor = "var(--color-green-600)";
+        notification.style.color = "white";
+        notification.style.padding = "0.5rem 1rem";
+        notification.style.borderRadius = "0.5rem";
+        notification.style.boxShadow =
+          "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)";
+        notification.style.transition = "opacity 0.3s ease";
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.style.opacity = "0";
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+
+      // Scroll animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.querySelectorAll("section").forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>
