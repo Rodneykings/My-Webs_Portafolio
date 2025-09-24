@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Portfolio - Donde el Código Encuentra la Automatización</title>
+    <meta name="description" content="Desarrollo web y automatización con bots para potenciar tu negocio digital">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00F5FF',
+                        secondary: '#FF00FF',
+                        dark: '#0A0A0A',
+                        darkgray: '#1A1A1A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(26,26,26,0.95) 100%);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00F5FF;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .btn-primary {
+            background: transparent;
+            border: 2px solid #00F5FF;
+            color: #00F5FF;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 15px #00F5FF;
+            color: #0A0A0A;
+        }
+        .btn-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #00F5FF;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        .btn-primary:hover:before {
+            left: 0;
+        }
+        .service-card {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 245, 255, 0.2);
+            border-color: #00F5FF;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .project-card img {
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        .tech-tag {
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+        }
+        .form-input {
+            background: rgba(26, 26, 26, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #00F5FF;
+            box-shadow: 0 0 0 2px rgba(0, 245, 255, 0.2);
+        }
+        .matrix-text {
+            color: rgba(0, 245, 255, 0.3);
+            animation: matrixFall 5s linear infinite;
+        }
+        @keyframes matrixFall {
+            0% { transform: translateY(-100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00F5FF;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .cursor-outline {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #00F5FF;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease-out;
+            mix-blend-mode: difference;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark bg-opacity-90 backdrop-filter backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-xl font-bold text-primary">NEXUS_RR</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-white px-3 py-2 text-sm font-medium">Inicio</a>
+                        <a href="#about" class="nav-link text-white px-3 py-2 text-sm font-medium">Sobre Mí</a>
+                        <a href="#services" class="nav-link text-white px-3 py-2 text-sm font-medium">Servicios</a>
+                        <a href="#projects" class="nav-link text-white px-3 py-2 text-sm font-medium">Proyectos</a>
+                        <a href="#contact" class="nav-link text-white px-3 py-2 text-sm font-medium">Contacto</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div id="vanta-globe" class="absolute inset-0"></div>
+        <div class="hero-bg absolute inset-0"></div>
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 font-title tracking-tight">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Construyo Experiencias Digitales</span>
+                <br>y Automatizo tu Futuro
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Desarrollo webs a medida y creo bots inteligentes que trabajan por ti.
+            </p>
+            <a href="#services" class="btn-primary px-8 py-3 rounded-full font-medium text-lg inline-flex items-center">
+                Explora mis Servicios
+                <i data-feather="arrow-right" class="ml-2"></i>
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-400 hover:text-primary">
+                <i data-feather="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <div class="relative w-full h-96 bg-darkgray rounded-xl overflow-hidden">
+                        <img src="http://static.photos/technology/640x360/42" alt="Avatar Digital" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-primary"></div>
+                                <div class="w-3 h-3 rounded-full bg-secondary"></div>
+                                <div class="w-3 h-3 rounded-full bg-white"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-primary bg-opacity-20 backdrop-filter backdrop-blur-sm border border-primary border-opacity-30 flex items-center justify-center">
+                        <i data-feather="code" class="text-primary w-10 h-10"></i>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-title">
+                        <span class="text-primary">No solo escribo código,</span>
+                        <br>resuelvo problemas.
+                    </h2>
+                    <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+                        Soy un desarrollador obsesionado con la elegancia del código y el poder de la automatización. Creo que la tecnología debe liberar tu tiempo, no robártelo. Con más de 5 años de experiencia, he ayudado a decenas de empresas a optimizar sus procesos y establecer una presencia digital impactante.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-primary mr-2"></i>
+                            <span class="text-gray-300">Desarrollo Web Personalizado</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-primary mr-2"></i>
+                            <span class="text-gray-300">Automatización de Procesos</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-primary mr-2"></i>
+                            <span class="text-gray-300">Soluciones Escalables</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn-primary px-6 py-2 rounded-full font-medium inline-flex items-center">
+                        Contáctame
+                        <i data-feather="send" class="ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-darkgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-title">¿Cómo puedo ayudarte?</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Ofrezco soluciones digitales completas que combinan diseño atractivo con funcionalidad potente.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-6">
+                        <i data-feather="code" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Sitios Web a Medida</h3>
+                    <p class="text-gray-400 mb-6">Diseño y desarrollo sitios web rápidos, seguros y optimizados para conversiones. Desde landing pages impactantes hasta portales complejos.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">HTML5</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">CSS3</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">React</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">WordPress</span>
+                    </div>
+                    <a href="#contact" class="text-primary inline-flex items-center text-sm font-medium">
+                        Solicitar presupuesto
+                        <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-secondary bg-opacity-10 flex items-center justify-center mb-6">
+                        <i data-feather="cpu" class="text-secondary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Automatización con Bots</h3>
+                    <p class="text-gray-400 mb-6">Automatizo tareas repetitivas: scraping de datos, gestión de redes sociales, envío de reportes, etc. Tus procesos, en piloto automático.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">Python</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">Selenium</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">BeautifulSoup</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">APIs</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">Node.js</span>
+                    </div>
+                    <a href="#contact" class="text-secondary inline-flex items-center text-sm font-medium">
+                        Automatiza tu negocio
+                        <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-full bg-white bg-opacity-10 flex items-center justify-center mb-6">
+                        <i data-feather="trending-up" class="text-white w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Consultoría Tecnológica</h3>
+                    <p class="text-gray-400 mb-6">¿Tienes una idea? Te ayudo a planificar la mejor estrategia tecnológica para hacerla realidad con un enfoque en resultados medibles.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">Estrategia</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">SEO</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">UX/UI</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">Analítica</span>
+                        <span class="tech-tag px-3 py-1 rounded-full text-xs">Optimización</span>
+                    </div>
+                    <a href="#contact" class="text-white inline-flex items-center text-sm font-medium">
+                        Agenda una consulta
+                        <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-title">Proyectos Destacados</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Una selección de mis trabajos recientes donde la tecnología y el diseño se unen para crear soluciones efectivas.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card group relative rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="http://static.photos/technology/640x360/101" alt="Proyecto Automatización" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">Sistema de Automatización Whatsapp</h3>
+                        <p class="text-gray-300 text-sm mb-4">Bot que automatiza procesos de ventas y reportes para empresa retail.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">Python</span>
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">Selenium</span>
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">Excel</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card group relative rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="http://static.photos/minimal/640x360/202" alt="Proyecto Web" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">Landing Page Moderna</h3>
+                        <p class="text-gray-300 text-sm mb-4">Sitios web  personalizado para negocios y servicios.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">React</span>
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">Tailwind</span>
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">Node.js</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            
+                            <a href="https://miraggiodesign.netlify.app/" class="text-xs text-white font-medium">Visitar Sitio</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card group relative rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <img src="http://static.photos/office/640x360/303" alt="Proyecto E-commerce" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-xl font-bold mb-2">Tienda Online con Chatbot</h3>
+                        <p class="text-gray-300 text-sm mb-4">E-commerce integrado con bot para atención al cliente.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">AI Chatbot</span>
+                            <span class="tech-tag px-2 py-1 rounded-full text-xs">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            
+                            <a href="" class="text-xs text-white font-medium">Visitar Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#contact" class="btn-primary px-8 py-3 rounded-full font-medium inline-flex items-center">
+                    ¿Quieres algo similar?
+                    <i data-feather="message-circle" class="ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-darkgray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-title">Hablemos de tu próximo proyecto.</h2>
+                    <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+                        Ya sea que necesites un sitio web, automatización de procesos o asesoría tecnológica, estoy aquí para ayudarte. Completa el formulario o contáctame directamente a través de mis redes.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="text-primary mr-4"></i>
+                            <span class="text-gray-300">kingschaconrodney@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="phone" class="text-primary mr-4"></i>
+                            <span class="text-gray-300">+15 99618-4033</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-12 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold text-primary">RR_Corp</span>
+                    <p class="text-gray-500 mt-2 text-sm">Donde el código encuentra la automatización</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-500 hover:text-primary transition-colors">Inicio</a>
+                    <a href="#about" class="text-gray-500 hover:text-primary transition-colors">Sobre Mí</a>
+                    <a href="#services" class="text-gray-500 hover:text-primary transition-colors">Servicios</a>
+                    <a href="#projects" class="text-gray-500 hover:text-primary transition-colors">Proyectos</a>
+                    <a href="#contact" class="text-gray-500 hover:text-primary transition-colors">Contacto</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Matrix Effect -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-1/4 matrix-text">1010101</div>
+            <div class="absolute top-20 left-3/4 matrix-text">1101010</div>
+            <div class="absolute top-40 left-1/5 matrix-text">1001101</div>
+            <div class="absolute top-60 left-2/3 matrix-text">0110101</div>
+            <div class="absolute top-80 left-1/3 matrix-text">1010011</div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Vanta.js Globe Background
+        VANTA.GLOBE({
+            el: "#vanta-globe",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x00f5ff,
+            backgroundColor: 0x0a0a0a,
+            size: 0.8
+        });
+        
+        // Custom Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: 'forwards' });
+        });
+        
+        // Add hover effect to interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, .service-card, .project-card');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorOutline.style.borderColor = '#00F5FF';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorOutline.style.borderColor = '#00F5FF';
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        const mobileMenu = document.querySelector('.md\\:hidden + .hidden');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
