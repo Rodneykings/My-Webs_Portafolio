@@ -6,13 +6,7 @@
     <title>UTS – Under The Skin Piercing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<script type="module">
-	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-	createChat({
-		webhookUrl: 'YOUR_PRODUCTION_WEBHOOK_URL'
-	});
-</script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
         
@@ -972,7 +966,13 @@
        class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300 z-50">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
+	createChat({
+		webhookUrl: 'YOUR_PRODUCTION_WEBHOOK_URL'
+	});
+</script>
     <script>
         // Mobile menu toggle
         document.getElementById('menu-toggle').addEventListener('click', function() {
@@ -997,4 +997,5 @@
     </script>
 </body>
 </html>
+
 
