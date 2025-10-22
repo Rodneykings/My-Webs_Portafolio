@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SneakPeak Elite - Tênis desportivos premium com estilo e conforto. Envio rápido e garantia de qualidade.">
+    <title>SneakPeak Elite | Tênis Desportivos Premium</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .cart-item-enter {
+            animation: slideIn 0.3s forwards;
+        }
+        .cart-item-exit {
+            animation: slideOut 0.3s forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="shopping-bag" class="text-blue-600"></i>
+                <span class="text-xl font-bold text-gray-800">SneakPeak Elite</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-600 hover:text-blue-600 transition">Início</a>
+                <a href="#catalogo" class="text-gray-600 hover:text-blue-600 transition">Catálogo</a>
+                <a href="#beneficios" class="text-gray-600 hover:text-blue-600 transition">Vantagens</a>
+                <a href="#testimonios" class="text-gray-600 hover:text-blue-600 transition">Depoimentos</a>
+                <a href="#contacto" class="text-gray-600 hover:text-blue-600 transition">Contato</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="cart-btn" class="relative">
+                    <i data-feather="shopping-cart" class="text-gray-700 hover:text-blue-600 transition"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
+                <button class="md:hidden" id="mobile-menu-button">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="#inicio" class="block py-2 text-gray-600 hover:text-blue-600 transition">Início</a>
+            <a href="#catalogo" class="block py-2 text-gray-600 hover:text-blue-600 transition">Catálogo</a>
+            <a href="#beneficios" class="block py-2 text-gray-600 hover:text-blue-600 transition">Vantagens</a>
+            <a href="#testimonios" class="block py-2 text-gray-600 hover:text-blue-600 transition">Depoimentos</a>
+            <a href="#contacto" class="block py-2 text-gray-600 hover:text-blue-600 transition">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+        <img src="Jordan Aesthetic.jpeg" alt="Tênis desportivos" class="absolute inset-0 w-full h-full object-cover opacity-70">
+        <div class="hero-gradient absolute inset-0"></div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in">Estilo e conforto em cada passo</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">Descubra a nossa coleção exclusiva de tênis desenhados para o seu desempenho e estilo.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#catalogo" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition transform hover:scale-105 shadow-lg">Ver catálogo</a>
+                <a href="#beneficios" class="bg-white hover:bg-gray-100 text-gray-800 font-medium py-3 px-8 rounded-lg transition transform hover:scale-105 shadow-lg">Saber mais</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#catalogo" class="animate-bounce">
+                <i data-feather="chevron-down" class="text-white h-10 w-10"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Product Catalog -->
+    <section id="catalogo" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">O Nosso Catálogo</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Selecione os seus tênis favoritos e eleve o seu estilo para o próximo nível.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="imagen-1.avif" alt="Tênis Velocity Pro" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Velocity Pro</h3>
+                        <p class="text-gray-600 mb-4">Tênis ultraleves para corrida com amortecimento responsivo.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$120.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="1" data-name="Velocity Pro" data-price="120.00" data-image="http://static.photos/sport/640x360/1">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="imagen-2.avif" alt="Tênis Flex Air" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Flex Air</h3>
+                        <p class="text-gray-600 mb-4">Tênis de treino com máxima flexibilidade e suporte.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$95.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="2" data-name="Flex Air" data-price="95.00" data-image="http://static.photos/sport/640x360/2">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="imagen-3.avif" alt="Tênis Cloud Comfort" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Cloud Comfort</h3>
+                        <p class="text-gray-600 mb-4">Amortecimento premium para conforto durante todo o dia.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$110.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="3" data-name="Cloud Comfort" data-price="110.00" data-image="http://static.photos/sport/640x360/3">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="imagen-4.jpg" alt="Tênis Trail Master" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Trail Master</h3>
+                        <p class="text-gray-600 mb-4">Design robusto para trilhos com tração superior.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$135.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="4" data-name="Trail Master" data-price="135.00" data-image="http://static.photos/sport/640x360/4">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="imagen-5.jpg" alt="Tênis Urban Style" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Urban Style</h3>
+                        <p class="text-gray-600 mb-4">Design moderno para uso diário com conforto.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$85.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="5" data-name="Urban Style" data-price="85.00" data-image="http://static.photos/sport/640x360/5">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="imagen-7.jpg" alt="Tênis Performance Pro" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Performance Pro</h3>
+                        <p class="text-gray-600 mb-4">Tecnologia avançada para atletas profissionais.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$150.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="6" data-name="Performance Pro" data-price="150.00" data-image="http://static.photos/sport/640x360/6">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="imagen-6.jpg" alt="Tênis Lite Runner" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Lite Runner</h3>
+                        <p class="text-gray-600 mb-4">Tênis minimalistas para corridas rápidas.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$75.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="7" data-name="Lite Runner" data-price="75.00" data-image="http://static.photos/sport/640x360/7">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/sport/640x360/8" alt="Tênis All Terrain" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">All Terrain</h3>
+                        <p class="text-gray-600 mb-4">Versáteis para qualquer superfície e condição.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$125.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="8" data-name="All Terrain" data-price="125.00" data-image="http://static.photos/sport/640x360/8">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/sport/640x360/9" alt="Tênis Retro Classic" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Retro Classic</h3>
+                        <p class="text-gray-600 mb-4">Estilo vintage com conforto moderno.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$90.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="9" data-name="Retro Classic" data-price="90.00" data-image="http://static.photos/sport/640x360/9">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="http://static.photos/sport/640x360/10" alt="Tênis Future Tech" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Future Tech</h3>
+                        <p class="text-gray-600 mb-4">Inovação em design e tecnologia desportiva.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-blue-600">$160.00</span>
+                            <button class="add-to-cart bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition" data-id="10" data-name="Future Tech" data-price="160.00" data-image="http://static.photos/sport/640x360/10">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="beneficios" class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Por que nos escolher?</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12">Oferecemos a melhor experiência em calçado desportivo com vantagens exclusivas.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="award" class="text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Qualidade Premium</h3>
+                    <p class="opacity-90">Materiais de primeira qualidade que garantem durabilidade e máximo desempenho.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="truck" class="text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Envio Rápido</h3>
+                    <p class="opacity-90">Entrega em 24-48 horas na maioria das principais cidades.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="shield" class="text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Garantia Total</h3>
+                    <p class="opacity-90">30 dias para devoluções sem problemas se não estiver satisfeito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">O que os nossos clientes dizem</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Clientes satisfeitos que confiam na nossa qualidade e serviço.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/1" alt="Cliente satisfeito" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Carlos Mendoza</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Os Velocity Pro são incríveis para correr. Leves e com ótimo amortecimento. Recomendo 100%!"</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/2" alt="Cliente satisfeito" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Ana Rodríguez</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Comprei os Cloud Comfort para trabalhar e são super confortáveis. Não sinto dor nos pés após 8 horas."</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/3" alt="Cliente satisfeito" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Luis Fernández</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Excelente serviço ao cliente. Tive um problema com o meu pedido e resolveram imediatamente. Voltarei a comprar."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Seu Carrinho</h2>
+                    <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                
+                <div id="cart-items" class="mb-6 space-y-4">
+                    <!-- Cart items will be added here dynamically -->
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4 mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-semibold">Subtotal:</span>
+                        <span id="cart-subtotal">$0.00</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-semibold">Envio:</span>
+                        <span id="cart-shipping">$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-lg font-bold">
+                        <span>Total:</span>
+                        <span id="cart-total">$0.00</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                  
+                    <button id="whatsapp-btn" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-medium transition flex items-center justify-center">
+                        <i data-feather="message-square" class="mr-2"></i>
+                        Finalizar via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">SneakPeak Elite</h3>
+                    <p class="text-gray-400">Calçado desportivo premium para quem busca estilo e desempenho.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition">Início</a></li>
+                        <li><a href="#catalogo" class="text-gray-400 hover:text-white transition">Catálogo</a></li>
+                        <li><a href="#beneficios" class="text-gray-400 hover:text-white transition">Vantagens</a></li>
+                        <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Depoimentos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i data-feather="mail" class="mr-2 w-4 h-4"></i> <span class="text-gray-400">contacto@sneakpeakelite.com</span></li>
+                        <li class="flex items-center"><i data-feather="phone" class="mr-2 w-4 h-4"></i> <span class="text-gray-400">+1 234 567 890</span></li>
+                        <li class="flex items-center"><i data-feather="map-pin" class="mr-2 w-4 h-4"></i> <span class="text-gray-400">Rua Falsa 123, Cidade</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="youtube"></i></a>
+                    </div>
+                 
+                </div>
+            </div>
+            
+          
+        </div>
+    </footer>
+
+    <!-- Admin Panel (Hidden by default) -->
+   
+    <script>
+        // Initialize feather icons
+        feather.replace();
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Cart functionality
+        let cart = [];
+        const cartBtn = document.getElementById('cart-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartShipping = document.getElementById('cart-shipping');
+        const cartTotal = document.getElementById('cart-total');
+        const cartCount = document.getElementById('cart-count');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const whatsappBtn = document.getElementById('whatsapp-btn');
+        
+        // Add to cart
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+                const image = button.getAttribute('data-image');
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        image,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                animateCartButton();
+            });
+        });
+        
+        // Update cart UI
+        function updateCart() {
+            // Update cart items
+            cartItemsContainer.innerHTML = '';
+            
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'flex justify-between items-center cart-item-enter';
+                
+                cartItem.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg mr-4">
+                        <div>
+                            <h4 class="font-medium">${item.name}</h4>
+                            <p class="text-gray-600 text-sm">$${item.price.toFixed(2)} x ${item.quantity}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="decrease-quantity text-gray-500 hover:text-red-600 mr-2" data-id="${item.id}">
+                            <i data-feather="minus" class="w-4 h-4"></i>
+                        </button>
+                        <span>${item.quantity}</span>
+                        <button class="increase-quantity text-gray-500 hover:text-green-600 ml-2" data-id="${item.id}">
+                            <i data-feather="plus" class="w-4 h-4"></i>
+                        </button>
+                        <button class="remove-item text-gray-500 hover:text-red-600 ml-4" data-id="${item.id}">
+                            <i data-feather="trash" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            // Update totals
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 0 ? 9.99 : 0;
+            const total = subtotal + shipping;
+            
+            // Textos do carrinho traduzidos
+            cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+            cartShipping.textContent = `$${shipping.toFixed(2)}`;
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+            
+            feather.replace();
+            
+            // Add event listeners to new buttons (logic remains the same)
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    
+                    updateCart();
+                });
+            });
+            
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    const item = cart.find(item => item.id === id);
+                    item.quantity += 1;
+                    updateCart();
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    cart = cart.filter(item => item.id !== id);
+                    updateCart();
+                });
+            });
+        }
+        
+        // Animate cart button
+        function animateCartButton() {
+            cartBtn.classList.add('animate-ping');
+            setTimeout(() => {
+                cartBtn.classList.remove('animate-ping');
+            }, 500);
+        }
+        
+        // Toggle cart modal
+        cartBtn.addEventListener('click', () => {
+            cartModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // WhatsApp integration
+        whatsappBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+            
+            let message = 'Olá, estou interessado nos seguintes produtos:\n\n';
+            
+            cart.forEach(item => {
+                message += `- ${item.name} (${item.quantity} x $${item.price.toFixed(2)})\n`;
+            });
+            
+            // Tradução do texto do WhatsApp
+            message += `\nTotal: $${parseFloat(cartTotal.textContent.substring(1)).toFixed(2)}\n\n`;
+            message += 'Por favor, avise-me como devo proceder com a compra. Obrigado/Obrigada!';
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/5515997233685?text=${encodedMessage}`, '_blank');
+        });
+        
+        // Admin panel functionality (hidden by default)
+        const adminPanel = document.getElementById('admin-panel');
+        const adminBtn = document.getElementById('admin-btn');
+        const adminModal = document.getElementById('admin-modal');
+        const closeAdmin = document.getElementById('close-admin');
+        const productSelect = document.getElementById('admin-product-select');
+        const productName = document.getElementById('admin-product-name');
+        const productPrice = document.getElementById('admin-product-price');
+        const productDesc = document.getElementById('admin-product-desc');
+        const productImage = document.getElementById('admin-product-image');
+        const saveBtn = document.getElementById('admin-save-btn');
+        const deleteBtn = document.getElementById('admin-delete-btn');
+        
+        // For demo purposes, show admin panel after 5 seconds
+        setTimeout(() => {
+            adminPanel.classList.remove('hidden');
+        }, 5000);
+        
+        adminBtn.addEventListener('click', () => {
+            adminModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeAdmin.addEventListener('click', () => {
+            adminModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        productSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'new') {
+                // Reset form for new product
+                productName.value = '';
+                productPrice.value = '';
+                productDesc.value = '';
+                productImage.value = '';
+                deleteBtn.style.display = 'none';
+            } else {
+                // Load product data (in a real app, this would come from a backend)
+                const productId = e.target.value;
+                const productButtons = document.querySelectorAll(`.add-to-cart[data-id="${productId}"]`);
+                
+                if (productButtons.length > 0) {
+                    const button = productButtons[0];
+                    productName.value = button.getAttribute('data-name');
+                    productPrice.value = button.getAttribute('data-price');
+                    productImage.value = button.getAttribute('data-image');
+                    
+                    // Find description (this is a hack for the demo)
+                    const productCard = button.closest('.product-card');
+                    if (productCard) {
+                        const descElement = productCard.querySelector('p.text-gray-600');
+                        if (descElement) {
+                            productDesc.value = descElement.textContent;
+                        }
+                    }
+                    
+                    deleteBtn.style.display = 'block';
+                }
+            }
+        });
+        
+        saveBtn.addEventListener('click', () => {
+            // In a real app, this would save to a database
+            // For this demo, we'll just show an alert
+            // Tradução do alert (substituído por console.log para evitar alert nativo)
+            console.log('Alterações salvas (simulado)');
+            adminModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        deleteBtn.addEventListener('click', () => {
+            // Utilizando confirm simulado com console.log
+            if (true) { // Substitua por uma lógica de modal real se necessário
+                console.log('Produto eliminado (simulado)');
+                adminModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Smooth scrolling for anchor links (no need for translation)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simple animations on scroll (no need for translation)
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.product-card, .testimonial-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation (no need for translation)
+        document.querySelectorAll('.product-card, .testimonial-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+    </script>
+</body>
+</html>
