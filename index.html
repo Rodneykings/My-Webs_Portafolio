@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella's – Estética Avançada</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blush': '#FFD6E0',
+                        'rose': '#FF9BB3',
+                        'gold': '#E8C39E',
+                        'soft-pink': '#FFF0F5',
+                        'deep-rose': '#D85A7F',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+          hero{
+          background-image: url('background.jpg');
+          }
+        .hero-gradient {
+            background-image: url('BELLASS .jpg');
+            background-size: cover;
+            background-position: center;
+           
+       
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(216, 90, 127, 0.1), 0 10px 10px -5px rgba(216, 90, 127, 0.04);
+        }
+        .gold-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #E8C39E, transparent);
+        }
+        /* Estilos para el modal */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-inactive {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .floating-btn-container {
+            position: fixed;
+            bottom: 16px;
+            left: 16px; /* Posicionado à esquerda para evitar conflito */
+            z-index: 50;
+        }
+
+        .floating-btn {
+            background-color: white;
+            color: black;
+            border-radius: 9999px;
+            padding: 8px 7px; /* Ajustado para ser menos quadrado */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2); /* Sombra mais discreta */
+            display: flex;
+            align-items: center;
+            transition: all 0.5s ease-in-out;
+            border: none;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-btn:hover {
+            background-color: #fbbf24;
+            box-shadow: 0 15px 20px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        .floating-btn img { 
+            width: 40px; 
+            height: 40px;
+            border-radius: 9999px;
+            margin-right: 8px;
+        }
+
+        .floating-btn span {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333; /* Cor do texto no botão */
+            white-space: nowrap; /* Impede quebra de linha */
+        }
+        
+        /* Animação de Flutuação */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Styles for Modal (Existing) */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-soft-pink font-body text-deep-rose">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-display font-semibold text-deep-rose">Cubana Bellezaria</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#sobre" class="hover:text-rose transition">Sobre Nós</a>
+                <a href="#servicos" class="hover:text-rose transition">Serviços</a>
+                <a href="#depoimentos" class="hover:text-rose transition">Depoimentos</a>
+                <a href="#contato" class="hover:text-rose transition">Contato</a>
+            </div>
+            <!-- Botão de agendamento que abre o modal -->
+            <button onclick="openBookingModal('Agendamento Geral')" class="bg-rose text-white px-4 py-2 rounded-full hover:bg-deep-rose transition shadow-sm">
+                Agende seu horárioa
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-[80vh] flex items-center">
+        <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6" style="color: rgba(193, 51, 122, 0.8);  text-shadow: 0 4px 10px rgba(255, 182, 193, 0.6),
+                      0 0 25px rgba(164, 67, 116, 0.4);">Beleza</h1>  <h1 style="color: rgba(194, 18, 106, 0.8);" class="text-4xl md:text-5xl font-display font-bold text-white mb-6"> que realça sua essência</h1>
+                <p class="text-xl text-white mb-8" style="color: rgba(194, 18, 106, 0.8);">Beleza detalhada, toque profissional e o charme único que transforma cada cuidado em um momento especial.</p>
+                <div class="flex space-x-4">
+                    <!-- Botão de agendamento que abre o modal -->
+                    <button onclick="openBookingModal('Agendamento Geral')" class="bg-white text-rose px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition shadow-lg">
+                        Agende seu horário
+                    </button>
+                    <a href="#servicos" class="border-2 border-white text-rose px-6 py-3 rounded-full hover:bg-white hover:text-rose transition">
+                        Nossos serviços
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gold rounded-full opacity-20 blur-md"></div>
+                    <img src="Captura de tela 2025-11-19 105459.png" alt="Isabela Ávila" class="relative rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-white shadow-xl" style="width: 500px; height: 500px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 flex justify-center">
+                    <img src="CODIGO (169) copiar-Photoroom.png" alt="Isabela Ávila" class="rounded-lg w-full max-w-md shadow-lg" style="border-radius: 40px;">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-display font-bold text-deep-rose mb-6">Sobre Nós</h2>
+                    <p class="text-lg mb-6">Especialistas em manicure, pedicure e depilação, oferecendo resultados duradouros, higiene impecável e estética que valoriza sua feminilidade. Aqui, cada atendimento é feito com carinho e técnica para você sair ainda mais linda e confiante.</p>
+                    <div class="gold-divider my-6"></div>
+                    <div class="flex items-center">
+                        <div class="bg-blush rounded-full p-3 mr-4">
+                            <i data-feather="heart" class="text-rose"></i>
+                        </div>
+                        <p class="text-sm">Especialista Noelvis com 10+ anos de experiência em estetica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-20 bg-soft-pink">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold text-deep-rose mb-4">Nossos Serviços</h2>
+                <p class="max-w-2xl mx-auto">Tratamentos personalizados para realçar sua beleza natural com tecnologia avançada.</p>
+            </div>
+            
+            <div id="service-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <img src="manicure tradi.png" alt="Depilação a LED" class="w-full h-48 object-cover" style="height: 480px;">
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Manicure Tradicional</h3>
+                        <p class="text-sm mb-4">Corte, limpeza, remoção de cutículas e esmaltação perfeita. Um cuidado clássico para manter suas unhas sempre bonitas e bem-feitas.
+</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-lg">R$49</span>
+                            <!-- Botão de agendamento específico para o serviço -->
+                            <button onclick="openBookingModal('Manicure Tradicional (R$49)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <img src="manicure em gel.png" alt="Limpeza de Pele" class="w-full h-48 object-cover" style="height: 480px;">
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Manicure em Gel</h3>
+                        <p class="text-sm mb-4">
+                                Unhas duradouras, brilhantes e resistentes. Ideal para quem deseja esmaltação que dura semanas sem descascar.
+</p>
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-lg">R$59</span>
+                                <span class="font-medium text-sm text-gray-500"></span>
+                            </div>
+                            <!-- Botão de agendamento específico para o serviço -->
+                            <button onclick="openBookingModal('Manicure em Gel (R$59)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <img src="remoçao de cuticula.png" alt="Botox" class="w-full h-48 object-cover" style="height: 480px;">
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Remoção de Cutícula</h3>
+                        <p class="text-sm mb-4">Limpeza cuidadosa das cutículas para manter o aspecto saudável e elegante das unhas.</p>
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-lg">R$39</span>
+                                <span class="font-medium text-sm text-gray-500"></span>
+                            </div>
+                            <!-- Botão de agendamento específico para o serviço -->
+                            <button onclick="openBookingModal('Remoção de Cutícula')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <img src="remoçao gel.png" alt="Crio Modelagem" class="w-full h-48 object-cover" style="height: 480px;">
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Remoção de Esmalte em Gel</h3>
+                        <p class="text-sm mb-4">Processo seguro para retirar o gel sem danificar as unhas naturais.
+</p>
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-lg">R$29</span>
+                                <span class="font-medium text-sm text-gray-500"></span>
+                            </div>
+                            <!-- Botão de agendamento específico para o serviço -->
+                            <button onclick="openBookingModal('Remoção de Esmalte em Gel (R29)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <img src="polimento e brilho.png" alt="Microagulhamento" class="w-full h-48 object-cover" style="height: 480px;">
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Polimento e Brilho</h3>
+                        <p class="text-sm mb-4">Deixa as unhas lisas, uniformes e com brilho natural. Perfeito para quem gosta de um visual discreto e bem cuidado.
+</p>
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-lg">R$39</span>
+                                <span class="font-medium text-sm text-gray-500"></span>
+                            </div>
+                            <!-- Botão de agendamento específico para o serviço -->
+                            <button onclick="openBookingModal('Polimento e Brilho (R$49)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <img src="esmaltaçao.png" alt="Jato de Plasma" class="w-full h-48 object-cover" style="height: 480px;">
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-semibold mb-2">Esmaltação</h3>
+                        <p class="text-sm mb-4">
+Aplicação de esmalte com acabamento limpo e uniforme. Ideal para quem quer praticidade e rapidez.</p>
+                        <div class="flex justify-between items-center w-full">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-lg"></span>
+                                <span class="font-medium text-sm text-gray-500"></span>
+                            </div>
+                            <!-- Botão de agendamento específico para o serviço -->
+                            <button onclick="openBookingModal('Esmaltação (R$69)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NOVOS SERVIÇOS (Início) -->
+                <div id="hidden-services" class="contents">
+                    <!-- Service Card 7 (Oculto por padrão) -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="depilaçao barba.png" alt="Preenchimento Facial" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Depilação de Barba</h3>
+                            <p class="text-sm mb-4">
+Remoção dos pelos da barba com cera, garantindo um acabamento limpo, pele lisa e resultado duradouro. Ideal para quem busca praticidade, menos irritação e um visual mais polido
+</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$109</span>
+                                <button onclick="openBookingModal('Depilação de Barba (R$109)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 8 (Oculto por padrão) -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="depilaçao pernas.png" alt="Bioestimulador de Colágeno" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Depilação de Pernas
+</h3>
+                            <p class="text-sm mb-4">
+Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e com acabamento uniforme. O método reduz o crescimento rápido dos pelos e proporciona semanas de suavidade.
+</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$119  </span>
+                                <button onclick="openBookingModal('Depilação de Pernas (R$119)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 9 (Oculto por padrão) -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="depilaçao inti.png" alt="Massagem Modeladora" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Depilação Íntima</h3>
+                            <p class="text-sm mb-4">Procedimento realizado com total cuidado e privacidade, utilizando cera para remover os pelos da região íntima com eficiência e conforto. Garante pele lisa por semanas, reduzindo o crescimento dos pelos
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$139</span>
+                                <button onclick="openBookingModal('Depilação Íntima (R$139)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 10 (Oculto por padrão) -->    
+
+                </div>
+
+
+
+
+                <!-- NOVOS SERVIÇOS (Fim) -->
+
+            </div>
+            
+            <div id="view-all-button-container" class="text-center mt-12">
+                <!-- Botão que agora chama a função para mostrar todos os serviços -->
+                <button id="view-all-button" onclick="showAllServices()" class="inline-block bg-rose text-white px-8 py-3 rounded-full font-medium hover:bg-deep-rose transition shadow-lg">
+                    Ver todos os procedimentos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+
+
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-20 bg-gradient-to-b from-blush to-rose">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-display font-bold text-white mb-6">Horário e Localização</h2>
+                    
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm p-6 rounded-lg mb-8">
+                        <div class="flex items-start mb-4">
+                            <i data-feather="map-pin" class="mr-3 text-white"></i>
+                            <div>
+                                <h3 class="font-medium text-white mb-1">Endereço</h3>
+                                <p class="text-white text-opacity-90">Rua Anhanguera<br>Sorocaba – SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <i data-feather="clock" class="mr-3 text-white"></i>
+                            <div>
+                                <h3 class="font-medium text-white mb-1">Horário</h3>
+                                <p class="text-white text-opacity-90">
+                                    Segunda a Sexta: 8h às 20h<br>
+                                    Sábado: 8h às 15h
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i data-feather="phone" class="mr-3 text-white"></i>
+                            <div>
+                                <h3 class="font-medium text-white mb-1">Contato</h3>
+                                <p class="text-white text-opacity-90">(15)99622-3906</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+           
+                </div>
+                
+                <div class="md:w-1/2 md:pl-12">
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d321.09727161289436!2d-47.456256558236696!3d-23.49200405537103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sbr!4v1763566639470!5m2!1ses!2sbr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-deep-rose text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">Pronta para realçar sua beleza natural?</h2>
+            <p class="max-w-2xl mx-auto mb-8">Agende sua avaliação gratuita e descubra o tratamento perfeito para você.</p>
+            <!-- Botão de agendamento que abre o modal -->
+            <button onclick="openBookingModal('Avaliação Gratuita')" class="inline-block bg-white text-deep-rose px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition shadow-lg">
+                Agende agora
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-display font-semibold text-deep-rose mb-2">Bellazaria</div>
+                    <p class="text-sm">A Cubana</p>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="https://www.instagram.com " class="text-deep-rose hover:text-rose transition">
+                        <i data-feather="instagram"></i>
+                    </a>
+                    <a href="#" class="text-deep-rose hover:text-rose transition">
+                        <i data-feather="facebook"></i>
+                    </a>
+                    <a href="https://wa.me/5515996223906" target="_blank" class="text-deep-rose hover:text-rose transition">
+                        <i data-feather="message-square"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-sm mb-2">Sua beleza merece cuidado de nível avançado <span class="text-rose">💗</span></p>
+                    <a href="https://wa.me/5515996223906" target="_blank" class="text-sm underline hover:text-rose transition">
+                        (15)99622-3906 (WhatsApp)
+                    </a>
+                </div>
+            </div>
+            
+            <div class="gold-divider my-8"></div>
+            
+          
+        </div>
+    </footer>
+
+    <!-- Booking Modal (Sistema de Agendamento WhatsApp) -->
+    <div id="bookingModal" class="modal modal-inactive fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden transform transition-all sm:my-8 sm:w-full">
+            <!-- Modal Header -->
+            <div class="bg-rose p-6 flex justify-between items-center">
+                <h3 class="text-xl font-display font-semibold text-white">Agende Seu Horário <span id="modalServiceTitle" class="font-light text-sm block"></span></h3>
+                <button onclick="closeBookingModal()" class="text-white hover:text-blush transition">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Formulario) -->
+            <form id="bookingForm" class="p-6 space-y-4">
+                <input type="hidden" id="selectedService" name="service" value="Agendamento Geral">
+                
+                <!-- Nome da Cliente -->
+                <div>
+                    <label for="clientName" class="block text-sm font-medium text-deep-rose mb-1">Seu Nome Completo</label>
+                    <input type="text" id="clientName" name="clientName" required class="w-full px-4 py-2 border border-blush rounded-lg focus:ring-rose focus:border-rose transition" placeholder="Ex: Maria da Silva">
+                </div>
+
+                <!-- Serviço (Select, só se o hidden for "Agendamento Geral") -->
+                <div id="serviceSelectContainer">
+                    <label for="serviceSelect" class="block text-sm font-medium text-deep-rose mb-1">Serviço Desejado</label>
+                    <select id="serviceSelect" name="serviceSelect" class="w-full px-4 py-2 border border-blush rounded-lg focus:ring-rose focus:border-rose transition">
+                        <option value="Manicure Tradicional">Manicure Tradicional</option>
+                        <option value="Manicure em Gel">Manicure em Gel</option>
+                        <option value="Remoção de Cutícula">Remoção de Cutícula</option>
+                        <option value="Remoção de Esmalte em Gel">Remoção de Esmalte em Gel</option>
+                        <option value="Peeling de Diamante">Peeling de Diamante</option>
+                        <option value="Polimento e Brilho">Polimento e Brilho</option>
+                        <option value="Esmaltação">Esmaltação</option>
+                        <option value="Depilação de Barba">Depilação de Barba</option>
+                        <option value="Lipoenzimática de Papada">Lipoenzimática de Papada</option>
+                        <!-- Novos Serviços no Modal -->
+                        <option value="Depilação de Pernas">Depilação de Pernas</option>
+                        <option value="Depilação Íntima">Depilação Íntima</option>
+                        <!-- Fim Novos Serviços -->
+                        <option value="Outro Serviço">Outro Serviço (Especificar no WhatsApp)</option>
+                    </select>
+                </div>
+
+                <!-- Data e Hora -->
+                <div class="flex space-x-4">
+                    <div class="w-1/2">
+                        <label for="bookingDate" class="block text-sm font-medium text-deep-rose mb-1">Data</label>
+                        <input type="date" id="bookingDate" name="bookingDate" required class="w-full px-4 py-2 border border-blush rounded-lg focus:ring-rose focus:border-rose transition">
+                    </div>
+                    <div class="w-1/2">
+                        <label for="bookingTime" class="block text-sm font-medium text-deep-rose mb-1">Horário</label>
+                        <select id="bookingTime" name="bookingTime" required class="w-full px-4 py-2 border border-blush rounded-lg focus:ring-rose focus:border-rose transition">
+                            <!-- Opções de horário (preenchidas via JS) -->
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p class="text-sm text-center text-gray-500 pt-2">Ao clicar, enviaremos os dados para nosso WhatsApp para confirmação.</p>
+
+                <!-- Botão de Envio (WhatsApp) -->
+                <button type="submit" class="w-full flex items-center justify-center bg-deep-rose text-white px-6 py-3 rounded-full font-medium hover:bg-rose transition shadow-md">
+                    <i data-feather="message-square" class="w-5 h-5 mr-2"></i> Agendar por WhatsApp
+                </button>
+            </form>
+            
+            <div id="errorMessage" class="hidden text-center p-4 bg-red-100 text-red-600 rounded-b-xl">
+                Por favor, preencha todos os campos obrigatórios.
+            </div>
+        </div>
+    </div>
+
+     <div class="floating-btn-container">
+        <button id="rrcorp-powered-btn" class="floating-btn">
+            <!-- Removi o <a> para que o JS lide com o clique e o link -->
+            <img src="photo_5148097751638805425_y-removebg-preview.png" alt="RRcorp Logo" width="50" height="50">
+            <a href="https://wa.me/5511999184854"><span>Feito por RRcorp</span></a>
+        </button>
+    </div>
+
+    <script>
+        feather.replace();
+        
+        // --- Variáveis Globais e Configurações ---
+        const WHATSAPP_NUMBER = '5515996223906'; // Número com código do país (55) e DDD (15)
+
+        // Elementos do Modal
+        const modal = document.getElementById('bookingModal');
+        const selectedServiceInput = document.getElementById('selectedService');
+        const modalServiceTitle = document.getElementById('modalServiceTitle');
+        const serviceSelectContainer = document.getElementById('serviceSelectContainer');
+        const serviceSelect = document.getElementById('serviceSelect');
+        const bookingForm = document.getElementById('bookingForm');
+        const bookingTimeSelect = document.getElementById('bookingTime');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // Elementos da Seção de Serviços
+        const hiddenServiceCards = document.querySelectorAll('.service-card-extra');
+        const viewAllButton = document.getElementById('view-all-button');
+
+        // Horários disponíveis para seleção (simplificado)
+        const availableTimes = [
+            '08:00', '09:00', '10:00', '11:00', '12:00',
+            '13:00', '14:00', '15:00', '16:00', '17:00',
+            '18:00', '19:00'
+        ];
+
+        // Função para preencher as opções de horário
+        function fillTimeOptions() {
+            bookingTimeSelect.innerHTML = '<option value="">Selecione</option>';
+            availableTimes.forEach(time => {
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                bookingTimeSelect.appendChild(option);
+            });
+        }
+        fillTimeOptions(); // Chama ao carregar a página
+
+        // --- Lógica para mostrar todos os serviços ---
+        function showAllServices() {
+            // Itera sobre todos os cards de serviço extra e remove a classe 'hidden'
+            hiddenServiceCards.forEach(card => {
+                card.classList.remove('hidden');
+            });
+            
+            // Oculta o botão "Ver todos os procedimentos"
+            viewAllButton.classList.add('hidden');
+        }
+
+
+        // --- Funções de Controle do Modal ---
+
+        function openBookingModal(serviceName) {
+            // 1. Configura o serviço no modal
+            selectedServiceInput.value = serviceName;
+
+            if (serviceName === 'Agendamento Geral' || serviceName === 'Avaliação Gratuita') {
+                // Se for geral ou avaliação, mostra o seletor de serviços completo
+                modalServiceTitle.textContent = '';
+                serviceSelectContainer.style.display = 'block';
+                // Pré-seleciona a avaliação se o clique veio do CTA inferior
+                if (serviceName === 'Avaliação Gratuita') {
+                    serviceSelect.value = 'Avaliação Gratuita';
+                } else {
+                    serviceSelect.value = ''; // Reseta para o padrão 'Avaliação Gratuita'
+                }
+            } else {
+                // Se for um serviço específico (clicou no botão + do card)
+                modalServiceTitle.textContent = `(${serviceName})`;
+                serviceSelectContainer.style.display = 'none';
+                // Define o valor do select (necessário para o formulário)
+                // Remove o preço do final do nome para encontrar o valor correto no select
+                let cleanServiceName = serviceName.includes(' (R$') ? serviceName.split(' (R$')[0] : serviceName;
+                serviceSelect.value = cleanServiceName; 
+            }
+            
+            // 2. Garante que a data mínima seja hoje
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('bookingDate').setAttribute('min', today);
+            
+            // 3. Abre o modal
+            modal.classList.remove('modal-inactive');
+            modal.classList.add('modal-active');
+            errorMessage.classList.add('hidden'); // Oculta qualquer erro anterior
+        }
+
+        function closeBookingModal() {
+            modal.classList.remove('modal-active');
+            modal.classList.add('modal-inactive');
+            bookingForm.reset(); // Limpa o formulário ao fechar
+        }
+
+        // Fecha o modal ao clicar fora
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeBookingModal();
+            }
+        });
+
+        // --- Lógica de Envio para WhatsApp ---
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Pega os valores
+            const clientName = document.getElementById('clientName').value.trim();
+            const date = document.getElementById('bookingDate').value;
+            const time = bookingTimeSelect.value;
+            
+            // Determina o serviço final a ser enviado
+            let finalService = selectedServiceInput.value;
+            if (serviceSelectContainer.style.display !== 'none') {
+                finalService = serviceSelect.options[serviceSelect.selectedIndex].text;
+            }
+
+            // Validação (simples, apenas verifica se os campos obrigatórios estão preenchidos)
+            if (!clientName || !date || !time || !finalService) {
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            errorMessage.classList.add('hidden');
+
+            // Formatação da Data para PT-BR
+            const [year, month, day] = date.split('-');
+            const formattedDate = `${day}/${month}/${year}`;
+
+            // Mensagem para o WhatsApp
+            const message = `Olá, Bella's Estética Avançada!%0A%0AGostaria de agendar um horário para o seguinte serviço:%0A*Serviço:* ${finalService}%0A*Nome:* ${clientName}%0A*Data/Hora Sugerida:* ${formattedDate} às ${time}%0A%0APor favor, confirme a disponibilidade. Obrigada!`;
+
+            // Abre o WhatsApp
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Fecha o modal após o envio
+            closeBookingModal();
+        });
+
+        // --- Outros Scripts ---
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Substituir as imagens placeholder de depoimentos
+        document.querySelector('img[alt="Camila R."]').src = 'https://placehold.co/200x200/FFD6E0/D85A7F?text=C';
+        document.querySelector('img[alt="Júlia F."]').src = 'https://placehold.co/200x200/FFD6E0/D85A7F?text=J';
+
+    </script>
+</body>
+</html>
