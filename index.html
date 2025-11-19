@@ -107,25 +107,6 @@
             50% { transform: translateY(-8px); }
         }
 
-         @media (max-width: 400px) {
-                .hero-img {
-                    width: 230px !important;
-                    height: 230px !important;
-                    border-radius: 50% !important;
-                }
-                .hero-btn {
-                    padding-top: 6px !important;
-                    padding-bottom: 6px !important;
-                }
-                .hero-title {
-                    font-size: 2.5rem !important;
-                    line-height: 1.1;
-                }
-                .hero-subtitle {
-                    font-size: 1.7rem !important;
-                    line-height: 1.1;
-                }
-            }
         /* Styles for Modal (Existing) */
         .modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -136,7 +117,7 @@
     <!-- Navigation -->
     <nav class="bg-white shadow-sm py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-display font-semibold text-deep-rose">Cubana Bellezaria</div>
+            <div class="text-2xl font-display font-semibold text-deep-rose">Bella's Estética Avançada</div>
             <div class="hidden md:flex space-x-8">
                 <a href="#sobre" class="hover:text-rose transition">Sobre Nós</a>
                 <a href="#servicos" class="hover:text-rose transition">Serviços</a>
@@ -149,73 +130,32 @@
             </button>
         </div>
     </nav>
-<section class="hero-gradient min-h-[80vh] flex items-center">
-    <div class="container mx-auto px-6 py-10 flex flex-col md:flex-row items-center">
 
-        <style>
-            @media (max-width: 400px) {
-                .hero-img {
-                    width: 230px !important;
-                    height: 230px !important;
-                    border-radius: 50% !important;
-                }
-                .hero-btn {
-                    padding-top: 6px !important;
-                    padding-bottom: 6px !important;
-                }
-                .hero-title {
-                    font-size: 2.5rem !important;
-                    line-height: 1.1;
-                }
-                .hero-subtitle {
-                    font-size: 1.7rem !important;
-                    line-height: 1.1;
-                }
-            }
-        </style>
-
-        <div class="md:w-1/2 mb-10 md:mb-0">
-            <h1 class="hero-title text-5xl md:text-7xl font-display font-bold mb-4"
-                style="color: rgba(193, 51, 122, 0.8); text-shadow: 0 4px 10px rgba(255, 182, 193, 0.6),
-                0 0 25px rgba(164, 67, 116, 0.4);">
-                Beleza
-            </h1>
-
-            <h2 class="hero-subtitle text-4xl md:text-5xl font-display font-bold mb-4"
-                style="color: rgba(194, 18, 106, 0.8);">
-                que realça sua essência
-            </h2>
-
-            <p class="text-xl mb-6" style="color: rgba(194, 18, 106, 0.8);">
-                Beleza detalhada, toque profissional e o charme único que transforma cada cuidado em um momento especial.
-            </p>
-
-            <div class="flex space-x-4">
-                <button onclick="openBookingModal('Agendamento Geral')"
-                    class="hero-btn bg-white text-rose px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition shadow-lg">
-                    Agende seu horário
-                </button>
-
-                <a href="#servicos"
-                    class="hero-btn border-2 border-white text-rose px-6 py-2 rounded-full hover:bg-white hover:text-rose transition">
-                    Nossos serviços
-                </a>
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-[80vh] flex items-center">
+        <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6" style="color: rgba(193, 51, 122, 0.8);  text-shadow: 0 4px 10px rgba(255, 182, 193, 0.6),
+                      0 0 25px rgba(164, 67, 116, 0.4);">Beleza</h1>  <h1 style="color: rgba(194, 18, 106, 0.8);" class="text-4xl md:text-5xl font-display font-bold text-white mb-6"> reflete cuidado.</h1>
+                <p class="text-xl text-white mb-8" style="color: rgba(194, 18, 106, 0.8);">Especialista em cuidados faciais e corporais em Sorocaba.</p>
+                <div class="flex space-x-4">
+                    <!-- Botão de agendamento que abre o modal -->
+                    <button onclick="openBookingModal('Agendamento Geral')" class="bg-white text-rose px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition shadow-lg">
+                        Agende seu horário
+                    </button>
+                    <a href="#servicos" class="border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-rose transition">
+                        Nossos serviços
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gold rounded-full opacity-20 blur-md"></div>
+                    <img src="Captura de tela 2025-10-13 135409.png" alt="Isabela Ávila" class="relative rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-white shadow-xl" style="width: 500px; height: 500px;">
+                </div>
             </div>
         </div>
-
-        <div class="md:w-1/2 flex justify-center">
-            <div class="relative">
-                <div class="absolute -inset-4 bg-gold rounded-full opacity-20 blur-md"></div>
-
-                <img src="Captura de tela 2025-11-19 105459.png"
-                    alt="Isabela Ávila"
-                    class="hero-img relative rounded-full object-cover border-4 border-white shadow-xl"
-                    style="width: 500px; height: 500px;">
-            </div>
-        </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- About Section -->
     <section id="sobre" class="py-20 bg-white">
@@ -226,13 +166,13 @@
                 </div>
                 <div class="md:w-1/2 md:pl-12">
                     <h2 class="text-3xl font-display font-bold text-deep-rose mb-6">Sobre Nós</h2>
-                    <p class="text-lg mb-6">Especialistas em manicure, pedicure e depilação, oferecendo resultados duradouros, higiene impecável e estética que valoriza sua feminilidade. Aqui, cada atendimento é feito com carinho e técnica para você sair ainda mais linda e confiante.</p>
+                    <p class="text-lg mb-6">Na Bella's Estética Avançada, unimos tecnologia e carinho para realçar sua beleza natural. Cada tratamento é feito com atenção e amor, pensado especialmente para você.</p>
                     <div class="gold-divider my-6"></div>
                     <div class="flex items-center">
                         <div class="bg-blush rounded-full p-3 mr-4">
                             <i data-feather="heart" class="text-rose"></i>
                         </div>
-                        <p class="text-sm">Especialista Noelvis com 10+ anos de experiência em estetica.</p>
+                        <p class="text-sm">Especialista Isabela Ávila com 10+ anos de experiência em estética avançada.</p>
                     </div>
                 </div>
             </div>
@@ -250,15 +190,15 @@
             <div id="service-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service Card 1 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
-                    <img src="manicure tradi.png" alt="Depilação a LED" class="w-full h-48 object-cover" style="height: 480px;">
+                    <img src="Laser Pisom.png" alt="Depilação a LED" class="w-full h-48 object-cover" style="height: 480px;">
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Manicure Tradicional</h3>
-                        <p class="text-sm mb-4">Corte, limpeza, remoção de cutículas e esmaltação perfeita. Um cuidado clássico para manter suas unhas sempre bonitas e bem-feitas.
+                        <h3 class="font-display text-xl font-semibold mb-2">Laser Pisom</h3>
+                        <p class="text-sm mb-4">Tecnologia de alta performance que estimula o colágeno, melhora a textura da pele e trata manchas, rugas e flacidez facial com resultados visíveis já nas primeiras sessões.
 </p>
                         <div class="flex justify-between items-center">
-                            <span class="font-medium text-lg">R$49</span>
+                            <span class="font-medium text-lg">R$449,90/sessão</span>
                             <!-- Botão de agendamento específico para o serviço -->
-                            <button onclick="openBookingModal('Manicure Tradicional (R$49)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                            <button onclick="openBookingModal('Laser Pisom (R$449,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
                                 Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                             </button>
                         </div>
@@ -267,19 +207,19 @@
                 
                 <!-- Service Card 2 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
-                    <img src="manicure em gel.png" alt="Limpeza de Pele" class="w-full h-48 object-cover" style="height: 480px;">
+                    <img src="Limpeza de Pele.png" alt="Limpeza de Pele" class="w-full h-48 object-cover" style="height: 480px;">
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Manicure em Gel</h3>
+                        <h3 class="font-display text-xl font-semibold mb-2">Limpeza de Pele</h3>
                         <p class="text-sm mb-4">
-                                Unhas duradouras, brilhantes e resistentes. Ideal para quem deseja esmaltação que dura semanas sem descascar.
+Tratamento que realiza a limpeza profunda da pele, removendo impurezas, células mortas e comedões. O peeling de diamante promove renovação celular e melhora a textura e o viço da pele.
 </p>
                         <div class="flex justify-between items-center w-full">
                             <div class="flex flex-col">
-                                <span class="font-medium text-lg">R$59</span>
-                                <span class="font-medium text-sm text-gray-500"></span>
+                                <span class="font-medium text-lg">R$159/sessão</span>
+                                <span class="font-medium text-sm text-gray-500">R$359,70/3 sessões</span>
                             </div>
                             <!-- Botão de agendamento específico para o serviço -->
-                            <button onclick="openBookingModal('Manicure em Gel (R$59)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                            <button onclick="openBookingModal('Limpeza de Pele (R$159,00)')" class="text-rose hover:text-deep-rose transition flex items-center">
                                 Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                             </button>
                         </div>
@@ -288,17 +228,18 @@
                 
                 <!-- Service Card 3 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
-                    <img src="remoçao de cuticula.png" alt="Botox" class="w-full h-48 object-cover" style="height: 480px;">
+                    <img src="Botox (Toxina Botulínica).png" alt="Botox" class="w-full h-48 object-cover" style="height: 480px;">
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Remoção de Cutícula</h3>
-                        <p class="text-sm mb-4">Limpeza cuidadosa das cutículas para manter o aspecto saudável e elegante das unhas.</p>
+                        <h3 class="font-display text-xl font-semibold mb-2">Botox</h3>
+                        <p class="text-sm mb-4">Toxina botulínica aplicada para suavizar linhas de expressão e rugas dinâmicas, proporcionando um aspecto natural e rejuvenescido.
+</p>
                         <div class="flex justify-between items-center w-full">
                             <div class="flex flex-col">
-                                <span class="font-medium text-lg">R$39</span>
-                                <span class="font-medium text-sm text-gray-500"></span>
+                                <span class="font-medium text-lg">R$809,90</span>
+                                <span class="font-medium text-sm text-gray-500">Full face R$1049,90</span>
                             </div>
                             <!-- Botão de agendamento específico para o serviço -->
-                            <button onclick="openBookingModal('Remoção de Cutícula')" class="text-rose hover:text-deep-rose transition flex items-center">
+                            <button onclick="openBookingModal('Botox')" class="text-rose hover:text-deep-rose transition flex items-center">
                                 Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                             </button>
                         </div>
@@ -307,18 +248,18 @@
                 
                 <!-- Service Card 4 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
-                    <img src="remoçao gel.png" alt="Crio Modelagem" class="w-full h-48 object-cover" style="height: 480px;">
+                    <img src="Peeling de Diamante.png" alt="Crio Modelagem" class="w-full h-48 object-cover" style="height: 480px;">
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Remoção de Esmalte em Gel</h3>
-                        <p class="text-sm mb-4">Processo seguro para retirar o gel sem danificar as unhas naturais.
+                        <h3 class="font-display text-xl font-semibold mb-2">Peeling de Diamante</h3>
+                        <p class="text-sm mb-4">Esfoliação mecânica que remove as células mortas, melhora a textura da pele e estimula a renovação celular, proporcionando luminosidade e suavidade imediata.
 </p>
                         <div class="flex justify-between items-center w-full">
                             <div class="flex flex-col">
-                                <span class="font-medium text-lg">R$29</span>
-                                <span class="font-medium text-sm text-gray-500"></span>
+                                <span class="font-medium text-lg">R$99,90/sessão</span>
+                                <span class="font-medium text-sm text-gray-500">R$239,90/3 sessões</span>
                             </div>
                             <!-- Botão de agendamento específico para o serviço -->
-                            <button onclick="openBookingModal('Remoção de Esmalte em Gel (R29)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                            <button onclick="openBookingModal('PEELING DE DIAMANTE (R$99,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
                                 Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                             </button>
                         </div>
@@ -327,18 +268,18 @@
                 
                 <!-- Service Card 5 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
-                    <img src="polimento e brilho.png" alt="Microagulhamento" class="w-full h-48 object-cover" style="height: 480px;">
+                    <img src="Microagulhamento.png" alt="Microagulhamento" class="w-full h-48 object-cover" style="height: 480px;">
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Polimento e Brilho</h3>
-                        <p class="text-sm mb-4">Deixa as unhas lisas, uniformes e com brilho natural. Perfeito para quem gosta de um visual discreto e bem cuidado.
+                        <h3 class="font-display text-xl font-semibold mb-2">Microagulhamento</h3>
+                        <p class="text-sm mb-4">Procedimento que estimula a produção natural de colágeno por meio de microperfurações controladas, ajudando na melhora de cicatrizes, manchas e rejuvenescimento facial.
 </p>
                         <div class="flex justify-between items-center w-full">
                             <div class="flex flex-col">
-                                <span class="font-medium text-lg">R$39</span>
-                                <span class="font-medium text-sm text-gray-500"></span>
+                                <span class="font-medium text-lg">R$249,90/sessão</span>
+                                <span class="font-medium text-sm text-gray-500">R$619,90/3 sessões</span>
                             </div>
                             <!-- Botão de agendamento específico para o serviço -->
-                            <button onclick="openBookingModal('Polimento e Brilho (R$49)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                            <button onclick="openBookingModal('Microagulhamento (R$249,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
                                 Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                             </button>
                         </div>
@@ -347,18 +288,18 @@
                 
                 <!-- Service Card 6 -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
-                    <img src="esmaltaçao.png" alt="Jato de Plasma" class="w-full h-48 object-cover" style="height: 480px;">
+                    <img src="Jato de Plasma.png" alt="Jato de Plasma" class="w-full h-48 object-cover" style="height: 480px;">
                     <div class="p-6">
-                        <h3 class="font-display text-xl font-semibold mb-2">Esmaltação</h3>
+                        <h3 class="font-display text-xl font-semibold mb-2">Jato de Plasma</h3>
                         <p class="text-sm mb-4">
-Aplicação de esmalte com acabamento limpo e uniforme. Ideal para quem quer praticidade e rapidez.</p>
+Tratamento que promove a regeneração e retração da pele, indicado para rejuvenescimento e melhora de manchas, rugas e flacidez palpebral.</p>
                         <div class="flex justify-between items-center w-full">
                             <div class="flex flex-col">
-                                <span class="font-medium text-lg"></span>
-                                <span class="font-medium text-sm text-gray-500"></span>
+                                <span class="font-medium text-lg">R$209,90/sessão</span>
+                                <span class="font-medium text-sm text-gray-500">R$599,90/3 sessões</span>
                             </div>
                             <!-- Botão de agendamento específico para o serviço -->
-                            <button onclick="openBookingModal('Esmaltação (R$69)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                            <button onclick="openBookingModal('Jato de Plasma (R$209,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
                                 Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                             </button>
                         </div>
@@ -369,15 +310,15 @@ Aplicação de esmalte com acabamento limpo e uniforme. Ideal para quem quer pra
                 <div id="hidden-services" class="contents">
                     <!-- Service Card 7 (Oculto por padrão) -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
-                        <img src="depilaçao barba.png" alt="Preenchimento Facial" class="w-full h-48 object-cover" style="height: 480px;">
+                        <img src="Lipoenzimática.png" alt="Preenchimento Facial" class="w-full h-48 object-cover" style="height: 480px;">
                         <div class="p-6">
-                            <h3 class="font-display text-xl font-semibold mb-2">Depilação de Barba</h3>
+                            <h3 class="font-display text-xl font-semibold mb-2">Lipoenzimática</h3>
                             <p class="text-sm mb-4">
-Remoção dos pelos da barba com cera, garantindo um acabamento limpo, pele lisa e resultado duradouro. Ideal para quem busca praticidade, menos irritação e um visual mais polido
+Aplicação de enzimas específicas para auxiliar na quebra da gordura localizada, melhorando o contorno corporal de forma não invasiva.
 </p>
                             <div class="flex justify-between items-center">
-                                <span class="font-medium text-lg">R$109</span>
-                                <button onclick="openBookingModal('Depilação de Barba (R$109)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                <span class="font-medium text-lg">R$799,90/ml</span>
+                                <button onclick="openBookingModal('Lipoenzimática (R$799,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
                                     Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                                 </button>
                             </div>
@@ -386,16 +327,16 @@ Remoção dos pelos da barba com cera, garantindo um acabamento limpo, pele lisa
 
                     <!-- Service Card 8 (Oculto por padrão) -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
-                        <img src="depilaçao pernas.png" alt="Bioestimulador de Colágeno" class="w-full h-48 object-cover" style="height: 480px;">
+                        <img src="Lipoenzimática de Papada.png" alt="Bioestimulador de Colágeno" class="w-full h-48 object-cover" style="height: 480px;">
                         <div class="p-6">
-                            <h3 class="font-display text-xl font-semibold mb-2">Depilação de Pernas
+                            <h3 class="font-display text-xl font-semibold mb-2">Lipoenzimática de Papada
 </h3>
                             <p class="text-sm mb-4">
-Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e com acabamento uniforme. O método reduz o crescimento rápido dos pelos e proporciona semanas de suavidade.
+Aplicação de enzimas que auxiliam na redução da gordura submentoniana (papada), promovendo contorno facial mais definido.
 </p>
                             <div class="flex justify-between items-center">
-                                <span class="font-medium text-lg">R$119  </span>
-                                <button onclick="openBookingModal('Depilação de Pernas (R$119)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                <span class="font-medium text-lg">R$119,90/sessão   </span>
+                                <button onclick="openBookingModal('Lipoenzimática de Papada')" class="text-rose hover:text-deep-rose transition flex items-center">
                                     Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                                 </button>
                             </div>
@@ -404,20 +345,156 @@ Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e 
 
                     <!-- Service Card 9 (Oculto por padrão) -->
                     <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
-                        <img src="depilaçao inti.png" alt="Massagem Modeladora" class="w-full h-48 object-cover" style="height: 480px;">
+                        <img src="Massagem Modeladora.png" alt="Massagem Modeladora" class="w-full h-48 object-cover" style="height: 480px;">
                         <div class="p-6">
-                            <h3 class="font-display text-xl font-semibold mb-2">Depilação Íntima</h3>
-                            <p class="text-sm mb-4">Procedimento realizado com total cuidado e privacidade, utilizando cera para remover os pelos da região íntima com eficiência e conforto. Garante pele lisa por semanas, reduzindo o crescimento dos pelos
+                            <h3 class="font-display text-xl font-semibold mb-2">Massagem Modeladora</h3>
+                            <p class="text-sm mb-4">Técnica manual com movimentos firmes e ritmados que auxiliam na quebra de gordura localizada, melhorando o contorno corporal e a aparência da pele.
+</p>
                             <div class="flex justify-between items-center">
-                                <span class="font-medium text-lg">R$139</span>
-                                <button onclick="openBookingModal('Depilação Íntima (R$139)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                <span class="font-medium text-lg">R$139,90/sessão</span>
+                                <button onclick="openBookingModal('Massagem Modeladora (R$139,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
                                     Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Service Card 10 (Oculto por padrão) -->    
+                    <!-- Service Card 10 (Oculto por padrão) -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="Drenagen Linfatica.png" alt="Drenagem Linfática" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Drenagem Linfática</h3>
+                            <p class="text-sm mb-4">gem terapêutica que estimulla o
+sistema linfático,, promovendo a eliminação
+de toxinas e reduzindo retenção de líquidos,,
+proporcionando sensação de leveza.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$129,90/sessão</span>
+                                <button onclick="openBookingModal('Drenagem Linfática (R$129,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 11 (Oculto por padrão) -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="Radiofrequência Facial.png" alt="Radiofrequência" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Radiofrequência Facial</h3>
+                            <p class="text-sm mb-4">Tecnologia que aquece as camadas mais profundas da pele, estimulando colágeno e elastina. Ideal para flacidez e melhora da firmeza.
+.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$79,90/sessão</span>
+                                <button onclick="openBookingModal('Radiofrequência Facial (R$79,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="radriofrequença Corporal.png" alt="Radiofrequência" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Radiofrequência Corporal</h3>
+                            <p class="text-sm mb-4">Tecnologia que aquece as camadas mais profundas da pele, estimulando colágeno e elastina. Ideal para flacidez e melhora da firmeza.
+.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$79,90/sessão</span>
+                                <button onclick="openBookingModal('Radiofrequência Corporal(R$79,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 12 (Oculto por padrão) -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="Peeling Herbal.png" alt="Criolipólise" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Peeling Herbal</h3>
+                            <p class="text-sm mb-4">Peeling natural à base de extratos vegetais, que promove renovação celular, uniformiza o tom da pele e melhora a textura de forma progressiva.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$249,90/área</span>
+                                <button onclick="openBookingModal('Peeling Herbal (R$249,90)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="Aplicaçao de Vasinho.png" alt="Criolipólise" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2"> Aplicação de Vasinho</h3>
+                            <p class="text-sm mb-4">Procedimento minimamente invasivo para o clareamento e redução de vasinhos aparentes na pele.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">R$90,00/área</span>
+                                <button onclick="openBookingModal('Aplicação de Vasinho (R$90,00)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="tratamento para Celulutis.png" alt="Criolipólise" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Tratamento para Celulite</h3>
+                            <p class="text-sm mb-4">Protocolo personalizado, elaborado conforme o tipo e o grau de celulite. Pode incluir técnicas como lipoenzimática, radiofrequência, ultrassom e criodinâmica para resultados eficazes.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">Valor definido após avaliação.</span>
+                                <button onclick="openBookingModal('Tratamento para Celulite(Após avaliação)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="tratamento Estris.png" alt="Criolipólise" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Tratamento para Estrias</h3>
+                            <p class="text-sm mb-4">
+Tratamento individualizado conforme o tipo e a fase das estrias. As técnicas podem envolver microagulhamento, peelings e radiofrequência fracionada para estimular o colágeno e regenerar a pele.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">Valor definido após avaliação.</span>
+                                <button onclick="openBookingModal('Tratamento para Estrias(Após avaliação)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="Tratamento para Gordura Localizada.png" alt="Criolipólise" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Tratamento para Gordura Localizada</h3>
+                            <p class="text-sm mb-4">
+Protocolo personalizado que pode incluir lipoenzimática, criolipólise, criodinâmica e ultrassom de alta potência, conforme a região e necessidade do cliente.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">Valor definido após avaliação.</span>
+                                <button onclick="openBookingModal('Tratamento para Gordura Localizada(Após avaliação)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover hidden service-card-extra">
+                        <img src="tratamento de flacidez na barriga.png" alt="Criolipólise" class="w-full h-48 object-cover" style="height: 480px;">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-semibold mb-2">Tratamento para Flacidez</h3>
+                            <p class="text-sm mb-4">
+O protocolo é definido de forma individualizada e pode incluir radiofrequência, bioestimuladores e eletroterapia, promovendo firmeza e estímulo de colágeno.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-lg">Valor definido após avaliação.</span>
+                                <button onclick="openBookingModal('Tratamento para Flacidez(Após avaliação)')" class="text-rose hover:text-deep-rose transition flex items-center">
+                                    Agendar <i data-feather="plus-circle" class="w-5 h-5 ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -453,7 +530,7 @@ Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e 
                             <i data-feather="map-pin" class="mr-3 text-white"></i>
                             <div>
                                 <h3 class="font-medium text-white mb-1">Endereço</h3>
-                                <p class="text-white text-opacity-90">Rua Anhanguera<br>Sorocaba – SP</p>
+                                <p class="text-white text-opacity-90">Rua Belmira Loureiro de Almeida, nº 525, Sala 34<br>Sorocaba – SP</p>
                             </div>
                         </div>
                         
@@ -472,7 +549,7 @@ Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e 
                             <i data-feather="phone" class="mr-3 text-white"></i>
                             <div>
                                 <h3 class="font-medium text-white mb-1">Contato</h3>
-                                <p class="text-white text-opacity-90">(15)99622-3906</p>
+                                <p class="text-white text-opacity-90">(11) 99918-4854</p>
                             </div>
                         </div>
                     </div>
@@ -482,7 +559,7 @@ Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e 
                 
                 <div class="md:w-1/2 md:pl-12">
                     <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d321.09727161289436!2d-47.456256558236696!3d-23.49200405537103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sbr!4v1763566639470!5m2!1ses!2sbr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.033776286267!2d-47.432198924008624!3d-23.495292878845273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58b9e9b63e4af%3A0x146839e8a78ce137!2zQmVsbGHigJlzIEVzdMOpdGljYSBBdmFuw6dhZGE!5e0!3m2!1ses!2sbr!4v1760464915635!5m2!1ses!2sbr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -506,26 +583,26 @@ Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e 
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <div class="text-2xl font-display font-semibold text-deep-rose mb-2">Bellazaria</div>
-                    <p class="text-sm">A Cubana</p>
+                    <div class="text-2xl font-display font-semibold text-deep-rose mb-2">Bella's</div>
+                    <p class="text-sm">Estética Avançada em Sorocaba</p>
                 </div>
                 
                 <div class="flex space-x-6 mb-6 md:mb-0">
-                    <a href="https://www.instagram.com " class="text-deep-rose hover:text-rose transition">
+                    <a href="https://www.instagram.com/esteticabellas.avancada?igsh=d2QzeWpkcGxkbnY5 " class="text-deep-rose hover:text-rose transition">
                         <i data-feather="instagram"></i>
                     </a>
                     <a href="#" class="text-deep-rose hover:text-rose transition">
                         <i data-feather="facebook"></i>
                     </a>
-                    <a href="https://wa.me/5515996223906" target="_blank" class="text-deep-rose hover:text-rose transition">
+                    <a href="https://wa.me/5511999184854" target="_blank" class="text-deep-rose hover:text-rose transition">
                         <i data-feather="message-square"></i>
                     </a>
                 </div>
                 
                 <div class="text-center md:text-right">
                     <p class="text-sm mb-2">Sua beleza merece cuidado de nível avançado <span class="text-rose">💗</span></p>
-                    <a href="https://wa.me/5515996223906" target="_blank" class="text-sm underline hover:text-rose transition">
-                        (15)99622-3906 (WhatsApp)
+                    <a href="https://wa.me/5511999184854" target="_blank" class="text-sm underline hover:text-rose transition">
+                        (11) 99918-4854 (WhatsApp)
                     </a>
                 </div>
             </div>
@@ -561,18 +638,27 @@ Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e 
                 <div id="serviceSelectContainer">
                     <label for="serviceSelect" class="block text-sm font-medium text-deep-rose mb-1">Serviço Desejado</label>
                     <select id="serviceSelect" name="serviceSelect" class="w-full px-4 py-2 border border-blush rounded-lg focus:ring-rose focus:border-rose transition">
-                        <option value="Manicure Tradicional">Manicure Tradicional</option>
-                        <option value="Manicure em Gel">Manicure em Gel</option>
-                        <option value="Remoção de Cutícula">Remoção de Cutícula</option>
-                        <option value="Remoção de Esmalte em Gel">Remoção de Esmalte em Gel</option>
+                        <option value="Avaliação Gratuita">Avaliação Gratuita (Recomendado)</option>
+                        <option value="Laser Pisom">Laser Pisom</option>
+                        <option value="Limpeza de Pele">Limpeza de Pele</option>
+                        <option value="Botox">Botox</option>
                         <option value="Peeling de Diamante">Peeling de Diamante</option>
-                        <option value="Polimento e Brilho">Polimento e Brilho</option>
-                        <option value="Esmaltação">Esmaltação</option>
-                        <option value="Depilação de Barba">Depilação de Barba</option>
+                        <option value="Microagulhamento">Microagulhamento</option>
+                        <option value="Jato de Plasma">Jato de Plasma</option>
+                        <option value="Lipoenzimática">Lipoenzimática</option>
                         <option value="Lipoenzimática de Papada">Lipoenzimática de Papada</option>
                         <!-- Novos Serviços no Modal -->
-                        <option value="Depilação de Pernas">Depilação de Pernas</option>
-                        <option value="Depilação Íntima">Depilação Íntima</option>
+                        <option value="Preenchimento Facial">Preenchimento Facial</option>
+                        <option value="Aplicação de Vasinho">Aplicação de Vasinho</option>
+                        <option value="Massagem Modeladora">Massagem Modeladora</option>
+                        <option value="Drenagem Linfática">Drenagem Linfática</option>
+                        <option value="Radiofrequência Facial">Radiofrequência Facial</option>
+                        <option value="Radiofrequência Corporal">Radiofrequência Corporal</option>
+                        <option value="Tratamento para Celulite">Tratamento para Celulite</option>
+                        <option value="Tratamento para Estrias">Tratamento para Estrias</option>
+                        <option value="Tratamento para Gordura Localizada">Tratamento para Gordura Localizada</option>
+                        <option value="Tratamento para Flacidez">Tratamento para Flacidez</option>
+                        <option value="Peeling Herbal">Peeling Herbal</option>
                         <!-- Fim Novos Serviços -->
                         <option value="Outro Serviço">Outro Serviço (Especificar no WhatsApp)</option>
                     </select>
@@ -619,7 +705,7 @@ Remoção completa dos pelos das pernas com cera, deixando a pele lisa, macia e 
         feather.replace();
         
         // --- Variáveis Globais e Configurações ---
-        const WHATSAPP_NUMBER = '5515996223906'; // Número com código do país (55) e DDD (15)
+        const WHATSAPP_NUMBER = '5511999184854'; // Número com código do país (55) e DDD (15)
 
         // Elementos do Modal
         const modal = document.getElementById('bookingModal');
