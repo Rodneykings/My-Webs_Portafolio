@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RR Corp Web Design - Pack Iniciante | Loja de Roupas Elegantes</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f5;
+        }
+        .section-separator {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-stone-800 antialiased">
+
+    <!-- Navbar -->
+    <header class="py-4 shadow-sm bg-white/80 backdrop-blur-sm sticky top-0 z-10 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-xl font-extrabold text-emerald-700 tracking-tight">
+                Moda Elegante
+                <span class="text-xs font-medium text-stone-500 block -mt-1">Seu estilo está aqui</span>
+            </h1>
+
+            <h1 class="text-xl  text-emerald-700 tracking-tight style=font-family: 'Lucida Handwriting', cursive; ">
+                Seja Bem-vinda            </h1>
+        </div>
+    </header>
+
+    <!-- 1. Hero -->
+    <section id="hero" class="section-separator pt-20 pb-24 bg-white/90">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm uppercase text-emerald-600 mb-3 tracking-widest">
+                Moda Consciente e Atemporal
+            </p>
+            <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-stone-900">
+                Vista o Conforto.
+                <span class="block text-emerald-600">Sinta a Elegância.</span>
+            </h2>
+            <p class="text-xl text-stone-600 mb-8 max-w-2xl mx-auto">
+                Criamos peças que se adaptam à sua vida, oferecendo qualidade premium e um estilo único que te faz sentir confiante em qualquer momento.
+            </p>
+            <a href="#contacto" class="inline-block px-8 py-3 bg-emerald-600 text-white font-semibold rounded-full hover:bg-emerald-700 transition duration-300 transform hover:scale-[1.02] card-shadow">
+                Explore Nossa Coleção
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Sobre -->
+    <section id="sobre" class="section-separator bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div class="md:order-2">
+                <div class="rounded-3xl overflow-hidden inline-block">
+                    <img src="hero.jpg" alt="" class="rounded-3xl w-[515px] h-[415px] object-cover">
+                </div>
+            </div>
+            <div class="md:order-1">
+                <h3 class="text-3xl md:text-4xl  mb-4 text-emerald-700">
+                    Nossa História é Seu Estilo
+                </h3>
+                <p class="text-lg text-stone-600 mb-6">
+                    Sou Andrea, uma designer apaixonada por moda sustentável e luxo acessível. Comecei este projeto com a visão de criar um guarda-roupa atemporal, longe do *fast fashion*, onde cada peça conta uma história de cuidado e dedicação.
+                </p>
+                    <p class="text-lg text-stone-600">
+                    Aqui você não compra apenas roupas, você investe em qualidade e em um design que dura. Queremos ser sua marca de confiança para aqueles básicos sofisticados que te acompanham por muitas temporadas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Serviços -->
+    <section id="servicios" class="section-separator">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-3 text-stone-800">
+                    Nossas 3 Promessas de Estilo
+                </h3>
+                <p class="text-xl text-stone-600">
+                    O compromisso que temos com cada cliente e cada peça.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Serviço 1 -->
+                <div class="p-8 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300 transition duration-300">
+                    <div class="w-12 h-12 mb-4 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                        <svg ...></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-stone-900">
+                        1. Materiais Incomparáveis
+                    </h4>
+                    <p class="text-stone-600">
+                        Selecionamos apenas fibras naturais e sustentáveis, garantindo suavidade e durabilidade desde o primeiro uso.
+                    </p>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="p-8 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300 transition duration-300">
+                    <div class="w-12 h-12 mb-4 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                        <svg ...></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-stone-900">
+                        2. Clássicos Modernizados
+                    </h4>
+                    <p class="text-stone-600">
+                        Designs limpos que resistem às modas. Cada corte valoriza sua silhueta com elegância.
+                    </p>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="p-8 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300 transition duration-300">
+                    <div class="w-12 h-12 mb-4 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                        <svg ...></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-stone-900">
+                        3. Envio e Suporte Dedicado
+                    </h4>
+                    <p class="text-stone-600">
+                        Do primeiro clique à entrega, oferecemos atendimento personalizado e envios rápidos e seguros.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+<section id="galeria">
+    <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold mb-3 text-stone-800">
+            Nossa Galeria de Estilos
+        </h1>
+    </div>
+
+    <!-- Galería responsive -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
+
+        <div class="p-4 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300">
+            <img src="imagen_1.jpg" class="w-full max-w-[216px] aspect-[9/16] object-cover rounded-xl">
+        </div>
+
+        <div class="p-4 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300">
+            <img src="imagen_2.jpg" class="w-full max-w-[216px] aspect-[9/16] object-cover rounded-xl">
+        </div>
+
+        <div class="p-4 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300">
+            <img src="imagen_3.jpg" class="w-full max-w-[216px] aspect-[9/16] object-cover rounded-xl">
+        </div>
+
+        <div class="p-4 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300">
+            <img src="imagen_4.jpg" class="w-full max-w-[216px] aspect-[9/16] object-cover rounded-xl">
+        </div>
+
+        <div class="p-4 bg-white rounded-xl card-shadow border border-emerald-100 hover:border-emerald-300">
+            <img src="imagen_5.jpg" class="w-full max-w-[216px] aspect-[9/16] object-cover rounded-xl">
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Testemunhos -->
+    <section id="testimonios" class="section-separator bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold mb-3 text-stone-800">
+                    O que Dizem Nossos Clientes
+                </h3>
+                <p class="text-xl text-stone-600">
+                    Confiança que se sente e se veste.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white rounded-xl card-shadow border-t-4 border-emerald-500">
+                    <p class="text-3xl text-emerald-500 mb-4 font-serif">“</p>
+                    <p class="italic text-lg text-stone-700 mb-4">
+                        "A qualidade superou minhas expectativas. Finalmente encontrei básicos que duram e têm um visual sofisticado. Atendimento rápido e atencioso. Recomendo 100%!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-emerald-200 rounded-full flex items-center justify-center font-bold text-emerald-800 mr-3">M.C.</div>
+                        <div>
+                            <p class="font-semibold text-stone-900">Mariana C.</p>
+                            <p class="text-sm text-stone-500">Compradora recorrente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-white rounded-xl card-shadow border-t-4 border-emerald-500">
+                    <p class="text-3xl text-emerald-500 mb-4 font-serif">“</p>
+                    <p class="italic text-lg text-stone-700 mb-4">
+                        "Minha nova camisa virou minha peça favorita. Extremamente confortável e com corte impecável. Dá para ver que cada detalhe foi feito com cuidado."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-emerald-200 rounded-full flex items-center justify-center font-bold text-emerald-800 mr-3">J.R.</div>
+                        <div>
+                            <p class="font-semibold text-stone-900">Javier R.</p>
+                            <p class="text-sm text-stone-500">Cliente verificado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contacto" class="section-separator">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 md:p-10 rounded-xl card-shadow border border-stone-200">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold mb-2 text-emerald-700">
+                    Conecte-se Conosco
+                </h3>
+                <p class="text-stone-600">
+                    Dúvidas sobre tamanhos ou materiais? Envie-nos uma mensagem.
+                </p>
+            </div>
+
+            <form class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-stone-700 mb-1">Nome</label>
+                    <input type="text" id="name" required
+                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder="Seu nome completo">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-stone-700 mb-1">E-mail</label>
+                    <input type="email" id="email" required
+                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder="exemplo@email.com">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-stone-700 mb-1">Mensagem</label>
+                    <textarea id="message" rows="4" required
+                        class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder="Quero saber mais sobre..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition duration-300 card-shadow">
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-800 text-stone-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <!-- Redes -->
+        </div>
+    </footer>
+
+</body>
+</html>
