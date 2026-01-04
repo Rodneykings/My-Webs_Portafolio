@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPERIO | Alta Costura & Moda Corporativa</title>
+    
+    <!-- Fontes Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração Tailwind Personalizada -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#F9F1D8',
+                            300: '#E4C988',
+                            500: '#D4AF37', // Ouro Clássico
+                            700: '#AA8C2C',
+                            900: '#634F12',
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1c1c1c',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop')",
+                        'texture': "url('https://www.transparenttextures.com/patterns/cubes.png')"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados e animações */
+        body {
+            background-color: #0a0a0a;
+            color: #f3f3f3;
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #D4AF37, #F9F1D8, #D4AF37);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .luxury-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .luxury-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .luxury-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Ocultar barra de rolagem mas permitir rolagem */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37; 
+        }
+
+        /* Animações de entrada */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navegação SPA */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Filtro do Mapa */
+        .map-container iframe {
+            filter: grayscale(100%) invert(92%) contrast(83%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Header / Navegação -->
+    <header class="fixed w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-white/10 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigateTo('home')">
+                    <span class="font-serif text-3xl text-gold-500 tracking-widest font-bold">IMPERIO</span>
+                    <span class="ml-2 text-xs text-gray-400 tracking-[0.3em] uppercase hidden sm:block">Pack by RR Corp</span>
+                </div>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="navigateTo('home')" class="text-white hover:text-gold-300 px-3 py-2 text-sm font-medium tracking-widest transition-colors uppercase">Início</button>
+                    <button onclick="navigateTo('about')" class="text-white hover:text-gold-300 px-3 py-2 text-sm font-medium tracking-widest transition-colors uppercase">Sobre</button>
+                    <button onclick="navigateTo('blog')" class="text-white hover:text-gold-300 px-3 py-2 text-sm font-medium tracking-widest transition-colors uppercase">Journal</button>
+                    <button onclick="navigateTo('contact')" class="text-white hover:text-gold-300 px-3 py-2 text-sm font-medium tracking-widest transition-colors uppercase">Contato</button>
+                </nav>
+
+                <!-- Ações -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="tel:+123456789" class="text-white hover:text-gold-500 transition"><i class="fas fa-phone-alt"></i></a>
+                    <button onclick="navigateTo('contact')" class="border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-black px-6 py-2 text-xs uppercase tracking-widest transition duration-300">Agendar Visita</button>
+                </div>
+
+                <!-- Botão Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-gold-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Painel Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-900 border-t border-gray-800 absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left text-white hover:text-gold-500 px-3 py-4 text-base font-medium border-b border-gray-800">INÍCIO</button>
+                <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left text-white hover:text-gold-500 px-3 py-4 text-base font-medium border-b border-gray-800">SOBRE</button>
+                <button onclick="navigateTo('blog'); toggleMobileMenu()" class="block w-full text-left text-white hover:text-gold-500 px-3 py-4 text-base font-medium border-b border-gray-800">JOURNAL</button>
+                <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left text-white hover:text-gold-500 px-3 py-4 text-base font-medium">CONTATO</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+    <main class="pt-24 min-h-screen">
+        
+        <!-- ======================= HOME PAGE ======================= -->
+        <div id="home" class="page-section active">
+            
+            <!-- Hero Section -->
+            <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+                <!-- Imagem de Fundo & Overlay -->
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10s] hover:scale-105" 
+                     style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974&auto=format&fit=crop');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-dark-900/30"></div>
+
+                <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                    <p class="text-gold-300 text-sm sm:text-base tracking-[0.5em] uppercase mb-4 fade-in-up">Nova Coleção 2025</p>
+                    <h1 class="text-5xl sm:text-7xl md:text-8xl font-serif text-white mb-8 leading-tight fade-in-up" style="transition-delay: 100ms;">
+                        Redefinindo <br><span class="italic text-gold-500">A Elegância</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-light fade-in-up" style="transition-delay: 200ms;">
+                        Onde o artesanato tradicional encontra a visão contemporânea. Uma experiência de moda sem precedentes.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center gap-6 fade-in-up" style="transition-delay: 300ms;">
+                        <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" 
+                                class="luxury-btn bg-gold-500 text-black px-10 py-4 uppercase tracking-widest text-sm font-bold hover:bg-white transition-colors">
+                            Ver Coleção
+                        </button>
+                        <button onclick="navigateTo('about')" 
+                                class="luxury-btn border border-white text-white px-10 py-4 uppercase tracking-widest text-sm font-bold hover:bg-white hover:text-black transition-colors">
+                            Nossa História
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Indicador de Scroll -->
+                <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                    <i class="fas fa-chevron-down text-white/50 text-2xl"></i>
+                </div>
+            </section>
+
+            <!-- Seção da Marca (Storytelling) -->
+            <section class="py-24 bg-dark-900 relative">
+                <div class="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="order-2 lg:order-1 fade-in-up-trigger">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1974&auto=format&fit=crop" alt="Atelier" class="w-full h-auto grayscale hover:grayscale-0 transition duration-700 shadow-2xl border-l-4 border-gold-500">
+                                <div class="absolute -bottom-10 -right-10 bg-dark-800 p-8 border border-gray-800 hidden md:block">
+                                    <p class="font-serif text-4xl text-gold-500">25+</p>
+                                    <p class="text-gray-400 text-xs tracking-widest uppercase mt-2">Anos de Excelência</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 fade-in-up-trigger">
+                            <h2 class="text-gold-500 tracking-[0.2em] text-sm font-bold uppercase mb-4">A Essência</h2>
+                            <h3 class="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">Mais do que roupas, desenhamos <span class="italic text-gray-400">identidade</span>.</h3>
+                            <p class="text-gray-400 mb-6 leading-relaxed text-justify">
+                                Na IMPERIO, acreditamos que o estilo é uma forma de comunicação não verbal. Nascidos da alfaiataria clássica, mas com o olhar no futuro, criamos peças que empoderam quem as veste.
+                            </p>
+                            <p class="text-gray-400 mb-8 leading-relaxed text-justify">
+                                Cada costura conta uma história de dedicação, materiais premium e um design que transcende as tendências passageiras para se tornar um legado.
+                            </p>
+                            <a href="#" onclick="navigateTo('about')" class="inline-block text-white border-b border-gold-500 pb-1 hover:text-gold-500 transition">Conheça a Equipe <i class="fas fa-arrow-right ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Serviços/Produtos -->
+            <section id="products" class="py-24 bg-dark-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in-up-trigger">
+                        <span class="text-gold-500 tracking-[0.2em] text-xs font-bold uppercase">Nossas Divisões</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-white mt-3">Coleções Exclusivas</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Card 1 -->
+                        <div class="group relative overflow-hidden h-96 cursor-pointer fade-in-up-trigger">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('imagen_satre.jpg');"></div>
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h3 class="text-2xl font-serif text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">Alfaiataria Bespoke</h3>
+                                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-4">Ternos feitos sob medida com tecidos italianos.</p>
+                                <span class="text-gold-500 uppercase text-xs tracking-widest border-b border-gold-500 pb-1">Explorar</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="group relative overflow-hidden h-96 cursor-pointer fade-in-up-trigger" style="transition-delay: 100ms;">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=1924&auto=format&fit=crop');"></div>
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h3 class="text-2xl font-serif text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">Prêt-à-porter</h3>
+                                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-4">Moda autoral pronta para vestir.</p>
+                                <span class="text-gold-500 uppercase text-xs tracking-widest border-b border-gold-500 pb-1">Explorar</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="group relative overflow-hidden h-96 cursor-pointer fade-in-up-trigger" style="transition-delay: 200ms;">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1922&auto=format&fit=crop');"></div>
+                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+                            <div class="absolute bottom-0 left-0 p-8 w-full">
+                                <h3 class="text-2xl font-serif text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">Acessórios & Couro</h3>
+                                <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-4">O detalhe final para um look perfeito.</p>
+                                <span class="text-gold-500 uppercase text-xs tracking-widest border-b border-gold-500 pb-1">Explorar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Estudos de Caso (Adaptado para Moda) -->
+            <section class="py-24 bg-dark-900">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-12 fade-in-up-trigger">
+                        <div>
+                            <span class="text-gold-500 tracking-[0.2em] text-xs font-bold uppercase">Nossa Jornada</span>
+                            <h2 class="font-serif text-4xl md:text-5xl text-white mt-3">Histórias de Sucesso &<br> <span class="italic text-gray-500">Colaborações</span></h2>
+                        </div>
+                        <a href="#" class="hidden md:block text-white hover:text-gold-500 transition text-sm tracking-widest uppercase mt-4 md:mt-0">Ver portfólio completo <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Case 1 -->
+                        <div class="bg-dark-800 p-6 hover:bg-dark-700 transition duration-300 border border-white/5 fade-in-up-trigger">
+                            <div class="h-48 mb-6 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover grayscale hover:grayscale-0 transition" alt="CEO Style">
+                            </div>
+                            <span class="text-gold-500 text-xs uppercase tracking-widest">Corporativo</span>
+                            <h3 class="text-xl font-serif text-white mt-2 mb-3">Imagem Executiva "TechGiants"</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Vestimos o conselho de administração de uma Fortune 500 para sua abertura de capital. Elegância moderna que comunica confiança.</p>
+                            <a href="#" class="text-white text-xs uppercase tracking-widest hover:text-gold-500">+ Ler Caso</a>
+                        </div>
+                        
+                        <!-- Case 2 -->
+                        <div class="bg-dark-800 p-6 hover:bg-dark-700 transition duration-300 border border-white/5 fade-in-up-trigger" style="transition-delay: 100ms;">
+                            <div class="h-48 mb-6 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover grayscale hover:grayscale-0 transition" alt="Fashion Week">
+                            </div>
+                            <span class="text-gold-500 text-xs uppercase tracking-widest">Evento</span>
+                            <h3 class="text-xl font-serif text-white mt-2 mb-3">Gala Beneficente Madrid 2024</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Design e confecção de 20 peças exclusivas para os anfitriões do evento mais importante do ano.</p>
+                            <a href="#" class="text-white text-xs uppercase tracking-widest hover:text-gold-500">+ Ler Caso</a>
+                        </div>
+
+                        <!-- Case 3 -->
+                        <div class="bg-dark-800 p-6 hover:bg-dark-700 transition duration-300 border border-white/5 fade-in-up-trigger" style="transition-delay: 200ms;">
+                            <div class="h-48 mb-6 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1770&auto=format&fit=crop" class="w-full h-full object-cover grayscale hover:grayscale-0 transition" alt="Editorial">
+                            </div>
+                            <span class="text-gold-500 text-xs uppercase tracking-widest">Editorial</span>
+                            <h3 class="text-xl font-serif text-white mt-2 mb-3">Vogue: "O Renascimento do Linho"</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Nossa coleção de verão foi destaque em 8 páginas na edição de setembro.</p>
+                            <a href="#" class="text-white text-xs uppercase tracking-widest hover:text-gold-500">+ Ler Caso</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Carrossel de Depoimentos -->
+            <section class="py-24 bg-dark-800 border-t border-white/5">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <i class="fas fa-quote-right text-4xl text-gold-700 mb-8 opacity-50"></i>
+                    
+                    <div id="testimonial-container" class="relative overflow-hidden min-h-[250px]">
+                        <!-- JS injeta os depoimentos aqui -->
+                        <div id="testimonial-track" class="transition-transform duration-500 ease-in-out">
+                            <!-- Itens preenchidos pelo JS -->
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center space-x-4 mt-8">
+                        <button onclick="prevTestimonial()" class="w-10 h-10 rounded-full border border-gray-600 text-white hover:bg-gold-500 hover:border-gold-500 hover:text-black transition flex items-center justify-center"><i class="fas fa-arrow-left"></i></button>
+                        <button onclick="nextTestimonial()" class="w-10 h-10 rounded-full border border-gray-600 text-white hover:bg-gold-500 hover:border-gold-500 hover:text-black transition flex items-center justify-center"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de FAQ -->
+            <section class="py-24 bg-dark-900">
+                <div class="max-w-3xl mx-auto px-4">
+                    <h2 class="font-serif text-4xl text-center text-white mb-12">Perguntas Frequentes</h2>
+                    <div id="faq-container" class="space-y-4">
+                        <!-- Preenchido pelo JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ======================= PÁGINA SOBRE ======================= -->
+        <div id="about" class="page-section">
+            <div class="pt-20 pb-12 bg-dark-800 text-center">
+                <h1 class="font-serif text-5xl md:text-6xl text-white mb-4">Sobre Nós</h1>
+                <p class="text-gold-500 tracking-widest uppercase text-sm">A Equipe Por Trás da Excelência</p>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 py-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
+                    <div class="prose prose-invert">
+                        <h3 class="font-serif text-3xl text-white mb-6">Herança & Futuro</h3>
+                        <p class="text-gray-400 leading-loose">Fundada com a visão de unir a alfaiataria clássica europeia com a inovação têxtil moderna. Na IMPERIO, não vendemos apenas roupas; oferecemos uma armadura moderna para o líder contemporâneo.</p>
+                        <p class="text-gray-400 leading-loose mt-4">Nosso atelier trabalha com tecidos importados de Biella, Itália, e cada botão é costurado à mão para garantir a perpetuidade da peça.</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop" class="shadow-xl grayscale hover:grayscale-0 transition duration-700" alt="Workshop">
+                </div>
+
+                <h3 class="font-serif text-3xl text-white text-center mb-12">Nossa Diretoria</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Equipe 1 -->
+                    <div class="group">
+                        <div class="overflow-hidden mb-4 relative">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop" class="w-full h-80 object-cover object-top grayscale group-hover:grayscale-0 transition duration-500" alt="Diretor">
+                        </div>
+                        <h4 class="text-xl text-white font-serif">Alejandro R.</h4>
+                        <p class="text-gold-500 text-xs uppercase tracking-widest mt-1">Fundador & Diretor Criativo</p>
+                    </div>
+                    <!-- Equipe 2 -->
+                    <div class="group">
+                        <div class="overflow-hidden mb-4 relative">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop" class="w-full h-80 object-cover object-top grayscale group-hover:grayscale-0 transition duration-500" alt="Lead Designer">
+                        </div>
+                        <h4 class="text-xl text-white font-serif">Victoria S.</h4>
+                        <p class="text-gold-500 text-xs uppercase tracking-widest mt-1">Head de Design</p>
+                    </div>
+                    <!-- Equipe 3 -->
+                    <div class="group">
+                        <div class="overflow-hidden mb-4 relative">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop" class="w-full h-80 object-cover object-top grayscale group-hover:grayscale-0 transition duration-500" alt="Mestre Alfaiate">
+                        </div>
+                        <h4 class="text-xl text-white font-serif">Marco L.</h4>
+                        <p class="text-gold-500 text-xs uppercase tracking-widest mt-1">Mestre Alfaiate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================= PÁGINA BLOG ======================= -->
+        <div id="blog" class="page-section">
+            <div class="pt-20 pb-12 bg-dark-800 text-center">
+                <h1 class="font-serif text-5xl md:text-6xl text-white mb-4">The Journal</h1>
+                <p class="text-gold-500 tracking-widest uppercase text-sm">Tendências, Lifestyle e Cultura</p>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 py-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="blog-grid">
+                    <!-- Posts do blog preenchidos pelo JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================= PÁGINA DE CONTATO ======================= -->
+        <div id="contact" class="page-section">
+            <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+                <!-- Info & Formulário -->
+                <div class="bg-dark-900 p-8 lg:p-24 flex flex-col justify-center">
+                    <span class="text-gold-500 tracking-widest uppercase text-sm font-bold mb-4">Vamos Conversar</span>
+                    <h1 class="font-serif text-5xl text-white mb-8">Concierge Privado</h1>
+                    <p class="text-gray-400 mb-12">Agende um horário para alfaiataria sob medida ou visite nossa flagship store. Sua imagem é nossa prioridade.</p>
+                    
+                    <form onsubmit="sendToWhatsapp(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase text-gray-500 mb-2">Nome</label>
+                                <input type="text" id="contact-name" class="w-full bg-dark-800 border border-gray-700 text-white p-3 focus:border-gold-500 focus:outline-none transition" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase text-gray-500 mb-2">Email</label>
+                                <input type="email" id="contact-email" class="w-full bg-dark-800 border border-gray-700 text-white p-3 focus:border-gold-500 focus:outline-none transition" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-2">Telefone</label>
+                            <input type="tel" id="contact-phone" class="w-full bg-dark-800 border border-gray-700 text-white p-3 focus:border-gold-500 focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-2">Motivo</label>
+                            <select id="contact-reason" class="w-full bg-dark-800 border border-gray-700 text-white p-3 focus:border-gold-500 focus:outline-none transition">
+                                <option>Agendamento Alfaiataria</option>
+                                <option>Consultoria de Imagem</option>
+                                <option>Consulta Geral</option>
+                                <option>Imprensa</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-gray-500 mb-2">Mensagem</label>
+                            <textarea id="contact-message" rows="4" class="w-full bg-dark-800 border border-gray-700 text-white p-3 focus:border-gold-500 focus:outline-none transition"></textarea>
+                        </div>
+                        <button type="submit" class="bg-gold-500 text-black px-8 py-4 uppercase tracking-widest font-bold text-sm w-full hover:bg-white transition duration-300">
+                            <i class="fab fa-whatsapp mr-2"></i> Enviar para WhatsApp
+                        </button>
+                    </form>
+
+                    <div class="mt-12 pt-8 border-t border-gray-800 grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-white font-serif text-lg">Madrid</p>
+                            <p class="text-gray-500 text-sm mt-1">Calle de Serrano, 45<br>28001, Madrid</p>
+                        </div>
+                        <div>
+                            <p class="text-white font-serif text-lg">Contato</p>
+                            <p class="text-gray-500 text-sm mt-1">concierge@imperio.com<br>+34 912 345 678</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mapa -->
+                <div class="map-container relative h-96 lg:h-auto bg-gray-800">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.8879626946636!2d-3.689889923485758!3d40.43343395461947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422896f642646f%3A0x70471b058a594458!2sC.%20de%20Serrano%2C%20Madrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-900 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="font-serif text-3xl text-white font-bold">IMPERIO</span>
+                    <p class="text-gray-500 mt-6 max-w-sm leading-relaxed">
+                        Redefinindo o padrão da moda de luxo e corporativa. Vestimos os líderes do amanhã com a elegância de ontem.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white uppercase tracking-widest text-xs font-bold mb-6">Links</h4>
+                    <ul class="space-y-4 text-gray-500 text-sm">
+                        <li><a href="#" onclick="navigateTo('home')" class="hover:text-gold-500 transition">Início</a></li>
+                        <li><a href="#" onclick="navigateTo('about')" class="hover:text-gold-500 transition">Sobre Nós</a></li>
+                        <li><a href="#" onclick="navigateTo('blog')" class="hover:text-gold-500 transition">Journal</a></li>
+                        <li><a href="#" class="hover:text-gold-500 transition">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white uppercase tracking-widest text-xs font-bold mb-6">Social</h4>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-white transition text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition text-xl"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-white transition text-xl"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <p class="mt-8 text-gray-600 text-xs">
+                        &copy; 2024 IMPERIO. <br>Design by RR Corp Web Design – Pack Imperio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/123456789" target="_blank" class="fixed bottom-8 right-8 bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-500 transition-all duration-300 z-50 hover:scale-110">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- JavaScript Integrado -->
+    <script>
+        // --- DADOS ---
+        const testimonials = [
+            { text: "A atenção aos detalhes na Imperio é incomparável. Meu terno de casamento foi uma obra de arte.", author: "Carlos M.", role: "CEO, TechFlow" },
+            { text: "Encontrei o equilíbrio perfeito entre profissionalismo e estilo. O melhor investimento para minha imagem.", author: "Laura G.", role: "Advogada" },
+            { text: "Materiais requintados e um corte que parece uma segunda pele. Altamente recomendado.", author: "Javier R.", role: "Arquiteto" },
+            { text: "O serviço de consultoria mudou completamente a forma como me apresento aos meus clientes.", author: "Sofia L.", role: "Consultora" },
+            { text: "Qualidade internacional com um atendimento pessoal inigualável.", author: "Roberto D.", role: "CFO" }
+        ];
+
+        const blogPosts = [
+            { title: "O Retorno do Linho Italiano", category: "Tendências", img: "https://images.unsplash.com/photo-1598554747436-c9293d5a580b?q=80&w=1974&auto=format&fit=crop", excerpt: "Por que este tecido clássico dominará a temporada de 2025." },
+            { title: "Como Cuidar de um Terno Bespoke", category: "Cuidados", img: "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?q=80&w=1780&auto=format&fit=crop", excerpt: "Guia essencial para manter a elegância de suas peças por décadas." },
+            { title: "Psicologia das Cores nos Negócios", category: "Lifestyle", img: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=1995&auto=format&fit=crop", excerpt: "O que sua gravata diz sobre você antes mesmo de falar." },
+            { title: "Acessórios: Menos é Mais", category: "Estilo", img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=1780&auto=format&fit=crop", excerpt: "O guia definitivo de relógios e abotoaduras para o cavalheiro moderno." },
+            { title: "Sustentabilidade no Luxo", category: "Corporativo", img: "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1964&auto=format&fit=crop", excerpt: "Nosso compromisso com o meio ambiente e ética de trabalho." }
+        ];
+
+        const faqs = [
+            { q: "Preciso agendar horário para visitar o showroom?", a: "Recomendamos agendar para receber o atendimento personalizado que nos caracteriza, embora visitas espontâneas sejam bem-vindas." },
+            { q: "Quanto tempo leva para confeccionar um terno sob medida?", a: "Nosso processo Bespoke leva entre 6 e 8 semanas, incluindo 3 provas de ajuste." },
+            { q: "Vocês realizam envios internacionais?", a: "Sim, enviamos nossa coleção prêt-à-porter para todo o mundo com seguro incluso." },
+            { q: "Oferecem serviço de alfaiataria em domicílio?", a: "Dispomos do serviço 'Flying Tailor' para clientes executivos e eventos especiais." },
+            { q: "Qual é a política de devolução?", a: "Para peças prontas, você tem 30 dias. Peças sob medida têm garantia de ajuste perfeito." },
+            { q: "Vocês utilizam materiais sustentáveis?", a: "Sim, 80% de nossas lãs e algodões provêm de fontes certificadas e éticas." },
+            { q: "Vocês têm tamanhos grandes?", a: "Nossa filosofia é que a elegância não tem tamanho. Adaptamos qualquer design à sua silhueta." },
+            { q: "Posso personalizar botões e forros?", a: "Absolutamente. Contamos com um catálogo de mais de 200 opções de personalização." }
+        ];
+
+        // --- LÓGICA DE NAVEGAÇÃO ---
+        function navigateTo(pageId) {
+            // Ocultar todas as páginas
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Mostrar página selecionada
+            document.getElementById(pageId).classList.add('active');
+            
+            // Rolar para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Fechar menu mobile se estiver aberto
+            const menu = document.getElementById('mobile-menu');
+            if (!menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // --- FUNÇÕES DE RENDERIZAÇÃO ---
+        
+        // Renderizar Blog
+        const blogContainer = document.getElementById('blog-grid');
+        blogPosts.forEach(post => {
+            const html = `
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden mb-6 h-64 border border-white/10">
+                        <img src="${post.img}" alt="${post.title}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="text-gold-500 text-xs uppercase tracking-widest font-bold">${post.category}</span>
+                        <span class="text-gray-600 text-xs">•</span>
+                        <span class="text-gray-500 text-xs">24 Out, 2024</span>
+                    </div>
+                    <h3 class="text-2xl text-white font-serif mb-3 group-hover:text-gold-300 transition">${post.title}</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">${post.excerpt}</p>
+                    <span class="text-white text-xs uppercase tracking-widest border-b border-gray-700 pb-1 group-hover:border-gold-500 transition">Ler Artigo</span>
+                </div>
+            `;
+            blogContainer.innerHTML += html;
+        });
+
+        // Renderizar FAQ
+        const faqContainer = document.getElementById('faq-container');
+        faqs.forEach((item, index) => {
+            const html = `
+                <div class="border-b border-gray-800 pb-4">
+                    <button onclick="toggleFaq(${index})" class="flex justify-between items-center w-full text-left focus:outline-none py-4">
+                        <span class="text-lg text-white font-serif">${item.q}</span>
+                        <i id="faq-icon-${index}" class="fas fa-plus text-gold-500 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-${index}" class="hidden text-gray-400 text-sm leading-relaxed pl-2 pr-8 pb-4">
+                        ${item.a}
+                    </div>
+                </div>
+            `;
+            faqContainer.innerHTML += html;
+        });
+
+        function toggleFaq(index) {
+            const ans = document.getElementById(`faq-ans-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            }
+        }
+
+        // Lógica do Carrossel de Depoimentos
+        let currentTestimonial = 0;
+        const track = document.getElementById('testimonial-track');
+        
+        function renderTestimonials() {
+            track.innerHTML = '';
+            // Apenas mostra um por vez para simplicidade no JS puro, mas anima a opacidade
+            const t = testimonials[currentTestimonial];
+            const html = `
+                <div class="animate-fade-in py-8 px-4">
+                    <p class="text-xl md:text-2xl text-white font-serif italic leading-relaxed mb-8">"${t.text}"</p>
+                    <div>
+                        <p class="text-gold-500 font-bold uppercase tracking-widest text-sm">${t.author}</p>
+                        <p class="text-gray-600 text-xs mt-1">${t.role}</p>
+                    </div>
+                </div>
+            `;
+            track.innerHTML = html;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            renderTestimonials();
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            renderTestimonials();
+        }
+
+        // Inicializar Depoimentos
+        renderTestimonials();
+
+        // --- INTERSECTION OBSERVER PARA ANIMAÇÕES ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up-trigger').forEach(el => {
+                el.classList.add('fade-in-up'); // Garantir que a classe base esteja lá
+                observer.observe(el);
+            });
+        });
+
+        // --- EFEITO DE SCROLL NO HEADER ---
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-0');
+                header.classList.add('bg-black');
+            } else {
+                header.classList.remove('py-0');
+                header.classList.remove('bg-black');
+            }
+        });
+
+        // --- INTEGRAÇÃO COM WHATSAPP ---
+        function sendToWhatsapp(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const phone = document.getElementById('contact-phone').value;
+            const reason = document.getElementById('contact-reason').value;
+            const message = document.getElementById('contact-message').value;
+
+            // Número de telefone de destino (formato internacional sem +)
+            const destinationPhone = "123456789"; 
+
+            // Construir a mensagem
+            const whatsappMessage = `*NOVA SOLICITAÇÃO - WEB IMPERIO*%0A%0A` +
+                                    `*Cliente:* ${name}%0A` +
+                                    `*Email:* ${email}%0A` +
+                                    `*Telefone:* ${phone}%0A` +
+                                    `*Motivo:* ${reason}%0A` +
+                                    `--------------------------------%0A` +
+                                    `*Mensagem:*%0A${message}`;
+
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${destinationPhone}?text=${whatsappMessage}`, '_blank');
+        }
+
+    </script>
+</body>
+</html>
